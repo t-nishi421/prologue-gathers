@@ -1,24 +1,30 @@
-# README
+# 始まりの図書館　DB設計図
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true|
+|email|string|null: false, unique: true|
+|password|string|null: false|
+### Association
+- has_many :books
+- has_many :texts
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## booksテーブル
+|Column|Type|Options|
+|------|----|-------|
+|title|string|null: false|
+|image|string||
+|rental|boolean|null: false|
+|completion|boolean|null: false|
+### Association
+- belongs_to :user
+- has_many :texts
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## textsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|chapter|string|null: false|
+|text|text|null: false|
+### Association
+- belongs_to :user
+- belongs_to :book
