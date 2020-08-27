@@ -6,13 +6,17 @@
 }
 
 .wrapper {
-  top: 100px;
+  overflow: scroll;
 }
 
 body {
+  width: 100vw;
+  position: absolute;
+  top: 100px;
   background-image: url("../library.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .white {
