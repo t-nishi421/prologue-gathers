@@ -1,3 +1,20 @@
+@import "top";
+@import "main";
+
 * {
   box-sizing: border-box;
+}
+
+.wrapper {
+  top: 100px;
+}
+
+body {
+  background-image: url("../library.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.white {
+  background-color:rgba(0, 0, 200, 0.15);
 }

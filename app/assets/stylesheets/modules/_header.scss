@@ -1,0 +1,34 @@
+@import "mixin/flex-bundle";
+
+.header {
+  height: 100px;
+  width: 100vw;
+  background-image: url("../wood.jpg");
+  border-bottom: solid 2px #000;
+  position: fixed;
+  @include flex-bundle(space-between, center);
+}
+
+.logo {
+  height: 80px;
+  width: 550px;
+  background-color: yellowgreen;
+  margin-left: 60px;
+  font-size: 32px;
+  @include flex-bundle(center, center);
+}
+
+.user {
+  background-color: white;
+  padding: 5px 10px;
+  margin-right: 3vw;
+  &__name {
+    font-size: 20px;
+  }
+  &__hasbook {
+    font-size: 26px;
+    border: 2px solid darkgreen;
+    background-color: #ddffdd;
+    text-align: center;
+  }
+}

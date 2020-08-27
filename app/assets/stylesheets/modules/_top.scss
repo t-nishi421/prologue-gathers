@@ -1,0 +1,30 @@
+@import "mixin/flex-bundle";
+
+.top {
+  height: 60px;
+  @include flex-bundle(flex-end, center);
+  &__items {
+    height: 60px;
+    // background-color: white;
+    margin-right: 2vw;
+    @include flex-bundle(flex-end, center);
+    &__serch {
+      height: 40px;
+      width: 360px;
+      background-color: white;
+      border: solid 2px gray;
+      border-radius: 4px;
+      margin: 0 20px 0 10px;
+    }
+    &__create {
+      height: 40px;
+      width: 100px;
+      background-color: #ffe4c4;
+      border:solid 2px #777755;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-right: 10px;
+      @include flex-bundle(center, center);
+    }
+  }
+}
