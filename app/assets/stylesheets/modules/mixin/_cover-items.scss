@@ -1,0 +1,24 @@
+@mixin cover-item() {
+  height: 50px;
+  width: 126px;
+  padding: 0 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border: solid 3px black;
+  border-radius: 15px 0 0 15px;
+  background-color: rgb(214, 214, 214);
+  @include flex-bundle(flex-end, center);
+}
+
+@mixin cover-textbox() {
+  height: 50px;
+  width: 374px;
+  padding: 0 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border: solid 3px black;
+  border-left: 0px;
+  border-radius: 0 15px 15px 0;
+  background-color: white;
+  @include flex-bundle(flex-end, center);
+}

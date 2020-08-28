@@ -1,4 +1,5 @@
 @import "mixin/flex-bundle";
+@import "mixin/status-color";
 
 .header {
   height: 110px;
@@ -20,21 +21,31 @@
 }
 
 .user {
-  width: 140px;
-  background-color: white;
-  padding: 5px 10px;
+  width: auto;
+  background-color: rgb(232, 232, 255);
+  border: solid 4px darkblue;
+  border-radius: 8px;
+  padding: 4px  10px;
   margin-right: 3vw;
   &__name {
     font-size: 20px;
   }
-  &__hasbook {
-    height: 40px;
-    width: 120px;
-    font-size: 26px;
-    border: 2px solid darkgreen;
-    border-radius: 4px;
-    background-color: #ddffdd;
-    text-align: center;
-    @include flex-bundle(center, center);
+  &__box {
+    margin-top: 4px;
+    @include flex-bundle(flex-end, "");
+    &__hasbook {
+      height: 40px;
+      width: 120px;
+      font-size: 26px;
+      border-radius: 4px;
+      text-align: center;
+      @include flex-bundle(center, center);
+      &--taking-out {
+        @include status-color(1);
+      }
+      &--not-taking-out {
+        @include status-color(0);
+      }
+    }
   }
 }
