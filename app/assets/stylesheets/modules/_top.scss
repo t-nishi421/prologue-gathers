@@ -4,9 +4,9 @@
   height: 60px;
   @include flex-bundle(flex-end, center);
   &__items {
-    height: 60px;
-    // background-color: white;
-    margin-right: 2vw;
+    height: 80px;
+    padding-top: 53px;
+    margin-right: 40px;
     @include flex-bundle(flex-end, center);
     &__serch {
       height: 40px;
