@@ -1,5 +1,6 @@
 @import "mixin/flex-bundle";
 @import "mixin/cover-items";
+@import "mixin/status-color";
 
 .show-wrapper {
   height: calc(100vh - 110px);
@@ -43,7 +44,7 @@
   background-color: rgba(182, 201, 226, 0.9);
   border-radius: 5px;
   &__info {
-    width: 640px;
+    width: 800px;
     border-bottom: solid 2px #131516;
     @include flex-bundle(space-between, "");
     &__chapter {
@@ -69,5 +70,20 @@
     background-color: white;
     border: solid 2px #777777;
     border-radius: 5px;
+  }
+}
+
+.rent {
+  width: 840px;
+  margin: 20px 5vw 20px 5vw;
+  @include flex-bundle(flex-end, "");
+  &__button {
+    padding: 5px 10px;
+    width: auto;
+    font-size: 26px;
+    border-radius: 4px;
+    text-align: center;
+    @include flex-bundle(center, center);
+    @include status-color(0);
   }
 }
