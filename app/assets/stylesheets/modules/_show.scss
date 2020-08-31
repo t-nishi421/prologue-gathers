@@ -23,7 +23,7 @@
     &__title {
       @include cover-title();
     }
-    &__autor {
+    &__author {
       @include cover-title();
       margin-top: 12px;
     }
@@ -53,7 +53,7 @@
       font-size: 24px;
       font-weight: bold;
     }
-    &__autor {
+    &__author {
       height: auto;
       @include text-color();
       font-size: 24px;

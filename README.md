@@ -13,7 +13,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |title|string|null: false|
-|autor|int|null: false|
+|author|int|null: false|
 |color|string|null: false|
 |icon|string||
 |rental|int||
