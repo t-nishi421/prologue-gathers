@@ -12,11 +12,17 @@
       %header.header
         = link_to root_path, class: "logo" do
           = image_tag 'title.jpg', alt: '始まりの図書館'
-        = link_to edit_user_path(current_user) do
-          .user
-            .user__name
-              = "名前：#{current_user.name}"
-            .user__box
-              .user__box__hasbook.user__box__hasbook--taking-out
-                持出中
+        - if user_signed_in?
+          = link_to edit_user_path(current_user) do
+            .user
+              .user__name
+                = "名前：#{current_user.name}"
+              .user__box
+                .user__box__hasbook.user__box__hasbook--taking-out
+                  持出中
+        - else
+          = link_to new_user_session_path do
+            .user
+              .user__name
+                ログイン
       = yield

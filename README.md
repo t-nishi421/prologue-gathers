@@ -13,8 +13,8 @@
 ## booksテーブル
 |Column|Type|Options|
 |------|----|-------|
+|user_id|int|null: false|
 |title|string|null: false|
-|author|int|null: false|
 |color|string|null: false|
 |icon|string||
 |rental|int||
@@ -28,6 +28,7 @@
 |------|----|-------|
 |user_id|int|null: false|
 |book_id|int|null: false|
+|chapter|string|null: false|
 |text|text|null: false|
 ### Association
 - belongs_to :user

@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_051907) do
+ActiveRecord::Schema.define(version: 2020_08_31_074226) do
+
+  create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "color", null: false
+    t.string "icon"
+    t.boolean "rental", default: false, null: false
+    t.boolean "completion", default: false, null: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_books_on_user_id"
+  end
+
+  create_table "texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "chapter", null: false
+    t.text "text", null: false
+    t.bigint "user_id"
+    t.bigint "book_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_texts_on_book_id"
+    t.index ["user_id"], name: "index_texts_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -27,4 +50,7 @@ ActiveRecord::Schema.define(version: 2020_08_31_051907) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "books", "users"
+  add_foreign_key "texts", "books"
+  add_foreign_key "texts", "users"
 end
