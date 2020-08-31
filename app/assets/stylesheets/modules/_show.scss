@@ -2,28 +2,72 @@
 @import "mixin/cover-items";
 
 .show-wrapper {
+  height: calc(100vh - 110px);
+  width: 100vw;
   margin-left: auto;
   margin-right: auto;
   overflow: scroll;
 }
 
 .book-top {
+  height: 320px;
+  width: 840px;
+  padding: 10px;
+  margin: 20px 5vw 0 5vw;
+  border-radius: 5px;
+  @include flex-bundle("", flex-end);
+  background-color: rgba(34, 24, 94, 0.9);
   &__info {
+    width: 500px;
     &__title {
-      height: 50px;
-      color: white;
-      font-size: 20px;
-      font-weight: bold;
-      border-bottom: solid 3px white;
+      @include cover-title();
     }
     &__autor {
-      height: 50px;
-      color: white;
-      font-size: 20px;
-      font-weight: bold;
-      border-bottom: solid 3px white;
+      @include cover-title();
+      margin-top: 12px;
     }
   }
   &__cover {
+    height: 300px;
+    width: 300px;
+    margin-left: 40px;
+    background-color: pink;
+  }
+}
+
+.story-content {
+  height: auto;
+  width: 840px;
+  padding: 10px;
+  margin: 10px 5vw 0 5vw;
+  background-color: rgba(182, 201, 226, 0.9);
+  border-radius: 5px;
+  &__info {
+    width: 640px;
+    border-bottom: solid 2px #131516;
+    @include flex-bundle(space-between, "");
+    &__chapter {
+      height: auto;
+      @include text-color();
+      font-size: 24px;
+      font-weight: bold;
+    }
+    &__autor {
+      height: auto;
+      @include text-color();
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+  &__text {
+    height: auto;
+    width: 820px;
+    @include text-color();
+    font-size: 18px;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: white;
+    border: solid 2px #777777;
+    border-radius: 5px;
   }
 }

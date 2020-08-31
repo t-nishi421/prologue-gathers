@@ -23,3 +23,15 @@
   outline: none;
   @include flex-bundle(flex-end, center);
 }
+
+@mixin cover-title() {
+  color: white;
+  font-size: 30px;
+  text-shadow:  2px  2px 2px #333;
+  font-weight: bold;
+  border-bottom: solid 3px white;
+}
+
+@mixin text-color() {
+  color: #0e0e0f;
+}
