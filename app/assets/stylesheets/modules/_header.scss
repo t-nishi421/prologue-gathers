@@ -6,7 +6,7 @@
   width: 100vw;
   background-image: url("../wood.jpg");
   border-bottom: solid 2px #000;
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   @include flex-bundle(space-between, center);

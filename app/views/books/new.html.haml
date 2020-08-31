@@ -4,16 +4,18 @@
       .cover__text__title
         .cover__text__title__exp
           タイトル
-        .cover__text__title__textbox
+        -# .cover__text__title__textbox
+        %input{type: 'text', placeholder: 'text', class: 'cover__text__title__textbox'}
       .cover__text__chapter
         .cover__text__chapter__exp
           章
-        .cover__text__chapter__textbox
+        -# .cover__text__chapter__textbox
+        %input{type: 'text', placeholder: 'text', class: 'cover__text__chapter__textbox'}
     .cover__image
   .text
     .text__exp
       本文
-    .text__textbox
-      あじゃぱー
+    -# .text__textbox
+    %textarea{placeholder: 'text area', class: 'text__textbox'}
     .text__post
       投稿する
