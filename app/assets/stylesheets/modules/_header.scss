@@ -1,0 +1,51 @@
+@import "mixin/flex-bundle";
+@import "mixin/status-color";
+
+.header {
+  height: 110px;
+  width: 100vw;
+  background-image: url("../wood.jpg");
+  border-bottom: solid 2px #000;
+  position: relative;
+  top: 0;
+  left: 0;
+  @include flex-bundle(space-between, center);
+}
+
+.logo {
+  height: 80px;
+  width: 550px;
+  margin-left: 60px;
+  font-size: 32px;
+  @include flex-bundle(center, center);
+}
+
+.user {
+  width: auto;
+  background-color: rgb(232, 232, 255);
+  border: solid 4px darkblue;
+  border-radius: 8px;
+  padding: 4px  10px;
+  margin-right: 3vw;
+  &__name {
+    font-size: 20px;
+  }
+  &__box {
+    margin-top: 4px;
+    @include flex-bundle(flex-end, "");
+    &__hasbook {
+      height: 40px;
+      width: 120px;
+      font-size: 26px;
+      border-radius: 4px;
+      text-align: center;
+      @include flex-bundle(center, center);
+      &--taking-out {
+        @include status-color(1);
+      }
+      &--not-taking-out {
+        @include status-color(0);
+      }
+    }
+  }
+}

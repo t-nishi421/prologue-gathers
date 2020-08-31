@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title PrologueGathers
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .white
+      %header.header
+        = link_to root_path, class: "logo" do
+          = image_tag 'title.jpg', alt: '始まりの図書館'
+        .user
+          .user__name
+            名前：羅生門の番人
+          .user__box
+            .user__box__hasbook.user__box__hasbook--taking-out
+              持出中
+      = yield
