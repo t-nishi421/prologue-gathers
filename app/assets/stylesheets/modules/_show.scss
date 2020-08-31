@@ -1,0 +1,29 @@
+@import "mixin/flex-bundle";
+@import "mixin/cover-items";
+
+.show-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  overflow: scroll;
+}
+
+.book-top {
+  &__info {
+    &__title {
+      height: 50px;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      border-bottom: solid 3px white;
+    }
+    &__autor {
+      height: 50px;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      border-bottom: solid 3px white;
+    }
+  }
+  &__cover {
+  }
+}

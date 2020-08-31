@@ -13,8 +13,10 @@
 |Column|Type|Options|
 |------|----|-------|
 |title|string|null: false|
-|image|string||
-|rental|boolean|null: false|
+|autor|int|null: false|
+|color|string|null: false|
+|icon|string||
+|rental|int||
 |completion|boolean|null: false|
 ### Association
 - belongs_to :user
@@ -23,6 +25,8 @@
 ## textsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|book_id|int|null: false|
+||||
 |chapter|string|null: false|
 |text|text|null: false|
 ### Association
