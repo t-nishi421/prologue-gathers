@@ -1,3 +1,9 @@
+.AccountWrapper {
+  height: calc(100vh - 110px);
+  width: 100vw;
+  overflow: scroll;
+}
+
 .AccountPage {
   width: 980px;
   margin: 90px auto;
