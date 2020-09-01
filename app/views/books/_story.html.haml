@@ -1,15 +1,9 @@
-.story-content
-  .story-content__info
-    .story-content__info__chapter
-      1章：世間は俺の敵になった
-    .story-content__info__author
-      落葉 茂
-  .story-content__text
-    今日はやけに目覚めがよかった。
-    %br
-    2020年8月31日月曜日 9時32分
-    %br
-    %br
-    ・・・
-    %br
-    いうまでもなく遅刻である。
+- texts.each do |t|
+  .story-content
+    .story-content__info
+      .story-content__info__chapter
+        = "1章：#{t.chapter}"
+      .story-content__info__author
+        = t.user.name
+    .story-content__text
+      = t.text

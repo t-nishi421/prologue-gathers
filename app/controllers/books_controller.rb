@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-    @book = Book.all
+    @books = Book.all
   end
 
   def new
@@ -14,6 +14,7 @@ class BooksController < ApplicationController
 
     @text = Text.new(params.require(:book).permit(:chapter, :text).merge(user_id: current_user.id, book_id: @book.id))
     @text.save
+    redirect_to root_path
   end
 
   def edit
@@ -23,6 +24,25 @@ class BooksController < ApplicationController
   end
 
   def show
+    @book = this_book
+  end
+
+  def rental
+    if current_user.rental == 0
+      @book = this_book
+      @book.rental = 1
+      @book.save
+
+      @user = User.find(current_user.id)
+      @user.rental = @book.id
+      @user.save
+    end
+    redirect_to root_path
+  end
+
+  private
+  def this_book
+    Book.find(params[:id])
   end
 
 end

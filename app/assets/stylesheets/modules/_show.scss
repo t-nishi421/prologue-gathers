@@ -84,6 +84,11 @@
     border-radius: 4px;
     text-align: center;
     @include flex-bundle(center, center);
-    @include status-color(0);
+    &--there {
+      @include status-color(0);
+    }
+    &--not-there {
+      @include status-color(1);
+    }
   }
 }

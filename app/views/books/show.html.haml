@@ -1,0 +1,18 @@
+.show-wrapper
+  .book-top
+    .book-top__info
+      .book-top__info__title
+        = "Title：#{@book.title}"
+      .book-top__info__author
+        = "Author：#{@book.user.name}"
+    .book-top__cover
+  .stories
+    = render partial: 'story', locals: { texts: @book.texts }
+  .rent
+    - if @book.rental == false
+      = link_to rental_path(@book.id), class: "rent__button rent__button--there" do
+        本を借りる
+    - else
+      .rent__button.rent__button--not-there
+        貸出中
+
