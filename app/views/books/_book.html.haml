@@ -3,13 +3,19 @@
     .book__body
       .book__body__image
         image
-      .book__body__progress
-        未完
     .book__name
-      = b.title
-    - if b.rental == false
-      .book__state.book__state--there
-        貸出可
+      - if b.title.length > 8
+        .book__name--hover
+          = "#{b.title[0,7]}…"
+      - else
+        = b.title
+    - if b.completion == true
+      .book__state.book__state--completion
+        完結
     - else
-      .book__state.book__state--not-there
-        貸出中
+      - if b.rental == false
+        .book__state.book__state--there
+          貸出可
+      - else
+        .book__state.book__state--not-there
+          貸出中

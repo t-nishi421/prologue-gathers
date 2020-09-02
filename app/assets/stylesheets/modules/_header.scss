@@ -21,24 +21,35 @@
 }
 
 .user {
-  height: 90px;
+  height: 110px;
   width: auto;
   min-width: 250px;
   background-color: rgb(232, 232, 255);
-  border: solid 4px darkblue;
-  border-radius: 8px;
+  border: solid 3px darkblue;
+  // border-radius: 8px;
   padding: 4px  10px;
-  margin-right: 3vw;
+  // margin-right: 3vw;
   &__name {
+    margin-top: 6px;
     font-size: 20px;
   }
   &__box {
-    margin-top: 4px;
+    margin-top: 15px;
     @include flex-bundle(flex-end, "");
+    &__create {
+      height: 40px;
+      width: 100px;
+      background-color: #ffe4c4;
+      border:solid 2px #4e432e;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-right: 10px;
+      @include flex-bundle(center, center);
+    }
     &__hasbook {
       height: 40px;
       width: 120px;
-      font-size: 26px;
+      font-weight: bold;
       border-radius: 4px;
       text-align: center;
       @include flex-bundle(center, center);

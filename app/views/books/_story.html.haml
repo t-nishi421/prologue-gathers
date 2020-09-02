@@ -1,9 +1,9 @@
-- texts.each do |t|
+- texts.each_with_index do |t, index|
   .story-content
     .story-content__info
       .story-content__info__chapter
-        = "1章：#{t.chapter}"
+        = "#{index + 1}章：#{t.chapter}"
       .story-content__info__author
         = t.user.name
     .story-content__text
-      = t.text
+      = safe_join(t.text.split("\n"),tag(:br))

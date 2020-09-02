@@ -16,15 +16,15 @@
       border-radius: 4px;
       margin: 0 20px 0 10px;
     }
-    &__create {
-      height: 40px;
-      width: 100px;
-      background-color: #ffe4c4;
-      border:solid 2px #4e432e;
-      border-radius: 5px;
-      font-weight: bold;
-      margin-right: 10px;
-      @include flex-bundle(center, center);
-    }
+    // &__create {
+    //   height: 40px;
+    //   width: 100px;
+    //   background-color: #ffe4c4;
+    //   border:solid 2px #4e432e;
+    //   border-radius: 5px;
+    //   font-weight: bold;
+    //   margin-right: 10px;
+    //   @include flex-bundle(center, center);
+    // }
   }
 }
