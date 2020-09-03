@@ -40,14 +40,78 @@
   }
   &__image {
     height: 300px;
-    width: 300px;
-    margin-left: 40px;
-    background-color: pink;
+    width: 317px;
+    margin: 0 0 -40px 20px;
+    background-color: rgba(182, 201, 226, 0.9);
+    border: solid rgb(135, 159, 189) 5px;
+    border-radius: 5px;
     position: relative;
+    &__white {
+      position: absolute;
+      height: 190px;
+      width: 200px;
+      background-color: #eee5d2;
+      top: 37px;
+      left: 26px;
+    }
+    &__top-color {
+      position: absolute;
+      height: 170px;
+      width: 165px;
+      background-color: #3aa054;
+      top: 92px;
+      left: 22px;
+    }
     &__book-line {
       position: absolute;
-      top: 10px;
-      left: 38px;
+      top: 22px;
+      left: 10px;
+    }
+    &__button-box {
+      position: absolute;
+      top: 176px;
+      left: 247px;
+      padding: 10px;
+      label {
+        display: block;
+        margin-top: 10px;
+        padding: 5px 10px;
+        background-color: #ccccdd;
+        border: outset #666677 2px;
+        border-radius: 3px;
+        .fa-plus {
+          margin-left: 1px;
+        }
+      }
+      label:hover {
+        background-color: #bbbbcc;
+      }
+    }
+    input {
+      display: none;
+    }
+    &__icon-menu {
+      opacity: 0;
+    }
+    input:checked ~ &__icon-menu {
+      opacity: 1;
+    }
+    &__color-menu {
+      opacity: 0;
+    }
+    input:checked ~ &__color-menu {
+      opacity: 1;
+    }
+    ul {
+      position: absolute;
+      left: 320px;
+      li {
+        width: 100px;
+        padding: 2px 10px;
+        text-align: center;
+        background-color: #ddf;
+        border: outset #aab 2px;
+      }
     }
   }
 }

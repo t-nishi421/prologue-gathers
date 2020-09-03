@@ -1,8 +1,5 @@
 .top
   = form_with(url: search_books_path, local: true, method: :get) do |f|
     .top__items
-      -# .top__items__serch
       = f.text_field :keyword, placeholder: '本のタイトルを検索', class: 'top__items__search'
       = f.submit "検索", class: "top__items__search-btn"
-      -# = link_to new_book_path, class: "top__items__create" do
-      -#   投稿する
