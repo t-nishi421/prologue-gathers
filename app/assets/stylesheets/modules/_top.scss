@@ -2,29 +2,29 @@
 
 .top {
   height: 60px;
-  @include flex-bundle(flex-end, center);
   &__items {
     height: 80px;
-    padding-top: 53px;
+    padding-top: 30px;
     margin-right: 40px;
     @include flex-bundle(flex-end, center);
-    &__serch {
+    &__search {
       height: 40px;
       width: 360px;
       background-color: white;
       border: solid 2px gray;
       border-radius: 4px;
+      padding-left: 10px;
       margin: 0 20px 0 10px;
     }
-    // &__create {
-    //   height: 40px;
-    //   width: 100px;
-    //   background-color: #ffe4c4;
-    //   border:solid 2px #4e432e;
-    //   border-radius: 5px;
-    //   font-weight: bold;
-    //   margin-right: 10px;
-    //   @include flex-bundle(center, center);
-    // }
+    &__search-btn {
+      height: 40px;
+      width: 75px;
+      background-color: #ffe4c4;
+      border:solid 2px #4e432e;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-right: 10px;
+      @include flex-bundle(center, center);
+    }
   }
 }

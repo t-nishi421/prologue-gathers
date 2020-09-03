@@ -43,6 +43,12 @@
     width: 300px;
     margin-left: 40px;
     background-color: pink;
+    position: relative;
+    &__book-line {
+      position: absolute;
+      top: 10px;
+      left: 38px;
+    }
   }
 }
 

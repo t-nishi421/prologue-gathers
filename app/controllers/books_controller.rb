@@ -48,6 +48,10 @@ class BooksController < ApplicationController
     end
   end
 
+  def search
+    @books = Book.search(params[:keyword])
+  end
+
   def rental
     if current_user.rental == 0
       @book = this_book
