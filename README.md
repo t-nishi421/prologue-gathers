@@ -15,13 +15,15 @@
 |------|----|-------|
 |user_id|int|null: false|
 |title|string|null: false|
-|color|string|null: false|
+|color_id|string|null: false|
 |icon|string||
-|rental|int||
-|completion|boolean|null: false|
+|rental|boolean|default: 0|
+|completion|boolean|null: false, default: 0|
 ### Association
 - belongs_to :user
 - has_many :texts
+- belongs_to :icon
+- belongs_to :color
 
 ## textsテーブル
 |Column|Type|Options|
@@ -33,3 +35,18 @@
 ### Association
 - belongs_to :user
 - belongs_to :book
+
+## iconsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|icon|string||
+### Association
+- has_many :books
+
+## colorsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|color|string||
+|icon_white|boolean|null: false|
+### Association
+- has_many :books

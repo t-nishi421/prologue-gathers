@@ -22,15 +22,26 @@
         %span
           = check_box_tag :icon
           .cover__image__icon-menu
-            %ul
+            %ul.icon
               %li
-                white
+                w
               %li
-                genocide
+                g
+              %li
+                t
+              %li
+                t
+              %li
+                a
         %span
           = check_box_tag :color
           .cover__image__color-menu
-            い
+            %ul.color
+              - @colors.each do |color|
+                %label{for: "book_color#{color.id}"}
+                  %li{ style: "background-color:#{color.color}", class: "get-book-color" }
+                    %div 　
+                %input{type: "radio", name: "book_color", value: color.id, id: "book_color#{color.id}", class: "change-book-color", style: "color:#{color.color}"}
     .text
       .text__exp
         本文
