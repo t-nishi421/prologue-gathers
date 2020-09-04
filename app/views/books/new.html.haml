@@ -24,24 +24,25 @@
           .cover__image__icon-menu
             %ul.icon
               %li
-                w
+                L
               %li
-                g
+                G
               %li
-                t
+                T
               %li
-                t
-              %li
-                a
+                M
         %span
           = check_box_tag :color
           .cover__image__color-menu
             %ul.color
-              - @colors.each do |color|
+              - @colors.each_with_index do |color, index|
                 %label{for: "book_color#{color.id}"}
                   %li{ style: "background-color:#{color.color}", class: "get-book-color" }
                     %div 　
-                %input{type: "radio", name: "book_color", value: color.id, id: "book_color#{color.id}", class: "change-book-color", style: "color:#{color.color}"}
+                - if index == 0
+                  %input{type: "radio", name: "book_color", value: color.id, id: "book_color#{color.id}", class: "change-book-color", style: "color:#{color.color}", checked: "checked"}
+                - else
+                  %input{type: "radio", name: "book_color", value: color.id, id: "book_color#{color.id}", class: "change-book-color", style: "color:#{color.color}"}
     .text
       .text__exp
         本文
