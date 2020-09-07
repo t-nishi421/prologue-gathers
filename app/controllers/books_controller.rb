@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   def new
     @book = Book.new
     @colors = Color.all
+    @icons = Icon.all
   end
 
   def create

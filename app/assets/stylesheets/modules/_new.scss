@@ -107,7 +107,7 @@
     input:checked ~ &__color-menu {
       opacity: 1;
     }
-    ul.icon {
+    ul.icon { // アイコン選択部分のレイアウト
       bottom: 49px;
       left: 345px;
       :after {
@@ -116,7 +116,10 @@
         left: -225px;
       }
     }
-    ul.color {
+    .small-icon {
+      background-size: contain;
+    }
+    ul.color { // 色選択部分のレイアウト
       top: 246px;
       left: 345px;
       :after {
