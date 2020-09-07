@@ -2,7 +2,8 @@
   = link_to book_path(b.id), class: "book" do
     .book__body
       .book__body__white
-      .book__body__top-color
+      .book__body__top-color{style: "background-color:#{b.color.color}"}
+      = image_tag "icons/#{b.icon.icon}.png", alt: 'アイコン', class: 'book__body__icon'
       = image_tag 'book.png', alt: '本', class: "book__body__book-line"
     .book__name
       - if b.title.length > 8

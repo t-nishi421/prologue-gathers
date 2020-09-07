@@ -3,6 +3,8 @@ class Book < ApplicationRecord
 
   belongs_to :user
   has_many :texts
+  belongs_to :color
+  belongs_to :icon
 
   def self.search(search)
     if search != ""

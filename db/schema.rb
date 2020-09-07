@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_07_062753) do
+ActiveRecord::Schema.define(version: 2020_09_07_082249) do
 
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -19,6 +19,10 @@ ActiveRecord::Schema.define(version: 2020_09_07_062753) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "color_id", null: false
+    t.bigint "icon_id", null: false
+    t.index ["color_id"], name: "index_books_on_color_id"
+    t.index ["icon_id"], name: "index_books_on_icon_id"
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
@@ -50,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_09_07_062753) do
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.bigint "rental", default: 0, null: false
+    t.integer "rental", default: 0
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -61,6 +65,8 @@ ActiveRecord::Schema.define(version: 2020_09_07_062753) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "books", "colors"
+  add_foreign_key "books", "icons"
   add_foreign_key "books", "users"
   add_foreign_key "texts", "books"
   add_foreign_key "texts", "users"

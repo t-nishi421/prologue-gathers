@@ -10,7 +10,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(params.require(:book).permit(:title).merge(user_id: current_user.id))
+    @book = Book.new(params.require(:book).permit(:title).merge(user_id: current_user.id, color_id: params[:book_color],icon_id: params[:book_icon]))
     @book.save
 
     create_text
