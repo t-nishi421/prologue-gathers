@@ -11,7 +11,6 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(params.require(:book).permit(:title).merge(user_id: current_user.id))
-    @book.color = "white"
     @book.save
 
     create_text
