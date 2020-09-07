@@ -24,25 +24,32 @@
     height: 200px;
     width: 180px;
     margin: 15px 20px 0 20px;
-    background-color: darkgreen;
+    background-color: rgb(194, 169, 122);
+    border: inset rgb(187, 149, 66) 5px;
+    border-radius: 6px;
     position: relative;
-    &__image {
+    &__white {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
+      height: 133px;
+      width: 139px;
+      margin-top: 16px;
+      margin-left: 16px;
+      background-color: #eee5d2;
     }
-    // &__progress {
-    //   color: white;
-    //   font-size: 26px;
-    //   font-weight: bold;
-    //   text-shadow:  2px  2px 2px #333;
-    //   position: absolute;
-    //   bottom: 10px;
-    //   right: 10px;
-    // }
+    &__top-color {
+      position: absolute;
+      height: 120px;
+      width: 120px;
+      margin-top: 56px;
+      margin-left: 16px;
+      background-color: darkgreen;
+    }
+    &__book-line {
+      position: absolute;
+      width: 180px;
+      margin-top: 5px;
+      margin-left: 6px;
+    }
   }
   &__name {
     font-size: 22px;
