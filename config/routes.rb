@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get '/books/rental/:id', to: 'books#rental', as: 'rental'
   get '/books/return/:id', to: 'books#return', as: 'return'
   root "books#index"
-  resources :users, only: [:edit, :update]
+
+  resources :users, only: [:edit, :update, :show]
 end

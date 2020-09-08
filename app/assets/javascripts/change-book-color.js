@@ -7,7 +7,7 @@ $(function(){
     $('.cover__image__top-color').css('background-color', color);
 
     if ($(this).hasClass('icon-white-true')) {
-      $('.cover__image__top-icon').css('filter', 'invert(1)');
+      $('.cover__image__top-icon').css('filter', 'invert(0.9)');
     } else {
       $('.cover__image__top-icon').css('filter', 'invert(0)');
     }

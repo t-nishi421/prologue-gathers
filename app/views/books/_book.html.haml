@@ -4,7 +4,7 @@
       .book__body__white
       .book__body__top-color{style: "background-color:#{b.color.color}"}
       - if b.color.icon_white?
-        = image_tag "icons/#{b.icon.icon}.png", alt: 'アイコン', class: 'book__body__icon', style: 'filter: invert(1)'
+        = image_tag "icons/#{b.icon.icon}.png", alt: 'アイコン', class: 'book__body__icon', style: 'filter: invert(0.9)'
       - else
         = image_tag "icons/#{b.icon.icon}.png", alt: 'アイコン', class: 'book__body__icon'
       = image_tag 'book.png', alt: '本', class: "book__body__book-line"
@@ -15,6 +15,8 @@
           = b.title
       - else
         = b.title
+    .book__author
+      = b.user.name
     - if b.completion == true
       .book__state.book__state--completion
         完結

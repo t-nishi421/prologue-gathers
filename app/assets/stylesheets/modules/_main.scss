@@ -15,9 +15,9 @@
 }
 
 .book {
-  height: 300px;
-  width: 220px;
-  background-color: white;
+  height: 319px;
+  width: 225px;
+  background-color: rgb(241, 244, 255);
   border: solid 2px black;
   margin: 0 10px 20px 10px;
   &__body {
@@ -74,10 +74,15 @@
   &__name:hover &__name__hover-title {
     display: block;
   }
+  &__author {
+    text-align: right;
+    margin-right: 10px;
+    color: #080820;
+  }
   &__state {
     width: 80px;
     font-size: 20px;
-    margin-top: 8px;
+    margin-top: 2px;
     margin-left: 130px;
     border-radius: 4px;
     @include flex-bundle(center, "");

@@ -27,7 +27,7 @@ class BooksController < ApplicationController
     if @book.completion == false
       @chapter = @book.texts.count + 1
     else
-      redirect_to root_path
+      redirect_to action: :index
     end
   end
 
@@ -76,7 +76,7 @@ class BooksController < ApplicationController
   def return
     @book = this_book
     rental_reset
-    redirect_to root_path
+    redirect_to action: :index
   end
 
   private
