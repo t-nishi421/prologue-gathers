@@ -14,9 +14,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|int|null: false|
-|title|string|null: false|
 |color_id|string|null: false|
-|icon|string||
+|icon_id|string|null: false|
+|title|string|null: false|
 |rental|boolean|default: 0|
 |completion|boolean|null: false, default: 0|
 ### Association

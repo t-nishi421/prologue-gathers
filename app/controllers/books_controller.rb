@@ -14,6 +14,7 @@ class BooksController < ApplicationController
     @text = new_text
     if @book.judge_create_book && @text.judge_create_text
       @book.save
+      @text = new_text
       @text.save
       redirect_to( { action: :index } , notice: '本を投稿しました' )
     else
