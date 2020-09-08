@@ -60,9 +60,19 @@
   &__name {
     font-size: 22px;
     margin:0 20px;
-    &--hover:hover {
-      display: block;
+    position: relative;
+    &__hover-title {
+      position: absolute;
+      display: none;
+      bottom: 32px;
+      font-size: 14px;
+      padding: 1px 4px;
+      border-radius: 3px;
+      background-color: rgba(182, 201, 226, 0.9);
     }
+  }
+  &__name:hover &__name__hover-title {
+    display: block;
   }
   &__state {
     width: 80px;

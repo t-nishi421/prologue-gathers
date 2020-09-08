@@ -10,8 +10,9 @@
       = image_tag 'book.png', alt: '本', class: "book__body__book-line"
     .book__name
       - if b.title.length > 8
-        .book__name--hover
-          = "#{b.title[0,7]}…"
+        = "#{b.title[0,7]}…"
+        .book__name__hover-title
+          = b.title
       - else
         = b.title
     - if b.completion == true
