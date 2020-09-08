@@ -5,11 +5,11 @@
         .cover__text__title
           .cover__text__title__exp
             タイトル
-          = f.text_field :title, placeholder: '本のタイトルを入力', class: 'cover__text__title__textbox'
+          = f.text_field :title, placeholder: '本のタイトルを入力(上限48文字)', class: 'cover__text__title__textbox', maxlength: 48
         .cover__text__chapter
           .cover__text__chapter__exp
             1章
-          = f.text_field :chapter, placeholder: '章題を入力', class: 'cover__text__chapter__textbox'
+          = f.text_field :chapter, placeholder: '章題を入力(上限12文字)', class: 'cover__text__chapter__textbox', maxlength: 12
       .cover__image
         .cover__image__white
         .cover__image__top-color

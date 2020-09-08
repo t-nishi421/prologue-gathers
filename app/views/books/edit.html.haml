@@ -8,7 +8,7 @@
           .cover__text__chapter
             .cover__text__chapter__exp
               = "#{@chapter}章"
-            = f.text_field :chapter, placeholder: '章題を入力', class: 'cover__text__chapter__textbox'
+            = f.text_field :chapter, placeholder: '章題を入力(上限12文字)', class: 'cover__text__chapter__textbox', maxlength: 12
           = f.check_box :completion, value: 1, class: "check-box"
           .check-box-msg ：最終章
         .text__exp.text__exp__edit
