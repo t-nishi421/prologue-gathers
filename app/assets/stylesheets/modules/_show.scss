@@ -34,7 +34,31 @@
     height: 300px;
     width: 300px;
     margin-left: 40px;
-    background-color: pink;
+    background-color: rgba(210, 222, 255, 0.5);
+    position: relative;
+    &__white {
+      position: absolute;
+      @include book-page();
+      top: 38px;
+      left: 45px;
+    }
+    &__color {
+      position: absolute;
+      height: 170px;
+      width: 165px;
+      top: 94px;
+    left: 48px;
+    }
+    &__icon {
+      position: absolute;
+      top: 108px;
+      left: 53px;
+    }
+    &__line {
+      position: absolute;
+      top: 23px;
+      left: 34px;
+    }
   }
 }
 

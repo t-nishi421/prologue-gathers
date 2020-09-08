@@ -48,9 +48,7 @@
     position: relative;
     &__white {
       position: absolute;
-      height: 190px;
-      width: 200px;
-      background-color: #eee5d2;
+      @include book-page();
       top: 37px;
       left: 26px;
     }
@@ -96,16 +94,16 @@
       display: none;
     }
     &__icon-menu {
-      opacity: 0;
+      display: none;
     }
     input:checked ~ &__icon-menu {
-      opacity: 1;
+      display: block;
     }
     &__color-menu {
-      opacity: 0;
+      display: none;
     }
     input:checked ~ &__color-menu {
-      opacity: 1;
+      display: block;
     }
     ul.icon { // アイコン選択部分のレイアウト
       bottom: 49px;

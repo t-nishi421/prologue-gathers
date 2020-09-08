@@ -1,3 +1,4 @@
+/* 投稿画面での処理 */
 $(function(){
   let change_book_color = $('.change-book-color');
 

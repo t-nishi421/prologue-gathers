@@ -13,4 +13,12 @@ class Book < ApplicationRecord
       Book.all
     end
   end
+
+  def judge_create_book
+    boolean = true
+    if title == ""
+      boolean = false
+    end
+    boolean
+  end
 end

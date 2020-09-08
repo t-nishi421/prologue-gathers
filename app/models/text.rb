@@ -4,4 +4,12 @@ class Text < ApplicationRecord
 
   belongs_to :user
   belongs_to :book
+  
+  def judge_create_text
+    boolean = true
+    if chapter == "" || text == ""
+      boolean = false
+    end
+    boolean
+  end
 end

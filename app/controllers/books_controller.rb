@@ -10,11 +10,15 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(params.require(:book).permit(:title).merge(user_id: current_user.id, color_id: params[:book_color],icon_id: params[:book_icon]))
-    @book.save
-
-    create_text
-    redirect_to root_path
+    @book = new_book
+    @text = new_text
+    if @book.judge_create_book && @text.judge_create_text
+      @book.save
+      @text.save
+      redirect_to( { action: :index } , notice: '本を投稿しました' )
+    else
+      redirect_to( { action: :new }, notice: '本の投稿に失敗しました' )
+    end
   end
 
   def edit
@@ -88,8 +92,12 @@ class BooksController < ApplicationController
     User.find(current_user.id)
   end
 
-  def create_text
-    Text.create(params.require(:book).permit(:chapter, :text).merge(user_id: current_user.id, book_id: @book.id))
+  def new_book
+    Book.new(params.require(:book).permit(:title).merge(user_id: current_user.id, color_id: params[:book_color],icon_id: params[:book_icon]))
+  end
+
+  def new_text
+    Text.new(params.require(:book).permit(:chapter, :text).merge(user_id: current_user.id, book_id: @book.id))
   end
 
 end

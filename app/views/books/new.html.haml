@@ -1,3 +1,5 @@
+.alert
+  = flash[:notice]
 .new-wrapper
   = form_with model: @book, local: true do |f|
     .cover

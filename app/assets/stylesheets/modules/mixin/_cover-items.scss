@@ -35,3 +35,9 @@
 @mixin text-color() {
   color: #0e0e0f;
 }
+
+@mixin book-page() {
+  height: 190px;
+  width: 200px;
+  background-color: #eee5d2;
+}
