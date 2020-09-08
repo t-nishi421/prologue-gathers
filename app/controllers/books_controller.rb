@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all
+    @books = Book.all.order(id: "DESC")
   end
 
   def new
@@ -55,7 +55,7 @@ class BooksController < ApplicationController
   end
 
   def search
-    @books = Book.search(params[:keyword])
+    @books = Book.search(params[:keyword]).order(id: "DESC")
   end
 
   def rental
