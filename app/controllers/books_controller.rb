@@ -31,18 +31,18 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book = Book.find(params[:id])
-    if params[:book][:completion].to_i == 1
-      @book.completion = params[:book][:completion].to_i
+    @book = this_book
+    @text = new_text
+    if @text.judge_create_text
+      if params[:book][:completion].to_i == 1
+        @book.completion = params[:book][:completion].to_i
+      end
+      rental_reset
+      @text.save
+      redirect_to( { action: :show, id: @book.id }, notice: '文章を投稿しました' )
+    else
+      redirect_to( { action: :edit }, notice: '文章の投稿に失敗しました' )
     end
-    create_text
-
-    @user = User.find(current_user.id)
-    @book.rental = 0
-    @book.save
-    @user.rental = 0
-    @user.save
-    redirect_to root_path
   end
 
   def show
@@ -74,12 +74,7 @@ class BooksController < ApplicationController
 
   def return
     @book = this_book
-    @book.rental = 0
-    @book.save
-
-    @user = this_user
-    @user.rental = 0
-    @user.save
+    rental_reset
     redirect_to root_path
   end
 
@@ -98,6 +93,14 @@ class BooksController < ApplicationController
 
   def new_text
     Text.new(params.require(:book).permit(:chapter, :text).merge(user_id: current_user.id, book_id: @book.id))
+  end
+
+  def rental_reset
+    @user = this_user
+    @book.rental = 0
+    @book.save
+    @user.rental = 0
+    @user.save
   end
 
 end
