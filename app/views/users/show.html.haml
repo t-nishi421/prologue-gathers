@@ -9,11 +9,11 @@
               image
             .menu__left__top__user-menu
               %ul
-                %li
-                  = link_to edit_user_path(current_user) do
+                = link_to edit_user_path(current_user) do
+                  %li
                     アカウントを編集
                 %li
-                  ログアウト
+                  = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'logout'
           .menu__left__bottom
             .menu__left__bottom__user-name
               = @user.name
@@ -26,11 +26,15 @@
         .menu__right
           %h1 メニュー
           %ul
-            %li
-              一覧画面へ
-            %li
-              本を投稿する
-            %li
-              投稿した本
-            %li
-              貸出中の本を編集
+            = link_to books_path do
+              %li
+                一覧画面へ
+            = link_to new_book_path do
+              %li
+                本を投稿する
+            = link_to search_userid_books_path(current_user.id) do
+              %li
+                投稿した本
+            = link_to edit_book_path(current_user.rental) do
+              %li
+                貸出中の本を編集

@@ -14,6 +14,10 @@ class Book < ApplicationRecord
     end
   end
 
+  def self.search_userid(user_id)
+    Book.where(user: user_id.to_s)
+  end
+
   def judge_create_book
     boolean = true
     if title == ""

@@ -23,11 +23,11 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find(current_user.rental)
-    if @book.completion == false
+    if current_user.rental != 0 #  貸出中の時
+      @book = Book.find(current_user.rental)
       @chapter = @book.texts.count + 1
     else
-      redirect_to action: :index
+      redirect_to user_path(current_user), notice: '貸出中の本がありません'
     end
   end
 
@@ -56,6 +56,11 @@ class BooksController < ApplicationController
 
   def search
     @books = Book.search(params[:keyword]).order(id: "DESC")
+  end
+
+  def search_userid
+    @books = Book.search_userid(current_user.id).order(id: "DESC")
+    render action: :search
   end
 
   def rental

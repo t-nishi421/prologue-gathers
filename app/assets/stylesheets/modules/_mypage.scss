@@ -55,7 +55,6 @@
         margin-left: 10px;
         font-size: 20px;
         ul {
-          // margin-top: 125px;
           margin-top: 435px;
           li {
             width: 100;
@@ -64,12 +63,18 @@
             text-align: center;
             border-radius: 5px;
             @include button-template("", "yellow");
+            .logout {
+              padding: 5px 42px;
+            }
+          }
+          li:hover {
+            border: solid 3px #362d1d;
+            background-color: #f1d4b2;
           }
         }
       }
     }
     &__bottom {
-      // background-color: khaki;
       &__user-name {
         width: 200px;
         padding-bottom: 2px;
@@ -90,7 +95,6 @@
     height: 590px;
     width: 430px;
     margin:90px 0 0 80px;
-    // background-color: darksalmon;
     h1 {
       @include h1-template()
     }
@@ -101,9 +105,11 @@
         font-size: 30px;
         margin: 10px 10px 20px 10px;
         @include button-template("", "green");
-        // background-color: #eeeeee;
-        // border: solid #3c8d3a 3px;
         border-radius: 5px;
+      }
+      li:hover {
+        border: 3px solid rgb(4, 54, 4);
+        background-color: #afdaaf;
       }
     }
   }
