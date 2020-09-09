@@ -1,0 +1,110 @@
+@import "mixin/flex-bundle";
+@import "mixin/button-template";
+
+@mixin h1-template() {
+  padding-bottom: 5px;
+  font-size: 30px;
+  border-bottom: solid rgba(6, 48, 77, 0.671) 3px;
+}
+
+.center {
+  height: calc(100ch - 110px);
+  width: 100vw;
+  background-image: url("../green_wood.jpg");
+  &__over-color {
+    position: fixed;
+    height: calc(100ch - 110px);
+    width: 100vw;
+    background-color: rgba(9, 11, 41, 0.37);
+    overflow: scroll;
+    @include flex-bundle("", "");
+  }
+}
+
+.menu {
+  font-family: 'arial unicode ms';
+  height: 750px;
+  width: 1125px;
+  min-width: 1125px;
+  margin-top: 30px;
+  margin: 30px auto;
+  background-image: url("../mypage.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  @include flex-bundle("", "");
+  &__left {
+    height: 590px;
+    width: 430px;
+    margin: 90px 0 0 100px;
+    h1 {
+      @include h1-template();
+    }
+    &__top {
+      margin-top: 20px;
+      @include flex-bundle("", "");
+      &__icon {
+        height: 200px;
+        width: 200px;
+        background-color: darkslateblue;
+        border: solid rgb(75, 110, 163) 5px;
+        border-radius: 50%;
+      }
+      &__user-menu {
+        height: 200px;
+        width: 220px;
+        margin-left: 10px;
+        font-size: 20px;
+        ul {
+          // margin-top: 125px;
+          margin-top: 435px;
+          li {
+            width: 100;
+            padding: 2px 0;
+            margin: 10px 15px 0 15px;
+            text-align: center;
+            border-radius: 5px;
+            @include button-template("", "yellow");
+          }
+        }
+      }
+    }
+    &__bottom {
+      // background-color: khaki;
+      &__user-name {
+        width: 200px;
+        padding-bottom: 2px;
+        margin-top: 10px;
+        font-size: 18px;
+        text-align: center;
+        border-bottom: solid rgba(6, 48, 77, 0.671) 2px;
+      }
+      &__status {
+        margin-top: 10px;
+        li {
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+  &__right {
+    height: 590px;
+    width: 430px;
+    margin:90px 0 0 80px;
+    // background-color: darksalmon;
+    h1 {
+      @include h1-template()
+    }
+    ul {
+      margin-top: 60px;
+      li {
+        padding: 2px 30px;
+        font-size: 30px;
+        margin: 10px 10px 20px 10px;
+        @include button-template("", "green");
+        // background-color: #eeeeee;
+        // border: solid #3c8d3a 3px;
+        border-radius: 5px;
+      }
+    }
+  }
+}

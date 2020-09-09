@@ -13,7 +13,7 @@
         = link_to books_path, class: "logo" do
           = image_tag 'title.jpg', alt: '始まりの図書館'
         - if user_signed_in?
-          = link_to edit_user_path(current_user) do
+          = link_to user_path(current_user) do
             .user
               .user__name
                 = "名前：#{current_user.name}"

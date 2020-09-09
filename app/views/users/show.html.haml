@@ -1,0 +1,36 @@
+.wrapper
+  .center
+    .center__over-color
+      .menu
+        .menu__left
+          %h1 マイページ
+          .menu__left__top
+            .menu__left__top__icon
+              image
+            .menu__left__top__user-menu
+              %ul
+                %li
+                  = link_to edit_user_path(current_user) do
+                    アカウントを編集
+                %li
+                  ログアウト
+          .menu__left__bottom
+            .menu__left__bottom__user-name
+              = @user.name
+            .menu__left__bottom__status
+              %ul
+                %li
+                  = "・投稿した本の数：#{@count_book}"
+                %li
+                  = "・投稿した文章の数：#{@count_text}"
+        .menu__right
+          %h1 メニュー
+          %ul
+            %li
+              一覧画面へ
+            %li
+              本を投稿する
+            %li
+              投稿した本
+            %li
+              貸出中の本を編集

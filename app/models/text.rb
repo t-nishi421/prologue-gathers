@@ -12,4 +12,8 @@ class Text < ApplicationRecord
     end
     boolean
   end
+
+  def self.number_of_texts_for_current_user(user_id)
+    Text.where(user: user_id.to_s).count
+  end
 end
