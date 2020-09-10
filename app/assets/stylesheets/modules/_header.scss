@@ -1,5 +1,5 @@
 @import "mixin/flex-bundle";
-@import "mixin/status-color";
+@import "mixin/button-template";
 
 .header {
   height: 110px;
@@ -54,10 +54,10 @@
       text-align: center;
       @include flex-bundle(center, center);
       &--taking-out {
-        @include status-color(1);
+        @include button-template("", "red");
       }
       &--not-taking-out {
-        @include status-color(0);
+        @include button-template("", "green");
       }
     }
   }

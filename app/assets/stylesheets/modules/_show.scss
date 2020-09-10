@@ -1,7 +1,7 @@
 @import "mixin/flex-bundle";
 @import "mixin/cover-items";
-@import "mixin/status-color";
 @import "mixin/text-template";
+@import "mixin/button-template";
 
 .show-wrapper {
   height: calc(100vh - 110px);
@@ -106,10 +106,10 @@
     text-align: center;
     @include flex-bundle(center, center);
     &--there {
-      @include status-color(0);
+      @include button-template("", "green");
     }
     &--not-there {
-      @include status-color(1);
+      @include button-template("", "red");
     }
   }
 }

@@ -19,11 +19,15 @@
   }
   
   @if $color == "green" {
-    border: 3px solid darkgreen;
+    border: 2px solid darkgreen;
     background-color: #ddffdd;
   }
+  @if $color == "red" {
+    border: 2px solid darkred;
+    background-color: #ffdddd;
+  }
   @if $color == "yellow" {
-    border: solid 3px #4e432e;
+    border: 2px solid #4e432e;
     background-color: #ffe4c4;
   }
 }

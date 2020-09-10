@@ -1,5 +1,4 @@
 @import "mixin/flex-bundle";
-@import "mixin/status-color";
 @import "mixin/button-template";
 
 .main{
@@ -87,13 +86,13 @@
     border-radius: 4px;
     @include flex-bundle(center, "");
     &--there {
-      @include status-color(0);
+      @include button-template("", "green");
     }
     &--not-there {
-      @include status-color(1);
+      @include button-template("", "red");
     }
     &--completion {
-      @include status-color(2);
+      @include button-template("", "yellow");
     }
   }
 }

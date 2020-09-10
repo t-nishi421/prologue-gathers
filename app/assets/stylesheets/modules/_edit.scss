@@ -1,7 +1,6 @@
 @import "mixin/text-template";
 @import "mixin/button-template";
 @import "mixin/flex-bundle";
-@import "mixin/status-color";
 
 .text__exp__edit {
   margin-top: 20px;
@@ -12,7 +11,7 @@
 }
 
 .chapter-items {
-  @include flex-bundle("", "")
+  @include flex-bundle("", "");
 }
 
 .text__textbox__edit {
