@@ -8,15 +8,15 @@
 }
 
 .center {
-  height: calc(100ch - 110px);
+  height: calc(100vh - 110px);
   width: 100%;
   background-image: url("../green_wood.jpg");
   &__over-color {
     position: fixed;
-    height: calc(100ch - 110px);
+    height: calc(100vh - 110px);
     width: 100%;
     background-color: rgba(9, 11, 41, 0.37);
-    overflow: scroll;
+    overflow: auto;
     @include flex-bundle("", "");
   }
 }
@@ -68,7 +68,7 @@
             }
           }
           li:hover {
-            border: solid 3px #362d1d;
+            border: solid 2px #362d1d;
             background-color: #f1d4b2;
           }
         }
@@ -108,7 +108,7 @@
         border-radius: 5px;
       }
       li:hover {
-        border: 3px solid rgb(4, 54, 4);
+        border: 2px solid rgb(4, 54, 4);
         background-color: #afdaaf;
       }
     }
