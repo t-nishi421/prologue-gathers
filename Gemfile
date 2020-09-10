@@ -56,3 +56,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # 自分で入れたジェム
 gem 'pry-rails'
 gem "haml-rails", ">= 1.0", '<= 2.0.1'
+gem 'devise'
+gem 'jquery-rails'
+gem "font-awesome-sass"

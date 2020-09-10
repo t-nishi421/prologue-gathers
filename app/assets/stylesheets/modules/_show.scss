@@ -1,26 +1,20 @@
 @import "mixin/flex-bundle";
 @import "mixin/cover-items";
-@import "mixin/status-color";
-
-.show-wrapper {
-  height: calc(100vh - 110px);
-  width: 100vw;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: scroll;
-}
+@import "mixin/text-template";
+@import "mixin/button-template";
 
 .book-top {
   height: 320px;
   width: 840px;
   padding: 10px;
-  margin: 20px 5vw 0 5vw;
+  margin:20px auto 0 auto;
   border-radius: 5px;
   @include flex-bundle("", flex-end);
   background-color: rgba(34, 24, 94, 0.9);
   &__info {
     width: 500px;
     &__title {
+      @include flex-bundle("", "");
       @include cover-title();
     }
     &__author {
@@ -32,17 +26,37 @@
     height: 300px;
     width: 300px;
     margin-left: 40px;
-    background-color: pink;
+    background-color: rgba(210, 222, 255, 0.5);
+    position: relative;
+    &__white {
+      position: absolute;
+      @include book-page();
+      top: 38px;
+      left: 45px;
+    }
+    &__color {
+      position: absolute;
+      height: 170px;
+      width: 165px;
+      top: 94px;
+    left: 48px;
+    }
+    &__icon {
+      position: absolute;
+      top: 108px;
+      left: 53px;
+    }
+    &__line {
+      position: absolute;
+      top: 23px;
+      left: 34px;
+    }
   }
 }
 
 .story-content {
-  height: auto;
-  width: 840px;
-  padding: 10px;
-  margin: 10px 5vw 0 5vw;
-  background-color: rgba(182, 201, 226, 0.9);
-  border-radius: 5px;
+  margin: 0 auto;
+  @include text-back();
   &__info {
     width: 800px;
     border-bottom: solid 2px #131516;
@@ -75,15 +89,16 @@
 
 .rent {
   width: 840px;
-  margin: 20px 5vw 20px 5vw;
+  margin: 20px auto 50px auto;
   @include flex-bundle(flex-end, "");
   &__button {
-    padding: 5px 10px;
-    width: auto;
-    font-size: 26px;
-    border-radius: 4px;
-    text-align: center;
-    @include flex-bundle(center, center);
-    @include status-color(0);
+    &--there {
+      @include button-template("middle", "green");
+      width: 144px;
+    }
+    &--not-there {
+      @include button-template("middle", "red");
+      width: 144px;
+    }
   }
 }

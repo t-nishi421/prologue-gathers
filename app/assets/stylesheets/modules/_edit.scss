@@ -1,0 +1,48 @@
+@import "mixin/text-template";
+@import "mixin/button-template";
+@import "mixin/flex-bundle";
+
+.text__exp__edit {
+  margin-top: 20px;
+}
+
+.next-story {
+  margin:0 auto 50px auto;
+  @include text-back();
+}
+
+.chapter-items {
+  @include flex-bundle("", "");
+}
+
+.text__textbox__edit {
+  height: 300px; //仮置き
+  width: 820px;
+  padding: 10px;
+  background-color: white;
+  border: solid 3px black;
+  border-radius: 0 15px 15px 15px;
+  outline: none;
+}
+
+.button-cover {
+  @include flex-bundle(flex-end, "");
+  &__return-button {
+    @include button-template("middle", "green");
+    @include flex-bundle(center, center);
+  }
+  &__edit-button {
+    @include button-template("middle", "yellow");
+    @include flex-bundle(center, center);
+  }
+}
+
+.check-box {
+  margin: 18px 0 0 18px;
+  transform: scale(2.0);
+}
+
+.check-box-msg {
+  margin: 9px 0 0 9px;
+  font-size: 22px;
+}

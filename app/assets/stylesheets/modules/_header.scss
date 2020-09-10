@@ -1,9 +1,9 @@
 @import "mixin/flex-bundle";
-@import "mixin/status-color";
+@import "mixin/button-template";
 
 .header {
   height: 110px;
-  width: 100vw;
+  width: 100%;
   background-image: url("../wood.jpg");
   border-bottom: solid 2px #000;
   position: relative;
@@ -21,30 +21,46 @@
 }
 
 .user {
+  height: 110px;
   width: auto;
+  min-width: 250px;
   background-color: rgb(232, 232, 255);
-  border: solid 4px darkblue;
-  border-radius: 8px;
+  border: solid 3px darkblue;
   padding: 4px  10px;
-  margin-right: 3vw;
   &__name {
+    margin-top: 8px;
     font-size: 20px;
   }
   &__box {
-    margin-top: 4px;
+    margin-top: 11px;
     @include flex-bundle(flex-end, "");
+    &__button {
+      height: 40px;
+      width: 120px;
+      @include button-template("", "yellow");
+      border-radius: 5px;
+      font-weight: bold;
+      margin-right: 10px;
+      @include flex-bundle(center, center);
+    }
+    &__button:hover {
+      @include button-template("", "hover-yellow");
+    }
     &__hasbook {
       height: 40px;
       width: 120px;
-      font-size: 26px;
+      font-weight: bold;
       border-radius: 4px;
       text-align: center;
       @include flex-bundle(center, center);
       &--taking-out {
-        @include status-color(1);
+        @include button-template("", "red");
+      }
+      &--taking-out:hover {
+        @include button-template("", "hover-red");
       }
       &--not-taking-out {
-        @include status-color(0);
+        @include button-template("", "green");
       }
     }
   }

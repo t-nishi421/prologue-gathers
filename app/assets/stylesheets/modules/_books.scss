@@ -6,24 +6,20 @@
 }
 
 .wrapper {
-  overflow: scroll;
+  height: calc(100% - 110px);
+  background-color:rgba(0, 50, 100, 0.3);
+  overflow: auto;
 }
 
 body {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   position: absolute;
-  background-image: url("../library.jpg");
+  background-image: url("library.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   overflow: hidden;
-}
-
-.white {
-  height: 100vh;
-  width: 100vw;
-  background-color:rgba(0, 0, 200, 0.15);
 }
 
 a {

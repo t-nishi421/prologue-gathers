@@ -2,20 +2,36 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title PrologueGathers
+    %title 始まりの図書館
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application'
   %body
-    .white
-      %header.header
-        = link_to root_path, class: "logo" do
-          = image_tag 'title.jpg', alt: '始まりの図書館'
+    %header.header
+      = link_to books_path, class: "logo" do
+        = image_tag 'title.jpg', alt: '始まりの図書館'
+      - if user_signed_in?
         .user
           .user__name
-            名前：羅生門の番人
+            = "名前：#{current_user.name}"
           .user__box
-            .user__box__hasbook.user__box__hasbook--taking-out
-              持出中
+            = link_to user_path(current_user), class: 'user__box__button' do
+              マイページ
+            - if current_user.rental == 0
+              .user__box__hasbook.user__box__hasbook--not-taking-out
+                貸出無し
+            - else
+              = link_to edit_book_path(current_user.rental), class: "user__box__hasbook user__box__hasbook--taking-out" do
+                貸出中
+      - else
+        .user
+          .user__name
+            名前：ゲスト
+          .user__box
+            = link_to new_user_session_path, class: 'user__box__button' do
+              ログイン
+    .wrapper
+      .alert
+        = flash[:notice]
       = yield

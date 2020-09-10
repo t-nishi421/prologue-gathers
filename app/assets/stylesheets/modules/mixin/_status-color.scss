@@ -1,9 +1,0 @@
-@mixin status-color($status) {
-  @if $status == 0 {
-    border: 2px solid darkgreen;
-    background-color: #ddffdd;
-  } @else {
-    border: 2px solid darkred;
-    background-color: #ffdddd;
-  }
-}

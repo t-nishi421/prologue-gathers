@@ -1,0 +1,38 @@
+@mixin button-template($size, $color) {
+  @if $size == "middle" {
+    height: 50px;
+    width: 126px;
+    padding: 0 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    @include flex-bundle(center, center);
+  }
+  
+  @if $color == "green" {
+    border: 2px solid darkgreen;
+    background-color: #ddffdd;
+  }
+  @if $color == "hover-green" {
+    border: 2px solid #043604;
+    background-color: #afdaaf;
+  }
+  @if $color == "red" {
+    border: 2px solid darkred;
+    background-color: #ffdddd;
+  }
+  @if $color == "hover-red" {
+    border: 2px solid #580505;
+    background-color: #ffc3c3;
+  }
+  @if $color == "yellow" {
+    border: 2px solid #4e432e;
+    background-color: #ffe4c4;
+  }
+  @if $color == "hover-yellow" {
+    border: solid 2px #362d1d;
+    background-color: #f1d4b2;
+  }
+}
