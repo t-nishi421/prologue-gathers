@@ -4,7 +4,7 @@
 .cover {
   height: 300px;
   width: 840px;
-  margin: 20px 5vw 0 5vw;
+  margin: 20px auto 0 auto;
   @include flex-bundle("", flex-end);
   &__text {
     height: 140px;
@@ -164,7 +164,7 @@
 .text {
   height: 600px;
   width: 840px;
-  margin: 20px 5vw 0 5vw;
+  margin: 20px auto 0 auto;
   &__exp {
     height: 50px;
     width: 126px;
