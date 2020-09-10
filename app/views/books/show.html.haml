@@ -1,13 +1,12 @@
-.show-wrapper
-  = render partial: 'book-top', locals: { book: @book }
-  .stories
-    = render partial: 'story', locals: { texts: @book.texts }
-  - if @book.completion == false
-    .rent
-      - if @book.rental == false
-        = link_to rental_path(@book.id), class: "rent__button rent__button--there" do
-          本を借りる
-      - else
-        .rent__button.rent__button--not-there
-          貸出中
+= render partial: 'book-top', locals: { book: @book }
+.stories
+  = render partial: 'story', locals: { texts: @book.texts }
+- if @book.completion == false
+  .rent
+    - if @book.rental == false
+      = link_to rental_path(@book.id), class: "rent__button rent__button--there" do
+        本を借りる
+    - else
+      .rent__button.rent__button--not-there
+        貸出中
 

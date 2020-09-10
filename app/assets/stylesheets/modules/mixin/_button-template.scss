@@ -1,5 +1,5 @@
 @mixin button-template($size, $color) {
-  @if $size == 1 {
+  @if $size == "middle" {
     height: 50px;
     width: 126px;
     padding: 0 20px;
@@ -9,13 +9,6 @@
     font-weight: bold;
     border-radius: 8px;
     @include flex-bundle(center, center);
-  }
-  @if $size == 2 {
-    padding: 5px 10px;
-    width: auto;
-    font-size: 26px;
-    border-radius: 4px;
-    text-align: center;
   }
   
   @if $color == "green" {

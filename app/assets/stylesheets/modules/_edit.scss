@@ -27,11 +27,11 @@
 .button-cover {
   @include flex-bundle(flex-end, "");
   &__return-button {
-    @include button-template(1, "green");
+    @include button-template("middle", "green");
     @include flex-bundle(center, center);
   }
   &__edit-button {
-    @include button-template(1, "yellow");
+    @include button-template("middle", "yellow");
     @include flex-bundle(center, center);
   }
 }
