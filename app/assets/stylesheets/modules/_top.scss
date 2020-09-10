@@ -1,4 +1,5 @@
 @import "mixin/flex-bundle";
+@import "mixin/button-template";
 
 .top {
   height: 60px;
@@ -19,12 +20,14 @@
     &__search-btn {
       height: 40px;
       width: 75px;
-      background-color: #ffe4c4;
-      border:solid 2px #4e432e;
+      @include button-template("", "yellow");
       border-radius: 5px;
       font-weight: bold;
       margin-right: 10px;
       @include flex-bundle(center, center);
+    }
+    &__search-btn:hover {
+      @include button-template("", "hover-yellow");
     }
   }
 }
