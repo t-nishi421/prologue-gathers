@@ -56,6 +56,7 @@ class BooksController < ApplicationController
 
   def search
     @books = Book.search(params[:keyword]).order(id: "DESC")
+    render action: :index
   end
 
   def search_userid
@@ -64,17 +65,17 @@ class BooksController < ApplicationController
   end
 
   def rental
+    @path = Rails.application.routes.recognize_path(request.referer)
     if current_user.rental == 0
-      @book = this_book
-      @book.rental = 1
-      @book.save
-
-      @user = this_user
-      @user.rental = @book.id
-      @user.save
+      rental_book
+      redirect_to action: :edit
+    elsif @path[:action] == "rental"
+      rental_swap
       redirect_to action: :edit
     else
-      redirect_to({action: :show, id: params[:id]}, notice: '本の複数貸出しは出来ません')
+      @rental_book = Book.find(current_user.rental)
+      @book = this_book
+      flash.now[:notice] = '貸出中の本があります'
     end
   end
 
@@ -101,12 +102,29 @@ class BooksController < ApplicationController
     Text.new(params.require(:book).permit(:chapter, :text).merge(user_id: current_user.id, book_id: @book.id))
   end
 
+  def rental_book
+    @book = this_book
+    @book.rental = 1
+    @book.save
+
+    @user = this_user
+    @user.rental = @book.id
+    @user.save
+  end
+
   def rental_reset
     @user = this_user
     @book.rental = 0
     @book.save
     @user.rental = 0
     @user.save
+  end
+
+  def rental_swap
+    @rental_book = Book.find(current_user.rental)
+    @rental_book.rental = 0
+    @rental_book.save
+    rental_book
   end
 
 end

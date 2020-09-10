@@ -1,0 +1,17 @@
+.rental-cover
+  .rental-message
+    貸出中の本を入れ替えますか？
+  .rental-change-book
+    .rental-change-book__frame
+      = render partial: 'book', locals: { b: @rental_book }
+    .rental-change-book__icon
+      = icon('fa', 'arrow-right')
+    .rental-change-book__frame
+      = render partial: 'book', locals: { b: @book }
+  .rental-button
+    = link_to book_path(@book.id) do
+      .rental-button__no
+        いいえ
+    = link_to rental_path(@book.id) do
+      .rental-button__yes
+        はい

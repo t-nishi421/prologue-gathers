@@ -1,29 +1,27 @@
-- books.each do |b|
-  = link_to book_path(b.id), class: "book" do
-    .book__body
-      .book__body__white
-      .book__body__top-color{style: "background-color:#{b.color.color}"}
-      - if b.color.icon_white?
-        = image_tag "icons/#{b.icon.icon}.png", alt: 'アイコン', class: 'book__body__icon', style: 'filter: invert(0.9)'
-      - else
-        = image_tag "icons/#{b.icon.icon}.png", alt: 'アイコン', class: 'book__body__icon'
-      = image_tag 'book.png', alt: '本', class: "book__body__book-line"
-    .book__name
-      - if b.title.length > 8
-        = "#{b.title[0,7]}…"
-        .book__name__hover-title
-          = b.title
-      - else
-        = b.title
-    .book__author
-      = b.user.name
-    - if b.completion == true
-      .book__state.book__state--completion
-        完結
-    - else
-      - if b.rental == false
-        .book__state.book__state--there
-          貸出可
-      - else
-        .book__state.book__state--not-there
-          貸出中
+.book__body
+  .book__body__white
+  .book__body__top-color{style: "background-color:#{b.color.color}"}
+  - if b.color.icon_white?
+    = image_tag "icons/#{b.icon.icon}.png", alt: 'アイコン', class: 'book__body__icon', style: 'filter: invert(0.9)'
+  - else
+    = image_tag "icons/#{b.icon.icon}.png", alt: 'アイコン', class: 'book__body__icon'
+  = image_tag 'book.png', alt: '本', class: "book__body__book-line"
+.book__name
+  - if b.title.length > 8
+    = "#{b.title[0,7]}…"
+    .book__name__hover-title
+      = b.title
+  - else
+    = b.title
+.book__author
+  = b.user.name
+- if b.completion == true
+  .book__state.book__state--completion
+    完結
+- else
+  - if b.rental == false
+    .book__state.book__state--there
+      貸出可
+  - else
+    .book__state.book__state--not-there
+      貸出中

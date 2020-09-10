@@ -92,17 +92,13 @@
   margin: 20px auto 50px auto;
   @include flex-bundle(flex-end, "");
   &__button {
-    padding: 5px 10px;
-    width: auto;
-    font-size: 26px;
-    border-radius: 4px;
-    text-align: center;
-    @include flex-bundle(center, center);
     &--there {
-      @include button-template("", "green");
+      @include button-template("middle", "green");
+      width: 144px;
     }
     &--not-there {
-      @include button-template("", "red");
+      @include button-template("middle", "red");
+      width: 144px;
     }
   }
 }

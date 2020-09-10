@@ -1,5 +1,6 @@
 @import "mixin/flex-bundle";
 @import "mixin/button-template";
+@import "mixin/book-frame";
 
 .main{
   height: calc(100vh - 170px);
@@ -14,11 +15,7 @@
 }
 
 .book {
-  height: 319px;
-  width: 225px;
-  background-color: rgb(241, 244, 255);
-  border: solid 2px black;
-  margin: 0 10px 20px 10px;
+  @include book-frame();
   &__body {
     height: 200px;
     width: 180px;

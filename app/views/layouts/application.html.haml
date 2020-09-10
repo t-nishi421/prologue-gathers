@@ -18,7 +18,6 @@
           .user__box
             = link_to user_path(current_user), class: 'user__box__button' do
               マイページ
-            -# = link_to new_book_path, class: "user__box__create" do
             - if current_user.rental == 0
               .user__box__hasbook.user__box__hasbook--not-taking-out
                 貸出無し
@@ -26,10 +25,12 @@
               = link_to edit_book_path(current_user.rental), class: "user__box__hasbook user__box__hasbook--taking-out" do
                 貸出中
       - else
-        = link_to new_user_session_path do
-          .user
-            .user__name
-              名前：ゲスト
+        .user
+          .user__name
+            名前：ゲスト
+          .user__box
+            = link_to new_user_session_path, class: 'user__box__button' do
+              ログイン
     .wrapper
       .alert
         = flash[:notice]

@@ -1,0 +1,5 @@
+.main
+  .main__frame
+    - @books.each do |books|
+      = link_to book_path(books.id), class: "book" do
+        = render partial: 'book', locals: { b: books }

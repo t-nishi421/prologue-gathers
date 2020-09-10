@@ -1,0 +1,52 @@
+@import "mixin/book-frame";
+@import "mixin/flex-bundle";
+@import "mixin/button-template";
+
+.rental-cover {
+  width: 920px;
+  margin: 60px auto 0 auto;
+  padding: 1px 115px;
+  background-color: #e4e0ff;
+  border-radius: 8px;
+}
+
+.rental-message {
+  width: 500px;
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: bold;
+}
+  
+.rental-change-book {
+  width: 680px;
+  margin: 20px auto 0 auto;
+  padding: 20px 40px;
+  background-color: #22185ee6;
+  @include flex-bundle("", center);
+  &__frame {
+    @include book-frame();
+    margin-bottom: 0;
+  }
+  &__icon {
+    color: #eeeeee;
+    font-size: 90px;
+    padding: 15px;
+  }
+}
+
+.rental-button {
+  margin: 25px 0;
+  @include flex-bundle(flex-end, "");
+  &__no {
+    @include button-template("middle", "red");
+  }
+  &__no:hover {
+    @include button-template("middle", "hover-red");
+  }
+  &__yes {
+    @include button-template("middle", "green");
+  }
+  &__yes:hover {
+    @include button-template("middle", "hover-green");
+  }
+}

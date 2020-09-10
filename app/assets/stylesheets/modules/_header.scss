@@ -56,6 +56,9 @@
       &--taking-out {
         @include button-template("", "red");
       }
+      &--taking-out:hover {
+        @include button-template("", "hover-red");
+      }
       &--not-taking-out {
         @include button-template("", "green");
       }
