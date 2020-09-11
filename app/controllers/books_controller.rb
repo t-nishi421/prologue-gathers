@@ -66,7 +66,10 @@ class BooksController < ApplicationController
 
   def rental
     @path = Rails.application.routes.recognize_path(request.referer)
-    if current_user.rental == 0
+
+    if User.rental_status(this_book.id) == "can_not_rental"
+      redirect_to( { action: :show }, notice: 'この本はあなたより先に別のユーザーに貸し出されました' )
+    elsif current_user.rental == 0
       rental_book
       redirect_to action: :edit
     elsif @path[:action] == "rental"

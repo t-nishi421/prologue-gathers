@@ -6,11 +6,11 @@ class Text < ApplicationRecord
   belongs_to :book
   
   def judge_create_text
-    boolean = true
     if chapter == "" || text == ""
-      boolean = false
+      false
+    else
+      true
     end
-    boolean
   end
 
   def self.number_of_texts_for_current_user(user_id)

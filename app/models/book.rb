@@ -19,11 +19,11 @@ class Book < ApplicationRecord
   end
 
   def judge_create_book
-    boolean = true
     if title == ""
-      boolean = false
+      false
+    else
+      true
     end
-    boolean
   end
 
   def self.number_of_books_for_current_user(user_id)
