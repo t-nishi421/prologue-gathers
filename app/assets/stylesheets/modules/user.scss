@@ -48,14 +48,17 @@
       top: 37%;
       left: 36%;
       padding: 4px 8px;
-      color: #44444480;
+      color: #444444cc;
       font-size: 35px;
-      border: solid #44444480 2px;
+      border: solid #444444cc 2px;
       border-radius: 8px;
     }
     .fa:hover {
-      color: #88888880;
-      border: solid #88888880 2px;
+      color: #888888cc;
+      border: solid #888888cc 2px;
+    }
+    input {
+      display: none;
     }
   }
   // &__icon:hover {

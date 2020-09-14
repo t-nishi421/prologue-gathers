@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :books
   has_many :texts
 
+  mount_uploader :image, ImageUploader
+
   def self.rental_status(book_id)
     status = User.find_by(rental: book_id)
     if status == nil
