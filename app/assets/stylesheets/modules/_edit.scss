@@ -1,4 +1,4 @@
-@import "mixin/text-template";
+@import "mixin/various-template";
 @import "mixin/button-template";
 @import "mixin/flex-bundle";
 
@@ -28,11 +28,11 @@
 .button-cover {
   @include flex-bundle(flex-end, "");
   &__return-button {
-    @include button-template("middle", "green");
+    @include button-template("middle", "red");
     @include flex-bundle(center, center);
   }
   &__edit-button {
-    @include button-template("middle", "yellow");
+    @include button-template("middle", "green");
     @include flex-bundle(center, center);
   }
 }

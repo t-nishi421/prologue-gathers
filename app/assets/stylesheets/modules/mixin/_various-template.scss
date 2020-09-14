@@ -1,0 +1,16 @@
+@mixin text-back {
+  height: auto;
+  width: 840px;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #b6c9e2e6;
+  border-radius: 5px;
+}
+
+@mixin icon {
+  height: 200px;
+  width: 200px;
+  background-color: #d9e5f7;
+  border: solid #4b6ea3 5px;
+  border-radius: 50%;
+}

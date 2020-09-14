@@ -1,5 +1,6 @@
 @import "mixin/flex-bundle";
 @import "mixin/cover-items";
+@import "mixin/button-template";
 
 .cover {
   height: 300px;
@@ -194,9 +195,8 @@
     margin-left: 714px;
     font-size: 20px;
     font-weight: bold;
-    border: solid 3px #4e432e;
     border-radius: 8px;
-    background-color: #ffe4c4;
+    @include button-template("", "green");
     @include flex-bundle(center, center);
   }
 }

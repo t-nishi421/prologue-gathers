@@ -1,10 +1,13 @@
-.AccountWrapper {
+@import "mixin/button-template";
+@import "mixin/various-template";
+
+.AccountWrapper { // 不要
   height: calc(100vh - 110px);
   width: 100%;
   overflow: scroll;
 }
 
-.AccountPage {
+.AccountPage { // 不要
   width: 980px;
   margin: 90px auto;
   padding: 60px;
@@ -14,33 +17,53 @@
   display: flex;
   justify-content: space-between;
 }
-.AccountPage__title {
-  width: 50%;
-  font-size: 14px;
-  font-weight: 200;
-
-  h2 {
-    margin-bottom: 10px;
-    letter-spacing: 3px;
-    font-size: 40px;
-    &:after {
-      content: "";
-      display: block;
-      width: 60px;
-      margin-top: 5px;
-      border-bottom: 1px solid #38aef0;
-    }
-  }
-
-  .Button {
-    margin-top: 40px;
-    color: #fff;
-    background-color: #ccc;
+.account-edit-left {
+  position: relative;
+  height: 585px;
+  &__link {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
   }
 }
 
-.AccountPage__form {
-  width: 50%;
+.Button {
+  @include button-template("middle", "yellow");
+  height: 34px;
+  width: 225px;
+  padding: 2px 0;
+  margin: 10px 15px 0 15px;
+}
+
+.account-edit-right {
+  &__image {
+    margin-top: 10px;
+  }
+  &__icon {
+    @include icon();
+    margin-bottom: 20px;
+    position: relative;
+    .fa {
+      position: absolute;
+      top: 37%;
+      left: 36%;
+      padding: 4px 8px;
+      color: #44444480;
+      font-size: 35px;
+      border: solid #44444480 2px;
+      border-radius: 8px;
+    }
+    .fa:hover {
+      color: #88888880;
+      border: solid #88888880 2px;
+    }
+  }
+  // &__icon:hover {
+  //   background-color: rgb(226, 234, 247);
+  // }
+  .Button {
+    margin: 70px 0 0 200px;
+  }
 }
 
 .FormField {
@@ -83,23 +106,11 @@
   }
 }
 
-.Button {
-  display: inline-block;
-  height: 50px;
-  padding: 0 30px;
-  line-height: 50px;
-  letter-spacing: 1px;
-  text-align: center;
-  border: none;
-  border-radius: 2px;
-  text-decoration: none;
-}
-
-.UserButton {
-  margin-top: 20px;
-  color: #fff;
-  background-color: #38aef0;
-}
+// .UserButton {
+//   margin-top: 20px;
+//   color: #fff;
+//   background-color: #38aef0;
+// }
 
 #error_explanation {
   margin: 20px 0;
