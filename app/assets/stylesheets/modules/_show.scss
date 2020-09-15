@@ -72,6 +72,16 @@
       @include text-color();
       font-size: 24px;
       font-weight: bold;
+      @include flex-bundle("", "");
+      &__icon {
+        height: 37px;
+        width: 37px;
+        margin: -3px 8px 0 0;
+        background-color: #d9e5f7;
+        border: solid #4b6ea3 1px;
+        background-size: cover;
+        border-radius: 50%;
+      }
     }
   }
   &__text {

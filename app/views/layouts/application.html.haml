@@ -31,7 +31,7 @@
           .user__box
             = link_to new_user_session_path, class: 'user__box__button' do
               ログイン
+    .alert
+      = flash[:notice]
     .wrapper
-      .alert
-        = flash[:notice]
       = yield

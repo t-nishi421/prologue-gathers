@@ -1,22 +1,6 @@
 @import "mixin/button-template";
 @import "mixin/various-template";
 
-.AccountWrapper { // 不要
-  height: calc(100vh - 110px);
-  width: 100%;
-  overflow: scroll;
-}
-
-.AccountPage { // 不要
-  width: 980px;
-  margin: 90px auto;
-  padding: 60px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-}
 .account-edit-left {
   position: relative;
   height: 585px;
@@ -107,12 +91,6 @@
     }
   }
 }
-
-// .UserButton {
-//   margin-top: 20px;
-//   color: #fff;
-//   background-color: #38aef0;
-// }
 
 #error_explanation {
   margin: 20px 0;
