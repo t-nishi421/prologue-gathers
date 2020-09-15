@@ -1,24 +1,11 @@
 $(function() {
-  $(document).on('change', '.image-icon', function() {
-    let icon = $('.image-icon').val();
-    // let  url = location.href
+  $(document).on('change', '.image-icon', function(e) {
+    let reader = new FileReader();
 
-    console.log(icon);
-    $('.account-edit-right__icon').css('background-image', 'url("' + icon +'")');
-    // console.log(url);
-    // $.ajax({
-    //   url: url,
-    //   type: 'POST',
-    //   dataType: 'json',
-    //   data: {icon: icon},
-    //   processData: false,
-    //   contentType: false
-    // })
-    // .done(function(data){
-    //   console.log(data);
-    // })
-    // .fail(function(){
-
-    // });
+    reader.onload = function (e) {
+      console.log(e);
+      $('.account-edit-right__icon').css('background-image', 'url(' + e.target.result + ')');
+    }
+    reader.readAsDataURL(e.target.files[0]);
   });
 });
