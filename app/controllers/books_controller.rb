@@ -47,7 +47,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    if current_user.rental == params[:id].to_i
+    if user_signed_in? && current_user.rental == params[:id].to_i
       redirect_to action: :edit
     else
       @book = this_book
