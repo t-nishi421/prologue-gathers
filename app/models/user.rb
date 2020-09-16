@@ -7,4 +7,15 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true, length: { maximum: 8 }
   has_many :books
   has_many :texts
+
+  mount_uploader :image, ImageUploader
+
+  def self.rental_status(book_id)
+    status = User.find_by(rental: book_id)
+    if status == nil
+      "can_rent"
+    else
+      "can_not_rent"
+    end
+  end
 end

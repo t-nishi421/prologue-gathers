@@ -1,46 +1,55 @@
-.AccountWrapper {
-  height: calc(100vh - 110px);
-  width: 100%;
-  overflow: scroll;
+@import "mixin/button-template";
+@import "mixin/various-template";
+
+.account-edit-left {
+  position: relative;
+  height: 585px;
+  &__link {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+  }
 }
 
-.AccountPage {
-  width: 980px;
-  margin: 90px auto;
-  padding: 60px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
+.Button {
+  @include button-template("middle", "yellow");
+  height: 34px;
+  width: 225px;
+  padding: 2px 0;
+  margin: 10px 15px 0 15px;
 }
-.AccountPage__title {
-  width: 50%;
-  font-size: 14px;
-  font-weight: 200;
 
-  h2 {
-    margin-bottom: 10px;
-    letter-spacing: 3px;
-    font-size: 40px;
-    &:after {
-      content: "";
-      display: block;
-      width: 60px;
-      margin-top: 5px;
-      border-bottom: 1px solid #38aef0;
+.account-edit-right {
+  &__image {
+    margin-top: 10px;
+  }
+  &__icon {
+    @include icon();
+    margin-bottom: 20px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    .fa {
+      position: absolute;
+      top: 37%;
+      left: 36%;
+      padding: 4px 8px;
+      color: #444444cc;
+      font-size: 35px;
+      border: solid #444444cc 2px;
+      border-radius: 8px;
+    }
+    .fa:hover {
+      color: #888888cc;
+      border: solid #888888cc 2px;
+    }
+    input {
+      display: none;
     }
   }
-
   .Button {
-    margin-top: 40px;
-    color: #fff;
-    background-color: #ccc;
+    margin: 70px 0 0 200px;
   }
-}
-
-.AccountPage__form {
-  width: 50%;
 }
 
 .FormField {
@@ -81,24 +90,6 @@
       }
     }
   }
-}
-
-.Button {
-  display: inline-block;
-  height: 50px;
-  padding: 0 30px;
-  line-height: 50px;
-  letter-spacing: 1px;
-  text-align: center;
-  border: none;
-  border-radius: 2px;
-  text-decoration: none;
-}
-
-.UserButton {
-  margin-top: 20px;
-  color: #fff;
-  background-color: #38aef0;
 }
 
 #error_explanation {

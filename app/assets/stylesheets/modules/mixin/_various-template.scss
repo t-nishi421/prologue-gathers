@@ -1,0 +1,36 @@
+@mixin text-back {
+  height: auto;
+  width: 840px;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #b6c9e2e6;
+  border-radius: 5px;
+}
+
+@mixin icon {
+  height: 200px;
+  width: 200px;
+  background-color: #d9e5f7;
+  border: solid #4b6ea3 5px;
+  border-radius: 50%;
+}
+
+@mixin small-icon {
+  height: 37px;
+  width: 37px;
+  margin: -3px 8px 0 0;
+  background-color: #d9e5f7;
+  border: solid #4b6ea3 1px;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+@mixin calc-header-height($header-or-body) {
+  @if $header-or-body == "body" {
+    height: calc(100vh - 76px);
+  }
+
+  @if $header-or-body == "header" {
+    height: 76px;
+  }
+}

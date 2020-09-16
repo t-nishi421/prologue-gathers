@@ -4,8 +4,7 @@
       .menu__left
         %h1 マイページ
         .menu__left__top
-          .menu__left__top__icon
-            image
+          .menu__left__top__icon{style: "background-image: url(#{current_user.image})"}
           .menu__left__top__user-menu
             %ul
               = link_to edit_user_path(current_user) do
@@ -27,13 +26,13 @@
         %ul
           = link_to books_path do
             %li
-              一覧画面へ
+              一覧画面
           = link_to new_book_path do
             %li
-              本を投稿する
+              本を投稿
           = link_to search_userid_books_path(current_user.id) do
             %li
-              投稿した本
+              投稿した本を閲覧
           = link_to edit_book_path(current_user.rental) do
             %li
               貸出中の本を編集

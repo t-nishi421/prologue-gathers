@@ -7,7 +7,7 @@
     height: 80px;
     padding-top: 30px;
     margin-right: 40px;
-    @include flex-bundle(flex-end, center);
+    @include flex-bundle(center, center);
     &__search {
       height: 40px;
       width: 360px;

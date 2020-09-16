@@ -8,30 +8,40 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application'
   %body
-    %header.header
+    %header
       = link_to books_path, class: "logo" do
         = image_tag 'title.jpg', alt: '始まりの図書館'
       - if user_signed_in?
         .user
           .user__name
+            .user__name__icon{style: "background-image: url(#{current_user.image})"}
             = "名前：#{current_user.name}"
           .user__box
-            = link_to user_path(current_user), class: 'user__box__button' do
-              マイページ
             - if current_user.rental == 0
               .user__box__hasbook.user__box__hasbook--not-taking-out
                 貸出無し
             - else
               = link_to edit_book_path(current_user.rental), class: "user__box__hasbook user__box__hasbook--taking-out" do
                 貸出中
+            .user__box__dropdown
+              .user__box__dropdown__arrow
+                = icon('fa', 'chevron-down')
+              .user__box__dropdown__arrow-menu
+                %ul
+                  %li
+                    = link_to user_path(current_user), class: 'user__box__dropdown__button' do
+                      マイページ
+                  %li
+                    = link_to new_book_path, class: 'user__box__dropdown__post-button' do
+                      本を投稿
       - else
         .user
           .user__name
             名前：ゲスト
           .user__box
-            = link_to new_user_session_path, class: 'user__box__button' do
+            = link_to new_user_session_path, class: 'user__box__dropdown__button' do
               ログイン
+    .alert
+      = flash[:notice]
     .wrapper
-      .alert
-        = flash[:notice]
       = yield
