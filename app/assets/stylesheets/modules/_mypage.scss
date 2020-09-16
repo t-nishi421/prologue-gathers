@@ -15,12 +15,12 @@
 }
 
 .center {
-  height: calc(100vh - 110px);
+  @include calc-header-height("body");
   width: 100%;
   background-image: url("../green_wood.jpg");
   &__over-color {
     position: fixed;
-    height: calc(100vh - 110px);
+    @include calc-header-height("body");
     width: 100%;
     background-color: rgba(9, 11, 41, 0.37);
     overflow: auto;

@@ -1,6 +1,13 @@
 @import "flex-bundle";
 
 @mixin button-template($size, $color) {
+  @if $size == "small" {
+    height: 40px;
+    width: 120px;
+    border-radius: 4px;
+    font-weight: bold;
+    @include flex-bundle(center, center);
+  }
   @if $size == "middle" {
     height: 50px;
     width: 126px;

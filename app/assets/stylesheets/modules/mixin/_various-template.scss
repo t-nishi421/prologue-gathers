@@ -14,3 +14,23 @@
   border: solid #4b6ea3 5px;
   border-radius: 50%;
 }
+
+@mixin small-icon {
+  height: 37px;
+  width: 37px;
+  margin: -3px 8px 0 0;
+  background-color: #d9e5f7;
+  border: solid #4b6ea3 1px;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+@mixin calc-header-height($header-or-body) {
+  @if $header-or-body == "body" {
+    height: calc(100vh - 76px);
+  }
+
+  @if $header-or-body == "header" {
+    height: 76px;
+  }
+}

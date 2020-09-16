@@ -1,66 +1,107 @@
 @import "mixin/flex-bundle";
 @import "mixin/button-template";
+@import "mixin/various-template";
 
-.header {
-  height: 110px;
+header {
+  @include calc-header-height("header");
   width: 100%;
   background-image: url("../wood.jpg");
   border-bottom: solid 2px #000;
   position: relative;
   top: 0;
   left: 0;
+  z-index: 1;
   @include flex-bundle(space-between, center);
 }
 
 .logo {
-  height: 80px;
-  width: 550px;
-  margin-left: 60px;
+  margin-left: 10vw;
   font-size: 32px;
-  @include flex-bundle(center, center);
+  @include flex-bundle(center, "");
+  img {
+    height: 70px;
+  }
 }
 
 .user {
-  height: 110px;
+  height: 76px;
   width: auto;
-  min-width: 250px;
+  min-width: 247px;
+  margin-right: 10vw;
   background-color: rgb(232, 232, 255);
-  border: solid 3px darkblue;
-  padding: 4px  10px;
+  border: solid 2px darkblue;
+  padding: 8px 10px;
+  resize: none;
+  @include flex-bundle("", center);
+
   &__name {
     margin-top: 8px;
-    font-size: 20px;
+    margin-right: 10px;
+    font-size: 16px;
+    @include flex-bundle("", center);
+    &__icon {
+      @include small-icon();
+    }
   }
+
   &__box {
-    margin-top: 11px;
+    margin-top: 9px;
     @include flex-bundle(flex-end, "");
-    &__button {
-      height: 40px;
-      width: 120px;
-      @include button-template("", "yellow");
-      border-radius: 5px;
-      font-weight: bold;
+
+    &__hasbook {
       margin-right: 10px;
       @include flex-bundle(center, center);
-    }
-    &__button:hover {
-      @include button-template("", "hover-yellow");
-    }
-    &__hasbook {
-      height: 40px;
-      width: 120px;
-      font-weight: bold;
-      border-radius: 4px;
-      text-align: center;
-      @include flex-bundle(center, center);
       &--taking-out {
-        @include button-template("", "red");
+        @include button-template("small", "red");
       }
       &--taking-out:hover {
         @include button-template("", "hover-red");
       }
       &--not-taking-out {
-        @include button-template("", "green");
+        @include button-template("small", "green");
+      }
+    }
+
+    &__dropdown {
+      &__arrow-menu {
+        display: none;
+        position: relative;
+        ul {
+          position: absolute;
+          top: 13px;
+          left: -48px;
+        }
+      }
+      
+      &__button {
+        @include button-template("small", "yellow");
+        margin-right: 10px;
+        @include flex-bundle(center, center);
+      }
+      &__button:hover {
+        @include button-template("", "hover-yellow");
+      }
+  
+      &__post-button {
+        @include button-template("small", "green");
+        margin-right: 10px;
+      }
+      &__post-button:hover {
+        @include button-template("", "hover-green");
+      }
+  
+      &__arrow {
+        margin: 0 10px;
+        @include button-template("small", "green");
+        width: 40px;
+        font-size: 18px;
+        @include flex-bundle(center, center);
+        i {
+          padding: 23px;
+        }
+      }
+      &__arrow:hover {
+        @include button-template("", "hover-green");
       }
     }
   }
