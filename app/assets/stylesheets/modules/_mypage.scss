@@ -17,7 +17,7 @@
 .center {
   @include calc-header-height("body");
   width: 100%;
-  background-image: url("../green_wood.jpg");
+  background-image: image-url("green_wood.jpg");
   &__over-color {
     position: fixed;
     @include calc-header-height("body");
@@ -35,7 +35,7 @@
   min-width: 1125px;
   margin-top: 30px;
   margin: 30px auto;
-  background-image: url("../mypage.png");
+  background-image: image-url("mypage.png");
   background-repeat: no-repeat;
   background-size: contain;
   @include flex-bundle("", "");

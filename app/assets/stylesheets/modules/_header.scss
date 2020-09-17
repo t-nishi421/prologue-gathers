@@ -5,7 +5,7 @@
 header {
   @include calc-header-height("header");
   width: 100%;
-  background-image: url("../wood.jpg");
+  background-image: image-url("wood.jpg");
   border-bottom: solid 2px #000;
   position: relative;
   top: 0;
