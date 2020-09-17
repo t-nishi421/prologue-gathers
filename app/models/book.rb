@@ -26,7 +26,7 @@ class Book < ApplicationRecord
     end
   end
 
-  def self.number_of_books_for_current_user(user_id)
+  def self.number_of_books_for_user(user_id)
     Book.where(user: user_id.to_s).count
   end
 end

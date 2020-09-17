@@ -3,8 +3,9 @@
     .story-content__info
       .story-content__info__chapter
         = "#{index + 1}章：#{t.chapter}"
-      .story-content__info__author
-        .story-content__info__author__icon{style: "background-image: url(#{t.user.image})"}
-        = t.user.name
+      = link_to user_path(t.user.id) do
+        .story-content__info__author
+          .story-content__info__author__icon{style: "background-image: url(#{t.user.image})"}
+          = t.user.name
     .story-content__text
       = safe_join(t.text.split("\n"),tag(:br))
