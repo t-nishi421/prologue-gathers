@@ -12,9 +12,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(current_user.id)
-    @count_book = Book.number_of_books_for_current_user(current_user.id)
-    @count_text = Text.number_of_texts_for_current_user(current_user.id)
+    @user = User.find(params[:id])
+    @count_book = Book.number_of_books_for_user(params[:id])
+    @count_text = Text.number_of_texts_for_user(params[:id])
   end
 
   private

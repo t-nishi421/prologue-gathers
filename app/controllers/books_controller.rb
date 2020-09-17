@@ -60,7 +60,7 @@ class BooksController < ApplicationController
   end
 
   def search_userid
-    @books = Book.search_userid(current_user.id).order(id: "DESC")
+    @books = Book.search_userid(params[:id]).order(id: "DESC")
     render action: :search
   end
 

@@ -2,16 +2,18 @@
   .center__over-color
     .menu
       .menu__left
-        %h1 マイページ
+        %h1
+          = "#{@user.name}さんのページ"
         .menu__left__top
-          .menu__left__top__icon{style: "background-image: url(#{current_user.image})"}
-          .menu__left__top__user-menu
-            %ul
-              = link_to edit_user_path(current_user) do
+          .menu__left__top__icon{style: "background-image: url(#{@user.image})"}
+          - if @user == current_user
+            .menu__left__top__user-menu
+              %ul
+                = link_to edit_user_path(current_user) do
+                  %li
+                    アカウントを編集
                 %li
-                  アカウントを編集
-              %li
-                = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'logout'
+                  = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'logout'
         .menu__left__bottom
           .menu__left__bottom__user-name
             = @user.name
@@ -27,12 +29,13 @@
           = link_to books_path do
             %li
               一覧画面
-          = link_to new_book_path do
-            %li
-              本を投稿
-          = link_to search_userid_books_path(current_user.id) do
+          = link_to search_userid_books_path(@user.id) do
             %li
               投稿した本を閲覧
-          = link_to edit_book_path(current_user.rental) do
-            %li
-              貸出中の本を編集
+          - if @user == current_user
+            = link_to new_book_path do
+              %li
+                本を投稿
+            = link_to edit_book_path(@user.rental) do
+              %li
+                貸出中の本を編集

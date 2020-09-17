@@ -13,9 +13,10 @@
         = image_tag 'title.jpg', alt: '始まりの図書館'
       - if user_signed_in?
         .user
-          .user__name
-            .user__name__icon{style: "background-image: url(#{current_user.image})"}
-            = "名前：#{current_user.name}"
+          = link_to user_path(current_user) do
+            .user__name
+              .user__name__icon{style: "background-image: url(#{current_user.image})"}
+              = "名前：#{current_user.name}"
           .user__box
             - if current_user.rental == 0
               .user__box__hasbook.user__box__hasbook--not-taking-out
