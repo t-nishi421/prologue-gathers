@@ -55,41 +55,6 @@ class BooksController < ApplicationController
   end
 
   def search
-    # colorsテーブルのレコード
-    Color.create(color: "#e9e9e9", icon_white: 0)
-    Color.create(color: "#eea9d1", icon_white: 0)
-    Color.create(color: "#d67474", icon_white: 0)
-    Color.create(color: "#f1b37f", icon_white: 0)
-    Color.create(color: "#d8cc65", icon_white: 0)
-    Color.create(color: "#b0d865", icon_white: 0)
-    Color.create(color: "#3aa054", icon_white: 0)
-    Color.create(color: "#79dfd6", icon_white: 0)
-    Color.create(color: "#697dd6", icon_white: 0)
-    Color.create(color: "#393b97", icon_white: 1)
-    Color.create(color: "#472a8a", icon_white: 1)
-    Color.create(color: "#752048", icon_white: 1)
-    Color.create(color: "#b4914f", icon_white: 0)
-    Color.create(color: "#946144", icon_white: 0)
-    Color.create(color: "#b88add", icon_white: 0)
-    Color.create(color: "#353535", icon_white: 1)
-
-    # iconsテーブルのレコード
-    Icon.create(icon: "0_non")
-    Icon.create(icon: "1_heart")
-    Icon.create(icon: "2_school")
-    Icon.create(icon: "3_animal")
-    Icon.create(icon: "4_sword")
-    Icon.create(icon: "5_sound")
-    Icon.create(icon: "6_gourmet")
-    Icon.create(icon: "7_home")
-    Icon.create(icon: "8_machine")
-    Icon.create(icon: "9_horror")
-    Icon.create(icon: "10_octopus")
-    Icon.create(icon: "11_detective")
-    Icon.create(icon: "12_game")
-    Icon.create(icon: "13_robot")
-    Icon.create(icon: "14_ufo")
-    Icon.create(icon: "15_fairy")
     @books = Book.search(params[:keyword]).order(id: "DESC")
     render action: :index
   end
