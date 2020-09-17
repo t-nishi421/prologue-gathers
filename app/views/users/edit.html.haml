@@ -11,7 +11,7 @@
           %h1 アカウントの編集
           .account-edit-right__image image
           = form_for(current_user) do |f|
-            .account-edit-right__icon{style: "background-image: url(#{current_user.image})"}
+            .account-edit-right__icon{style: "background-image: url(#{asset_path current_user.image})"}
               = f.label :image, class: 'upload-image' do
                 = icon('fa', 'camera')
                 = f.file_field :image, class: 'image-icon'

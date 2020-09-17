@@ -12,7 +12,7 @@
     .cover__image
       .cover__image__white
       .cover__image__top-color
-      = image_tag 'icons/0_non.png', alt: 'アイコン', class: 'cover__image__top-icon'
+      = image_tag '0_non.png', alt: 'アイコン', class: 'cover__image__top-icon'
       = image_tag 'book.png', alt: '本', class: 'cover__image__book-line'
       .cover__image__button-box
         %label{for: "icon"}
@@ -25,12 +25,12 @@
           %ul.icon
             - @icons.each_with_index do |icon, index|
               %label{for: "book_icon#{icon.id}"}
-                %li{ style: "background-image: url(/assets/icons/#{icon.icon}.png)", class: "small-icon" }
+                %li{ style: "background-image: url(#{asset_path icon.icon})", class: "small-icon" }
                   %div 　
               - if index == 0
-                %input{type: "radio", name: "book_icon", value: icon.id, id: "book_icon#{icon.id}", class: "change-book-icon",style: "background-image: url(/assets/icons/#{icon.icon}.png)", checked: "checked"}
+                %input{type: "radio", name: "book_icon", value: icon.id, id: "book_icon#{icon.id}", class: "change-book-icon",style: "background-image: url(#{asset_path icon.icon})", checked: "checked"}
               - else
-                %input{type: "radio", name: "book_icon", value: icon.id, id: "book_icon#{icon.id}", class: "change-book-icon",style: "background-image: url(/assets/icons/#{icon.icon}.png)"}
+                %input{type: "radio", name: "book_icon", value: icon.id, id: "book_icon#{icon.id}", class: "change-book-icon",style: "background-image: url(#{asset_path icon.icon})"}
       %span
         = check_box_tag :color
         .cover__image__color-menu

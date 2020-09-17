@@ -5,7 +5,7 @@
         %h1
           = "#{@user.name}さんのページ"
         .menu__left__top
-          .menu__left__top__icon{style: "background-image: url(#{@user.image})"}
+          .menu__left__top__icon{style: "background-image: url(#{asset_path @user.image})"}
           - if @user == current_user
             .menu__left__top__user-menu
               %ul
