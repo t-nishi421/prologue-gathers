@@ -2,9 +2,9 @@
   .book__body__white
   .book__body__top-color{style: "background-color:#{b.color.color}"}
   - if b.color.icon_white?
-    = image_tag "#{b.icon.icon}.png", alt: 'アイコン', class: 'book__body__icon', style: 'filter: invert(0.9)'
+    = image_tag "#{asset_path　b.icon.icon}", alt: 'アイコン', class: 'book__body__icon', style: 'filter: invert(0.9)'
   - else
-    = image_tag "#{b.icon.icon}.png", alt: 'アイコン', class: 'book__body__icon'
+    = image_tag "#{asset_path　b.icon.icon}", alt: 'アイコン', class: 'book__body__icon'
   = image_tag 'book.png', alt: '本', class: "book__body__book-line"
 .book__name
   - if b.title.length > 8

@@ -9,7 +9,7 @@
     .book-top__cover__white
     .book-top__cover__color{style: "background-color:#{book.color.color}"}
     - if book.color.icon_white?
-      = image_tag "#{book.icon.icon}.png", alt: 'アイコン', class: 'book-top__cover__icon', style: 'filter: invert(0.9)'
+      = image_tag "#{asset_path book.icon.icon}", alt: 'アイコン', class: 'book-top__cover__icon', style: 'filter: invert(0.9)'
     - else
-      = image_tag "#{book.icon.icon}.png", alt: 'アイコン', class: 'book-top__cover__icon'
+      = image_tag "#{asset_path book.icon.icon}", alt: 'アイコン', class: 'book-top__cover__icon'
     = image_tag 'book.png', alt: '本', class: "book-top__cover__line"
