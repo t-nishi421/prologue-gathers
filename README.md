@@ -108,22 +108,22 @@ Icon.create(icon: "14_ufo")
 Icon.create(icon: "15_fairy")
 
 ## mysql
-insert into icons (id, icon) values (1, '0_non');
-insert into icons (id, icon) values (2, '1_heart');
-insert into icons (id, icon) values (3, '2_school');
-insert into icons (id, icon) values (4, '3_animal');
-insert into icons (id, icon) values (5, '4_sword');
-insert into icons (id, icon) values (6, '5_sound');
-insert into icons (id, icon) values (7, '6_gourmet');
-insert into icons (id, icon) values (8, '7_home');
-insert into icons (id, icon) values (9, '8_machine');
-insert into icons (id, icon) values (10, '9_horror');
-insert into icons (id, icon) values (11, '10_octopus');
-insert into icons (id, icon) values (12, '11_detective');
-insert into icons (id, icon) values (13, '12_game');
-insert into icons (id, icon) values (14, '13_robot');
-insert into icons (id, icon) values (15, '14_ufo');
-insert into icons (id, icon) values (16, '15_fairy');
+insert into icons (id, icon) values (1, '0_non.png');
+insert into icons (id, icon) values (2, '1_heart.png');
+insert into icons (id, icon) values (3, '2_school.png');
+insert into icons (id, icon) values (4, '3_animal.png');
+insert into icons (id, icon) values (5, '4_sword.png');
+insert into icons (id, icon) values (6, '5_sound.png');
+insert into icons (id, icon) values (7, '6_gourmet.png');
+insert into icons (id, icon) values (8, '7_home.png');
+insert into icons (id, icon) values (9, '8_machine.png');
+insert into icons (id, icon) values (10, '9_horror.png');
+insert into icons (id, icon) values (11, '10_octopus.png');
+insert into icons (id, icon) values (12, '11_detective.png');
+insert into icons (id, icon) values (13, '12_game.png');
+insert into icons (id, icon) values (14, '13_robot.png');
+insert into icons (id, icon) values (15, '14_ufo.png');
+insert into icons (id, icon) values (16, '15_fairy.png');
 
 update icons set icon = '0_non.png';
 update icons set icon = '1_heart.png';
