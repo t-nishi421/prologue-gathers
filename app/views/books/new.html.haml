@@ -26,7 +26,7 @@
             - @icons.each_with_index do |icon, index|
               %label{for: "book_icon#{icon.id}"}
                 %li{ style: "background-image: url(#{asset_path icon.icon})", class: "small-icon" }
-                  %div 　
+                  %div 
               - if index == 0
                 %input{type: "radio", name: "book_icon", value: icon.id, id: "book_icon#{icon.id}", class: "change-book-icon",style: "background-image: url(#{asset_path icon.icon})", checked: "checked"}
               - else
@@ -38,7 +38,7 @@
             - @colors.each_with_index do |color, index|
               %label{for: "book_color#{color.id}"}
                 %li{ style: "background-color:#{color.color}"}
-                  %div 　
+                  %div 
               - if index == 0
                 %input{type: "radio", name: "book_color", value: color.id, id: "book_color#{color.id}", class: "change-book-color icon-white-#{color.icon_white}", style: "color:#{color.color}", checked: "checked"}
               - else
