@@ -1,13 +1,16 @@
+
 $(function(){
-  $('.user__box__dropdown__arrow').hover(function(){
-    $('.user__box__dropdown__arrow-menu').css('display', 'block');
+  const arrowButton = '.user__box__dropdown__arrow';
+  const arrowMenu = '.user__box__dropdown__arrow-menu';
+  $(arrowButton).hover(function(){
+    $(arrowMenu).css('display', 'block');
   },function(){
-    $('.user__box__dropdown__arrow-menu').css('display', 'none');
+    $(arrowMenu).css('display', 'none');
   });
 
-  $('.user__box__dropdown__arrow-menu').hover(function(){
-    $('.user__box__dropdown__arrow-menu').css('display', 'block');
+  $(arrowMenu).hover(function(){
+    $(this).css('display', 'block');
   },function(){
-    $('.user__box__dropdown__arrow-menu').css('display', 'none');
+    $(this).css('display', 'none');
   });
 });

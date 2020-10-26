@@ -1,15 +1,21 @@
-/* 投稿画面での処理 */
 $(function(){
-  let change_book_color = $('.change-book-color');
+  /* 背景色とアイコンの色調整をするイベント */
 
-  change_book_color.on("click", function(){
-    let color = $(this).css("color");
-    $('.cover__image__top-color').css('background-color', color);
+  /*** 変数 ***/ 
+  let change_color_button = $('.change-book-color');
+  let image_icon = '.cover__image__top-color';
 
+  /*** イベント ***/
+  change_color_button.on("click", function(){
+    // 背景色の変更
+    let new_color = $(this).css("color");
+    $(image_icon).css('background-color', new_color);
+
+    // アイコンを背景色に合わせて変色
     if ($(this).hasClass('icon-white-true')) {
-      $('.cover__image__top-icon').css('filter', 'invert(0.9)');
+      $(image_icon).css('filter', 'invert(0.9)');
     } else {
-      $('.cover__image__top-icon').css('filter', 'invert(0)');
+      $(image_icon).css('filter', 'invert(0)');
     }
   });
 });
