@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
       get 'search/user-id/:id', to: 'books#search_userid', as: 'search_userid'
+      post 'save-sentence', to: 'books#save_sentence', as: 'save_sentence', defaults: { fomat: 'json'}
     end
   end
 

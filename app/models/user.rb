@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true, length: { maximum: 8 }
   has_many :books
   has_many :texts
+  has_many :steal_sentences
 
   mount_uploader :image, ImageUploader
 

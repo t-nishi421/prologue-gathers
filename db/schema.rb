@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_14_021736) do
+ActiveRecord::Schema.define(version: 2020_10_26_072721) do
 
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 2020_09_14_021736) do
     t.string "icon"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "steal_sentences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "sentence", null: false
+    t.bigint "text_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["text_id"], name: "index_steal_sentences_on_text_id"
+    t.index ["user_id"], name: "index_steal_sentences_on_user_id"
   end
 
   create_table "texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -69,6 +79,8 @@ ActiveRecord::Schema.define(version: 2020_09_14_021736) do
   add_foreign_key "books", "colors"
   add_foreign_key "books", "icons"
   add_foreign_key "books", "users"
+  add_foreign_key "steal_sentences", "texts"
+  add_foreign_key "steal_sentences", "users"
   add_foreign_key "texts", "books"
   add_foreign_key "texts", "users"
 end

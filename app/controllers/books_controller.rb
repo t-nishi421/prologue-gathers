@@ -88,6 +88,12 @@ class BooksController < ApplicationController
     redirect_to action: :index
   end
 
+  def save_sentence
+    @sentence = steal_sentence_params
+    if @sentence.valid? && @sentence.save
+    end
+  end
+
   private
   def this_book
     Book.find(params[:id])
@@ -103,6 +109,10 @@ class BooksController < ApplicationController
 
   def new_text
     Text.new(params.require(:book).permit(:chapter, :text).merge(user_id: current_user.id, book_id: @book.id))
+  end
+
+  def steal_sentence_params
+    StealSentence.new(params.permit(:sentence).merge(user_id: current_user.id, text_id: params[:text_id]))
   end
 
   def rental_book
