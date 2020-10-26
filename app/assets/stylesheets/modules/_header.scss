@@ -134,6 +134,7 @@ header {
         @include stealButton();
         border-radius: 0 5px 5px 0;
         background-color: #7474ff;
+        opacity: 0.2;
       }
     }
   }
