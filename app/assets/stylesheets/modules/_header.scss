@@ -2,6 +2,13 @@
 @import "mixin/button-template";
 @import "mixin/various-template";
 
+@mixin stealButton() {
+  height: 35px;
+  width: 40px;
+  border: solid #1f1f1f 2px;
+  @include flex-bundle(center, center);
+}
+
 header {
   @include calc-header-height("header");
   width: 100%;
@@ -102,6 +109,31 @@ header {
       }
       &__arrow:hover {
         @include button-template("", "hover-green");
+      }
+    }
+
+    .stealSwitch {
+      margin-top: 2px;
+      height: 35px;
+      width: 81px;
+      border-radius: 5px;
+      background-color: #858797;
+      cursor : pointer;
+      @include flex-bundle("", "");
+      &__sun {
+        @include stealButton();
+        margin-right: 1px;
+        border-radius: 5px 0 0 5px;
+        background-color: #ffcf76;
+        .fa-sun {
+          margin-top: 1px;
+          font-size: 20px;
+        }
+      }
+      &__moon {
+        @include stealButton();
+        border-radius: 0 5px 5px 0;
+        background-color: #7474ff;
       }
     }
   }
