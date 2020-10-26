@@ -3,6 +3,15 @@
 @import "mixin/various-template";
 @import "mixin/button-template";
 
+.ReadWrapper {
+  position: relative;
+  // margin: 0 auto;
+  // @include flex-bundle(center, "");
+  .MainContents {
+    margin-right: 430px; // moonモードのmargin
+  }
+}
+
 .book-top {
   height: 320px;
   width: 840px;
@@ -109,6 +118,46 @@
     &--not-there {
       @include button-template("middle", "red");
       width: 144px;
+    }
+  }
+}
+
+.StealContents {
+  position: fixed;
+  right: 8%;
+  bottom: 4%;
+  // height: calc(100vh - 76px);
+  // padding: 60vh 0 0 30px;
+  &__stealSentences {
+    position: relative;
+    min-height: 100px;
+    max-height: 600px;
+    width: 400px;
+    background-color: #b6c9e2e6;
+    border-radius: 10px;
+    &__info {
+      padding-top: 5px;
+      text-align: center;
+      font-size: 14px;
+    }
+  }
+  &__stealSentences:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+    left: 200px;
+    width: 0px;
+    height: 0px;
+    margin: auto;
+    border-style: solid;
+    border-color: #b6c9e2e6 transparent transparent transparent;
+    border-width: 20px 20px 0 20px;
+  }
+  &__bag {
+    img {
+      margin: 20px 0 0 220px;
+      height: 150px;
     }
   }
 }
