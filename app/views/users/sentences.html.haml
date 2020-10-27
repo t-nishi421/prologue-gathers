@@ -1,0 +1,18 @@
+.center
+  .center__over-color
+    .menu
+      .menu__left
+        .SentenceInfo
+          盗んだセンテンス
+        .SentenceList
+          - @sentences.each do |sentence|
+            .SentenceBox
+              .SentenceBox__deleteSentence
+                = icon('fa', 'trash')
+              .SentenceBox__sentence
+                = simple_format(sentence.sentence)
+                -# = sentence.sentence
+      .menu__right
+        .hoge
+          実装中
+        ・センテンス削除機能

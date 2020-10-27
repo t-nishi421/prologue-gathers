@@ -1,0 +1,27 @@
+@import "mixin/flex-bundle";
+@import "mixin/button-template";
+@import "mixin/steal-button";
+
+.SentenceInfo {
+  margin-bottom: 10px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.SentenceList {
+  max-height: calc(100% - 50px);
+  overflow: auto;
+}
+
+.SentenceBox {
+  @include flex-bundle("", "");
+  margin-bottom: 5px;
+  &__deleteSentence {
+    padding-top: 2px;
+    @include steal-button();
+    @include button-template("", "red");
+  }
+  &__deleteSentence:hover {
+    @include button-template("", "hover-red");
+  }
+}

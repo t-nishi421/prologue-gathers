@@ -19,6 +19,10 @@ class UsersController < ApplicationController
     @count_stolen_sentence = StealSentence.number_of_sentences_stolen(params[:id])
   end
 
+  def sentences
+    @sentences = StealSentence.where(user_id: params[:id])
+  end
+
   private
 
   def user_params

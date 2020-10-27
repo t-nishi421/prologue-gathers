@@ -2,6 +2,7 @@
 @import "mixin/cover-items";
 @import "mixin/various-template";
 @import "mixin/button-template";
+@import "mixin/steal-button";
 
 .ReadWrapper {
   position: relative;
@@ -174,13 +175,8 @@
   margin-top: 3px;
   @include flex-bundle("", "");
   &__saveButton {
-    height: 30px;
-    width: 30px;
-    margin-right: 3px;
+    @include steal-button();
     @include button-template("", "green");
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
   }
   &__saveButton:hover {
     @include button-template("", "hover-green");

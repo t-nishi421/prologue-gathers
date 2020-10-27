@@ -43,7 +43,8 @@
             = link_to edit_book_path(@user.rental) do
               %li
                 貸出中の本を編集
-          %li
-            盗んだセンテンス(仮)
+          = link_to sentences_user_path(@user.id) do
+            %li
+              盗んだセンテンス
           %li
             アプリの説明(仮)
