@@ -6,10 +6,10 @@ $(function() {
   const addStealSentencesArea = '.StealContents__stealSentences__sentences';
   const saveButton = '.SentenceBox__saveButton';
   const sentence = '.sentence';
+  const removeStealSentenceFloor = 'StealContents__stealSentences__sentences';
 
   // 自動設定
   let indexNumber = 0;
-  let nowEventSaveSentence = false; // イベント発火中に他のイベント発火を防止する
 
   let stealSentence = function(sentence, thisIndex, targetTextId) {
     const html = 
@@ -21,21 +21,6 @@ $(function() {
     </div>`;
     return html;
   }
-  
-  /*** メソッド ***/
-  // 未実装 保存しましたのメッセージ
-  // if(nowEventSaveSentence == false) {
-  //   nowEventSaveSentence = true;
-  //   var comment = setInterval(() => {
-  //     if(area_a < 0.4) {
-  //       area_a = back_ground_display(area_a);
-  //       image_size = view_image_size(image_size);
-  //     } else {
-  //       clearInterval(comment);
-  //       nowEventSaveSentence = false;
-  //     }
-  //   }, 10);
-  // }
 
   /*** イベント ***/
   // ドラッグした文章を取得
@@ -67,7 +52,9 @@ $(function() {
       context: this
     })
     .done(function(data){
-      $(this).parent().remove();
+      if ($(this).parent().parent().hasClass(removeStealSentenceFloor)) {
+        $(this).parent().remove();
+      }
       alert('センテンスを保存しました');
     })
     .fail(function(){
