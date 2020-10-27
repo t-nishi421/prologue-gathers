@@ -23,6 +23,10 @@ class UsersController < ApplicationController
     @sentences = StealSentence.where(user_id: params[:id])
   end
 
+  def delete_sentence
+    StealSentence.find(params[:sentence_id]).delete
+  end
+
   private
 
   def user_params

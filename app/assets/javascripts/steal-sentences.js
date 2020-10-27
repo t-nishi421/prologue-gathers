@@ -45,7 +45,6 @@ $(function() {
     if(window.getSelection){  //selectionオブジェクト取得
       selectedStr = window.getSelection().toString();  //文章取得
       if(selectedStr !== '' && selectedStr !== '\n'){  //文章チェック
-        console.log(selectedStr);
         $(addStealSentencesArea).append(stealSentence(selectedStr, indexNumber, targetTextId));
         indexNumber++;
       }
@@ -57,18 +56,17 @@ $(function() {
     const targetIndex = $(this).data('index');
     const targetTextId = $(this).data('text_id');
     const text = $(sentence + targetIndex).text();
-    console.log(text); // 保存するテキスト
-    console.log(targetTextId);// 保存するtext_id
-    $(this).parent().remove();
     // 以下ajaxで保存処理
     $.ajax({
       url: '/books/save-sentence',
       type: 'POST',
       data: { sentence: text,
               text_id:  targetTextId},
-      dataType: 'json'
+      dataType: 'json',
+      context: this
     })
     .done(function(data){
+      $(this).parent().remove();
       alert('センテンスを保存しました');
     })
     .fail(function(){

@@ -19,5 +19,8 @@ Rails.application.routes.draw do
     member do
       get 'sentences', to: 'users#sentences', as: 'sentences'
     end
+    collection do
+      post 'sentence/delete', to: 'users#delete_sentence', as: 'delete_sentence', defaults: { fomat: 'json'}
+    end
   end
 end

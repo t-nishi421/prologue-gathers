@@ -3,7 +3,6 @@ $(function() {
     let reader = new FileReader();
 
     reader.onload = function (e) {
-      console.log(e);
       $('.account-edit-right__icon').css('background-image', 'url(' + e.target.result + ')');
     }
     reader.readAsDataURL(e.target.files[0]);

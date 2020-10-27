@@ -21,7 +21,7 @@ $(function() {
     modeSunOrMoon = true;
     $(sunArea).css('opacity', '1');
     $(moonArea).css('opacity', '0.2');
-    $(wrapper).css('background-color', "rgba(0, 50, 100, 0.2)");
+    $(wrapper).css('background-color', "rgba(0, 50, 100, 0.3)");
     $(showBookArea).css('margin-right', '0px');
     $(stealContents).css('display', 'none');
     addModeToSession();

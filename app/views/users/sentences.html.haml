@@ -2,17 +2,16 @@
   .center__over-color
     .menu
       .menu__left
+        .hoge
+          実装中
+        ・センテンスの活用機能
+      .menu__right
         .SentenceInfo
           盗んだセンテンス
         .SentenceList
           - @sentences.each do |sentence|
             .SentenceBox
-              .SentenceBox__deleteSentence
+              .SentenceBox__deleteSentence{"data-id" => sentence.id}
                 = icon('fa', 'trash')
               .SentenceBox__sentence
                 = simple_format(sentence.sentence)
-                -# = sentence.sentence
-      .menu__right
-        .hoge
-          実装中
-        ・センテンス削除機能

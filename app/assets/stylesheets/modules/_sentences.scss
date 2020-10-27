@@ -10,6 +10,8 @@
 
 .SentenceList {
   max-height: calc(100% - 50px);
+  border-top: solid rgba(6, 48, 77, 0.671) 3px;
+  border-bottom: solid rgba(6, 48, 77, 0.671) 3px;
   overflow: auto;
 }
 
