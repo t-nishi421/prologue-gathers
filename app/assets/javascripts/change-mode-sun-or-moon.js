@@ -16,7 +16,7 @@ $(function() {
   const newStealContents = '.UseStealContents';
 
   // マイページ
-  const logoutButton = '.logout';
+  const logoutButton = '.LogoutButton';
 
   // 自動設定
   let modeSunOrMoon = true; // 太陽:true, 月:false

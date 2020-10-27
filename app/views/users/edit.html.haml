@@ -5,7 +5,7 @@
         .account-edit-left
           .account-edit-left__link
             = link_to "トップページに戻る", :back, class: 'Button'
-            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'Button'
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'Button LogoutButton'
       .menu__right
         .account-edit-right
           %h1 アカウントの編集

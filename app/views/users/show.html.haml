@@ -13,7 +13,7 @@
                   %li
                     アカウントを編集
                 %li
-                  = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'logout'
+                  = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'logout LogoutButton'
         .menu__left__bottom
           .menu__left__bottom__user-name
             = @user.name
