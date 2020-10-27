@@ -115,14 +115,13 @@ header {
     .stealSwitch {
       margin-top: 2px;
       height: 35px;
-      width: 81px;
+      width: 80px;
       border-radius: 5px;
       background-color: #858797;
       cursor : pointer;
       @include flex-bundle("", "");
       &__sun {
         @include stealButton();
-        margin-right: 1px;
         border-radius: 5px 0 0 5px;
         background-color: #ffcf76;
         .fa-sun {

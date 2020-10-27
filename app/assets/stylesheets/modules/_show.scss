@@ -115,6 +115,10 @@
       @include button-template("middle", "green");
       width: 144px;
     }
+    &--there:hover {
+      @include button-template("middle", "hover-green");
+      width: 144px;
+    }
     &--not-there {
       @include button-template("middle", "red");
       width: 144px;

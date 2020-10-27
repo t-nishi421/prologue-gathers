@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_26_072721) do
+ActiveRecord::Schema.define(version: 2020_10_27_000122) do
 
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2020_10_26_072721) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "stolen_user_id"
+    t.index ["stolen_user_id"], name: "index_steal_sentences_on_stolen_user_id"
     t.index ["text_id"], name: "index_steal_sentences_on_text_id"
     t.index ["user_id"], name: "index_steal_sentences_on_user_id"
   end
@@ -81,6 +83,7 @@ ActiveRecord::Schema.define(version: 2020_10_26_072721) do
   add_foreign_key "books", "users"
   add_foreign_key "steal_sentences", "texts"
   add_foreign_key "steal_sentences", "users"
+  add_foreign_key "steal_sentences", "users", column: "stolen_user_id"
   add_foreign_key "texts", "books"
   add_foreign_key "texts", "users"
 end

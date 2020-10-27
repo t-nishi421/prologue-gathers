@@ -15,6 +15,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @count_book = Book.number_of_books_for_user(params[:id])
     @count_text = Text.number_of_texts_for_user(params[:id])
+    @count_steal_sentence = StealSentence.number_of_sentences_steal(params[:id])
+    @count_stolen_sentence = StealSentence.number_of_sentences_stolen(params[:id])
   end
 
   private

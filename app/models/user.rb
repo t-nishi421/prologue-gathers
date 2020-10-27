@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :books
   has_many :texts
   has_many :steal_sentences
+  has_many :steal_sentences, foreign_key: :stolen_user_id
 
   mount_uploader :image, ImageUploader
 

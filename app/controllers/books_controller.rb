@@ -112,7 +112,8 @@ class BooksController < ApplicationController
   end
 
   def steal_sentence_params
-    StealSentence.new(params.permit(:sentence).merge(user_id: current_user.id, text_id: params[:text_id]))
+    id_of_the_user_who_wrote_the_text = Text.find(params[:text_id]).user_id
+    StealSentence.new(params.permit(:sentence).merge(user_id: current_user.id, text_id: params[:text_id], stolen_user_id: id_of_the_user_who_wrote_the_text))
   end
 
   def rental_book
