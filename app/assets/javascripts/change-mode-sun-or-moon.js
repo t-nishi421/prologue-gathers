@@ -15,6 +15,9 @@ $(function() {
   const newBookArea = '.newWrapper';
   const newStealContents = '.UseStealContents';
 
+  // マイページ
+  const logoutButton = '.logout';
+
   // 自動設定
   let modeSunOrMoon = true; // 太陽:true, 月:false
 
@@ -50,7 +53,8 @@ $(function() {
   /*** イベント ***/
   $(document).ready(function(){
     var session = sessionStorage.getItem('mode');
-    if (session == "true") {
+    console.log(session);
+    if (session == "true" || session == null) {
       sunMode();
     } else {
       moonMode();
@@ -63,5 +67,9 @@ $(function() {
     } else { // sunモードに変更
       sunMode();
     }
+  });
+
+  $(logoutButton).on('click', function(){
+    sessionStorage.removeItem('mode');
   });
 });
