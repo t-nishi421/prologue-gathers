@@ -1,0 +1,21 @@
+.center
+  .center__over-color
+    .menu
+      .menu__left
+        .hoge
+          工事中
+        ・なんかすごい機能実装予定
+      .menu__right
+        .SentenceInfo
+          盗んだセンテンス
+        .SentenceList
+          - @sentences.each_with_index do |sentence, index|
+            .SentenceBox
+              - if sentence.user_id == current_user.id
+                .SentenceBox__deleteSentence{"data-id" => sentence.id}
+                  = icon('fa', 'trash')
+              - else
+                .SentenceBox__saveButton{"data-index" => index, "data-text_id" => sentence.text_id}
+                  = icon('fa', 'save')
+              .SentenceBox__sentence{class: "sentence#{index}"}
+                = safe_join(sentence.sentence.split("\n"),tag(:br))

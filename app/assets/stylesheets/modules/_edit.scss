@@ -31,9 +31,15 @@
     @include button-template("middle", "red");
     @include flex-bundle(center, center);
   }
+  &__return-button:hover {
+    @include button-template("middle", "hover-red");
+  }
   &__edit-button {
     @include button-template("middle", "green");
     @include flex-bundle(center, center);
+  }
+  &__edit-button:hover {
+    @include button-template("middle", "hover-green");
   }
 }
 

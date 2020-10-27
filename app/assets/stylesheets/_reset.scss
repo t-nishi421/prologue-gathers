@@ -124,3 +124,11 @@ legend {
 }
 /* YUI CSS Detection Stamp */
 #yui3-css-stamp.cssreset { display: none; }
+
+// Test css
+.hoge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}

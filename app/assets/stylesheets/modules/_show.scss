@@ -2,6 +2,16 @@
 @import "mixin/cover-items";
 @import "mixin/various-template";
 @import "mixin/button-template";
+@import "mixin/steal-button";
+
+.ReadWrapper {
+  position: relative;
+  // margin: 0 auto;
+  // @include flex-bundle(center, "");
+  .MainContents {
+    margin-right: 430px; // moonモードのmargin
+  }
+}
 
 .book-top {
   height: 320px;
@@ -83,6 +93,9 @@
         border-radius: 50%;
       }
     }
+    a:hover {
+      opacity: 0.5;
+    }
   }
   &__text {
     height: auto;
@@ -106,9 +119,76 @@
       @include button-template("middle", "green");
       width: 144px;
     }
+    &--there:hover {
+      @include button-template("middle", "hover-green");
+      width: 144px;
+    }
     &--not-there {
       @include button-template("middle", "red");
       width: 144px;
     }
+  }
+}
+
+.StealContents {
+  position: fixed;
+  right: 8%;
+  bottom: 4%;
+  &__stealSentences {
+    position: relative;
+    min-height: 100px;
+    max-height: 600px;
+    width: 400px;
+    padding: 5px 0;
+    background-color: #b6c9e2e6;
+    border-radius: 10px;
+    &__info {
+      padding-top: 5px;
+      text-align: center;
+      font-size: 14px;
+    }
+    &__sentences {
+      max-height: 560px;
+      margin: 2px 10px;
+      overflow: auto;
+    }
+  }
+  &__stealSentences:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+    left: 200px;
+    width: 0px;
+    height: 0px;
+    margin: auto;
+    border-style: solid;
+    border-color: #b6c9e2e6 transparent transparent transparent;
+    border-width: 20px 20px 0 20px;
+  }
+  &__bag {
+    img {
+      margin: 20px 0 0 220px;
+      height: 150px;
+    }
+  }
+}
+
+.SentenceBox {
+  margin-top: 3px;
+  @include flex-bundle("", "");
+  &__saveButton {
+    @include steal-button();
+    @include button-template("", "green");
+  }
+  &__saveButton:hover {
+    @include button-template("", "hover-green");
+  }
+  &__sentence {
+    width: 100%;
+    padding: 0 5px;
+    background-color: white;
+    border: solid #777 1px;
+    border-radius: 5px;
   }
 }

@@ -4,6 +4,7 @@ class Text < ApplicationRecord
 
   belongs_to :user
   belongs_to :book
+  has_many :steal_sentences
   
   def judge_create_text
     if chapter == "" || text == ""

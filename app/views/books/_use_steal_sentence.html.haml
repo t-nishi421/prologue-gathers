@@ -1,0 +1,15 @@
+.UseStealContents
+  .UseStealContents__stealSentences
+    .UseStealContents__stealSentences__info
+      コピー＆ペーストで盗んだセンテンスを使ってみましょう。
+    .UseStealContents__stealSentences__sentences
+      - @sentences.each_with_index do |sentence, index|
+        .UseSentenceBox
+          .UseSentenceBox__sentence{class: "sentence#{index}"}
+            = simple_format(sentence.sentence)
+          .UseSentenceBox__copyButton{"data-index" => index}
+            = icon('fa', 'file')
+  .UseStealContents__bag
+    = image_tag 'steal_bag.png', alt: '袋'
+.CopyMessage
+  コピーしました

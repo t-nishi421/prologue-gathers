@@ -7,6 +7,7 @@ class BooksController < ApplicationController
     @book = Book.new
     @colors = Color.all
     @icons = Icon.all
+    @sentences = StealSentence.where(user_id: current_user)
   end
 
   def create
@@ -88,6 +89,12 @@ class BooksController < ApplicationController
     redirect_to action: :index
   end
 
+  def save_sentence
+    @sentence = steal_sentence_params
+    if @sentence.valid? && @sentence.save
+    end
+  end
+
   private
   def this_book
     Book.find(params[:id])
@@ -103,6 +110,11 @@ class BooksController < ApplicationController
 
   def new_text
     Text.new(params.require(:book).permit(:chapter, :text).merge(user_id: current_user.id, book_id: @book.id))
+  end
+
+  def steal_sentence_params
+    id_of_the_user_who_wrote_the_text = Text.find(params[:text_id]).user_id
+    StealSentence.new(params.permit(:sentence).merge(user_id: current_user.id, text_id: params[:text_id], stolen_user_id: id_of_the_user_who_wrote_the_text))
   end
 
   def rental_book

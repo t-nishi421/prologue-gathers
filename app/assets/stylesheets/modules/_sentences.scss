@@ -1,0 +1,29 @@
+@import "mixin/flex-bundle";
+@import "mixin/button-template";
+@import "mixin/steal-button";
+
+.SentenceInfo {
+  margin-bottom: 10px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.SentenceList {
+  max-height: calc(100% - 50px);
+  border-top: solid rgba(6, 48, 77, 0.671) 3px;
+  border-bottom: solid rgba(6, 48, 77, 0.671) 3px;
+  overflow: auto;
+}
+
+.SentenceBox {
+  @include flex-bundle("", "");
+  margin-bottom: 5px;
+  &__deleteSentence {
+    padding-top: 2px;
+    @include steal-button();
+    @include button-template("", "red");
+  }
+  &__deleteSentence:hover {
+    @include button-template("", "hover-red");
+  }
+}

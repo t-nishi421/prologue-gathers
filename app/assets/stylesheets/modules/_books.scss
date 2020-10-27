@@ -8,6 +8,7 @@
 
 .wrapper {
   @include calc-header-height("body");
+  // background-color: rgba(0, 25, 50, 0.7); // 盗人モード
   background-color:rgba(0, 50, 100, 0.3);
   overflow: auto;
 }

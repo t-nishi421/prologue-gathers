@@ -2,10 +2,16 @@
 @import "mixin/cover-items";
 @import "mixin/button-template";
 
+.newWrapper {
+  width: 840px;
+  margin: 0 auto;
+  // margin: 0 50px; moonモード時
+}
+
 .cover {
   height: 300px;
   width: 840px;
-  margin: 20px auto 0 auto;
+  margin-top: 20px;
   @include flex-bundle("", flex-end);
   &__text {
     height: 140px;
@@ -165,7 +171,7 @@
 .text {
   height: 600px;
   width: 840px;
-  margin: 20px auto 0 auto;
+  margin-top: 20px;
   &__exp {
     height: 50px;
     width: 126px;
@@ -180,7 +186,8 @@
   }
   &__textbox {
     height: 300px; //仮置き
-    width: 840px;
+    min-width: 840px;
+    max-width: 840px;
     padding: 10px;
     background-color: white;
     border: solid 3px black;

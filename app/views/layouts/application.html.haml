@@ -35,6 +35,11 @@
                   %li
                     = link_to new_book_path, class: 'user__box__dropdown__post-button' do
                       本を投稿
+            .stealSwitch
+              .stealSwitch__sun
+                = icon('fa', 'sun')
+              .stealSwitch__moon
+                = icon('fa', 'moon')
       - else
         .user
           .user__name

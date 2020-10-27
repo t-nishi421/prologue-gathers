@@ -90,22 +90,22 @@ insert into colors (id, color, icon_white) values (16, '#353535', 1);
 
 # iconsテーブルのレコード
 ## rails
-Icon.create(icon: "0_non")
-Icon.create(icon: "1_heart")
-Icon.create(icon: "2_school")
-Icon.create(icon: "3_animal")
-Icon.create(icon: "4_sword")
-Icon.create(icon: "5_sound")
-Icon.create(icon: "6_gourmet")
-Icon.create(icon: "7_home")
-Icon.create(icon: "8_machine")
-Icon.create(icon: "9_horror")
-Icon.create(icon: "10_octopus")
-Icon.create(icon: "11_detective")
-Icon.create(icon: "12_game")
-Icon.create(icon: "13_robot")
-Icon.create(icon: "14_ufo")
-Icon.create(icon: "15_fairy")
+Icon.create(icon: "0_non.png")
+Icon.create(icon: "1_heart.png")
+Icon.create(icon: "2_school.png")
+Icon.create(icon: "3_animal.png")
+Icon.create(icon: "4_sword.png")
+Icon.create(icon: "5_sound.png")
+Icon.create(icon: "6_gourmet.png")
+Icon.create(icon: "7_home.png")
+Icon.create(icon: "8_machine.png")
+Icon.create(icon: "9_horror.png")
+Icon.create(icon: "10_octopus.png")
+Icon.create(icon: "11_detective.png")
+Icon.create(icon: "12_game.png")
+Icon.create(icon: "13_robot.png")
+Icon.create(icon: "14_ufo.png")
+Icon.create(icon: "15_fairy.png")
 
 ## mysql
 insert into icons (id, icon) values (1, '0_non.png');
