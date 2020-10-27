@@ -33,7 +33,7 @@
           = link_to books_path do
             %li
               一覧画面
-          = link_to search_userid_books_path(@user.id) do
+          = link_to search_userid_book_path(@user.id) do
             %li
               投稿した本を閲覧
           - if @user == current_user
