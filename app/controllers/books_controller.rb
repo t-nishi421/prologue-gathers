@@ -7,6 +7,7 @@ class BooksController < ApplicationController
     @book = Book.new
     @colors = Color.all
     @icons = Icon.all
+    @sentences = StealSentence.where(user_id: current_user)
   end
 
   def create

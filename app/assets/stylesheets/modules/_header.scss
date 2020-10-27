@@ -47,6 +47,7 @@ header {
     font-size: 16px;
     @include flex-bundle("", center);
     &__icon {
+      min-width: 37px;
       @include small-icon();
     }
   }

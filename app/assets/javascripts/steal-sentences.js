@@ -39,7 +39,7 @@ $(function() {
 
   /*** イベント ***/
   // ドラッグした文章を取得
-  $(sentencesArea).on('mouseup', function(e){  //mouseupでイベント発火
+  $(sentencesArea).on('mouseup', function(){  //mouseupでイベント発火
     const targetTextId = $(this).data('text_id');
     var selectedStr;
     if(window.getSelection){  //selectionオブジェクト取得
@@ -52,10 +52,11 @@ $(function() {
   });
 
   // セーブ
-  $(document).on('click', saveButton, function(){
+  $(document).on('click', saveButton, function(e){
     const targetIndex = $(this).data('index');
     const targetTextId = $(this).data('text_id');
     const text = $(sentence + targetIndex).text();
+    
     // 以下ajaxで保存処理
     $.ajax({
       url: '/books/save-sentence',

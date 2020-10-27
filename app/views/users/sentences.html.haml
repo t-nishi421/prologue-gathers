@@ -14,4 +14,4 @@
               .SentenceBox__deleteSentence{"data-id" => sentence.id}
                 = icon('fa', 'trash')
               .SentenceBox__sentence
-                = simple_format(sentence.sentence)
+                = safe_join(sentence.sentence.split("\n"),tag(:br))

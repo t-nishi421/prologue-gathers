@@ -1,13 +1,19 @@
 $(function() {
   /*** 変数 ***/
   // 手動設定
+  // 全画面
   const modeChangeButton = '.stealSwitch';
   const sunArea = '.stealSwitch__sun';
   const moonArea = '.stealSwitch__moon';
   const wrapper =  '.wrapper';
 
+  // show, edit画面
   const showBookArea = '.MainContents';
   const stealContents = '.StealContents';
+
+  // new画面
+  const newBookArea = '.newWrapper';
+  const newStealContents = '.UseStealContents';
 
   // 自動設定
   let modeSunOrMoon = true; // 太陽:true, 月:false
@@ -24,6 +30,8 @@ $(function() {
     $(wrapper).css('background-color', "rgba(0, 50, 100, 0.3)");
     $(showBookArea).css('margin-right', '0px');
     $(stealContents).css('display', 'none');
+    $(newBookArea).css('margin', '0 auto');
+    $(newStealContents).css('display', 'none');
     addModeToSession();
   }
   
@@ -34,6 +42,8 @@ $(function() {
     $(wrapper).css('background-color', "rgba(0, 25, 50, 0.7)");
     $(showBookArea).css('margin-right', '430px');
     $(stealContents).css('display', 'block');
+    $(newBookArea).css('margin', '0 500px');
+    $(newStealContents).css('display', 'block');
     addModeToSession();
   }
   
