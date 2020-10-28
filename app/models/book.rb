@@ -1,8 +1,9 @@
 class Book < ApplicationRecord
   validates :title, presence: true, length: { maximum: 48 }
 
-  belongs_to :user
   has_many :texts
+  has_many :bookmarks
+  belongs_to :user
   belongs_to :color
   belongs_to :icon
 
@@ -29,4 +30,5 @@ class Book < ApplicationRecord
   def self.number_of_books_for_user(user_id)
     Book.where(user: user_id.to_s).count
   end
+
 end

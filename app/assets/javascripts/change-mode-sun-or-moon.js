@@ -53,7 +53,6 @@ $(function() {
   /*** イベント ***/
   $(document).ready(function(){
     var session = sessionStorage.getItem('mode');
-    console.log(session);
     if (session == "true" || session == null) {
       sunMode();
     } else {

@@ -19,3 +19,6 @@
                   = icon('fa', 'save')
               .SentenceBox__sentence{class: "sentence#{index}"}
                 = safe_join(sentence.sentence.split("\n"),tag(:br))
+              = link_to book_path(sentence.text.book.id) do
+                .SentenceBox__quote
+                  = "出典：『#{sentence.text.book.title}』#{StealSentence.getChapterNumber(sentence)}章#{sentence.text.chapter}"

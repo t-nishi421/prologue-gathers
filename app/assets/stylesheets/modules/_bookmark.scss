@@ -1,0 +1,31 @@
+@import "mixin/flex-bundle";
+
+.TotalNumberOfBookmarks {
+  margin-right: 3px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.BookmarkButton {
+  height: 22px;
+  width: 22px;
+  margin-right: 5px;
+  background-color: #9eb2be;
+  border-radius: 50%;
+  font-size: 12px;
+  @include flex-bundle(center, center);
+}
+.BookmarkButton:hover {
+  opacity: 0.5;
+}
+
+.SaveBookmarkButton {
+  i::before {
+    font-weight: 400;
+  }
+}
+
+.DeleteBookmarkButton {
+  background-color: #00bceb;
+  color: #fff;
+}

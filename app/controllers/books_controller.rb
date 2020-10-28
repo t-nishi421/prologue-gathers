@@ -65,6 +65,11 @@ class BooksController < ApplicationController
     render action: :search
   end
 
+  def search_bookmark
+    @books = Book.includes(:bookmarks).where(bookmarks: {user_id: params[:id]}).order(id: "DESC")
+    render action: :search
+  end
+
   def rental
     @path = Rails.application.routes.recognize_path(request.referer)
 
@@ -93,6 +98,18 @@ class BooksController < ApplicationController
     @sentence = steal_sentence_params
     if @sentence.valid? && @sentence.save
     end
+  end
+
+  def bookmark
+    if Bookmark.whetherBookmarked(current_user.id, params[:id].to_i)
+      Bookmark.create(user_id: current_user.id, book_id: params[:id].to_i)
+    end
+    @count = Bookmark.bookmarkCount(params[:id].to_i)
+  end
+
+  def delete_bookmark
+    Bookmark.where(user_id: current_user.id, book_id: params[:id].to_i).delete_all
+    @count = Bookmark.bookmarkCount(params[:id].to_i)
   end
 
   private
