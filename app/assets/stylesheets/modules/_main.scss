@@ -75,21 +75,25 @@
     margin-right: 10px;
     color: #080820;
   }
-  &__state {
-    width: 80px;
-    font-size: 20px;
-    margin-top: 2px;
-    margin-left: 130px;
-    border-radius: 4px;
-    @include flex-bundle(center, "");
-    &--there {
-      @include button-template("", "green");
-    }
-    &--not-there {
-      @include button-template("", "red");
-    }
-    &--completion {
-      @include button-template("", "yellow");
+  &__underContent {
+    height: 36px;
+    padding: 0 10px;
+    width: 100%;
+    @include flex-bundle(flex-end, flex-end);
+    &__state {
+      width: 80px;
+      font-size: 20px;
+      border-radius: 4px;
+      @include flex-bundle(center, "");
+      &--there {
+        @include button-template("", "green");
+      }
+      &--not-there {
+        @include button-template("", "red");
+      }
+      &--completion {
+        @include button-template("", "yellow");
+      }
     }
   }
 }

@@ -95,6 +95,18 @@ class BooksController < ApplicationController
     end
   end
 
+  def bookmark
+    if Bookmark.whetherBookmarked(current_user.id, params[:id].to_i)
+      Bookmark.create(user_id: current_user.id, book_id: params[:id].to_i)
+    end
+    @count = Bookmark.bookmarkCount(params[:id].to_i)
+  end
+
+  def delete_bookmark
+    Bookmark.where(user_id: current_user.id, book_id: params[:id].to_i).delete_all
+    @count = Bookmark.bookmarkCount(params[:id].to_i)
+  end
+
   private
   def this_book
     Book.find(params[:id])

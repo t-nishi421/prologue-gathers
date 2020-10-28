@@ -21,7 +21,6 @@ $(function() {
         context: this
       })
       .done(function(data){
-        console.log(data);
         $(this).parent().remove();
         alert(doneMessage);
       })
