@@ -2,7 +2,7 @@ class Book < ApplicationRecord
   validates :title, presence: true, length: { maximum: 48 }
 
   has_many :texts
-  has_many :bookmark
+  has_many :bookmarks
   belongs_to :user
   belongs_to :color
   belongs_to :icon

@@ -65,6 +65,11 @@ class BooksController < ApplicationController
     render action: :search
   end
 
+  def search_bookmark
+    @books = Book.includes(:bookmarks).where(bookmarks: {user_id: params[:id]}).order(id: "DESC")
+    render action: :search
+  end
+
   def rental
     @path = Rails.application.routes.recognize_path(request.referer)
 

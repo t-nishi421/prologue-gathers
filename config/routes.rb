@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :books, only: [:index, :new, :create, :edit, :update, :show] do
     member do
+      get 'search/bookmark', to: 'books#search_bookmark', as: 'search_bookmark'
       get 'search/user', to: 'books#search_userid', as: 'search_userid'
       get 'rental', to: 'books#rental', as: 'rental'
       get 'return', to: 'books#return', as: 'return'

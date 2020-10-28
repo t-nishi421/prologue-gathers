@@ -36,8 +36,9 @@
           = link_to search_userid_book_path(@user.id) do
             %li
               投稿した本を閲覧
-          %li
-            お気に入りの本を閲覧
+          = link_to search_bookmark_book_path(@user.id) do
+            %li
+              お気に入りの本を閲覧
           - if @user == current_user
             = link_to new_book_path do
               %li
