@@ -174,21 +174,3 @@
   }
 }
 
-.SentenceBox {
-  margin-top: 3px;
-  @include flex-bundle("", "");
-  &__saveButton {
-    @include steal-button();
-    @include button-template("", "green");
-  }
-  &__saveButton:hover {
-    @include button-template("", "hover-green");
-  }
-  &__sentence {
-    width: 100%;
-    padding: 0 5px;
-    background-color: white;
-    border: solid #777 1px;
-    border-radius: 5px;
-  }
-}

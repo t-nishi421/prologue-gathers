@@ -19,4 +19,18 @@ class StealSentence < ApplicationRecord
     not_count = count.where(user: user_id.to_s).count
     answer = count.count - not_count
   end
+
+  def self.getChapterNumber(sentence)
+    this_text = sentence.text
+    index = 0
+    count = 0
+    texts = Text.where(book_id: this_text.book_id)
+    texts.each do |text|
+      index = index + 1
+      if text.id == this_text.id
+        count = index
+      end
+    end
+    count
+  end
 end

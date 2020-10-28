@@ -16,8 +16,17 @@
 }
 
 .SentenceBox {
-  @include flex-bundle("", "");
+  margin-top: 3px;
   margin-bottom: 5px;
+  @include flex-bundle(flex-end, "");
+  flex-wrap: wrap;
+  &__saveButton {
+    @include steal-button();
+    @include button-template("", "green");
+  }
+  &__saveButton:hover {
+    @include button-template("", "hover-green");
+  }
   &__deleteSentence {
     padding-top: 2px;
     @include steal-button();
@@ -25,5 +34,20 @@
   }
   &__deleteSentence:hover {
     @include button-template("", "hover-red");
+  }
+  &__quote {
+    padding: 2px 0 2px 40px;
+    margin-right: 5px;
+    font-size: 12px;
+  }
+  &__quote:hover {
+    color: blue;
+  }
+  &__sentence {
+    width: 91%;
+    padding: 0 5px;
+    background-color: white;
+    border: solid #777 1px;
+    border-radius: 5px;
   }
 }
