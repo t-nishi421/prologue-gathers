@@ -61,6 +61,17 @@
       top: 23px;
       left: 34px;
     }
+    &__bookmark {
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+      height: 28px;
+      width: auto;
+      padding: 4px 0 0 8px;
+      background-color: #babae0;
+      border-radius: 11px;
+      @include flex-bundle("","");
+    }
   }
 }
 

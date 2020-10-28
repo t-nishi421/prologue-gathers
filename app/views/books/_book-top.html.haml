@@ -13,3 +13,5 @@
     - else
       = image_tag "#{book.icon.icon}", alt: 'アイコン', class: 'book-top__cover__icon'
     = image_tag 'book.png', alt: '本', class: "book-top__cover__line"
+    .book-top__cover__bookmark
+      = render partial: 'books/functions/bookmark', locals: { b: book }
