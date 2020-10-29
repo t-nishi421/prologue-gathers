@@ -1,31 +1,34 @@
-.book
+.Book
   = link_to book_path(b.id) do
-    .book__body
-      .book__body__white
-      .book__body__top-color{style: "background-color:#{b.color.color}"}
+    .Book__body
+      .Book__body__white
+      .Book__body__top-color{style: "background-color:#{b.color.color}"}
       - if b.color.icon_white?
-        = image_tag "#{b.icon.icon}", alt: 'アイコン', class: 'book__body__icon', style: 'filter: invert(0.9)'
+        = image_tag "#{b.icon.icon}", alt: 'アイコン', class: 'Book__body__icon', style: 'filter: invert(0.9)'
       - else
-        = image_tag "#{b.icon.icon}", alt: 'アイコン', class: 'book__body__icon'
-      = image_tag 'book.png', alt: '本', class: "book__body__book-line"
-    .book__name
-      - if b.title.length > 8
-        = "#{b.title[0,7]}…"
-        .book__name__hover-title
+        = image_tag "#{b.icon.icon}", alt: 'アイコン', class: 'Book__body__icon'
+      = image_tag 'book.png', alt: '本', class: "Book__body__book-line"
+    
+    .Book__name
+      - if b.title.length > 18
+        = "#{b.title[0,17]}…"
+        .Book__name__hover-title
           = b.title
       - else
         = b.title
-    .book__author
-      = b.user.name
-  .book__underContent
-    = render partial: 'books/functions/bookmark', locals: { b: b }
-    - if b.completion == true
-      .book__underContent__state.book__underContent__state--completion
-        完結
-    - else
-      - if b.rental == false
-        .book__underContent__state.book__underContent__state--there
-          貸出可
+  .Book__author
+    = "作者：#{b.user.name}"
+
+  .Book__subContents
+    .Content
+      = render partial: 'books/functions/bookmark', locals: { b: b }
+      - if b.completion == true
+        .BookState.BookState--completion
+          完結
       - else
-        .book__underContent__state.book__underContent__state--not-there
-          貸出中
+        - if b.rental == false
+          .BookState.BookState--there
+            貸出可
+        - else
+          .BookState.BookState--not-there
+            貸出中

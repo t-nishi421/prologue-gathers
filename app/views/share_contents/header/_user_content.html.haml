@@ -1,0 +1,36 @@
+- if user_signed_in?
+  .user
+    = link_to user_path(current_user) do
+      .user__name
+        .user__name__icon{style: "background-image: url(#{asset_path current_user.image})"}
+        = "名前：#{current_user.name}"
+    .user__box
+      - if current_user.rental == 0
+        .user__box__hasbook.user__box__hasbook--not-taking-out
+          貸出無し
+      - else
+        = link_to edit_book_path(current_user.rental), class: "user__box__hasbook user__box__hasbook--taking-out" do
+          貸出中
+      .user__box__dropdown
+        .user__box__dropdown__arrow
+          = icon('fa', 'chevron-down')
+        .user__box__dropdown__arrow-menu
+          %ul
+            %li
+              = link_to user_path(current_user), class: 'user__box__dropdown__button' do
+                マイページ
+            %li
+              = link_to new_book_path, class: 'user__box__dropdown__post-button' do
+                本を投稿
+      .stealSwitch
+        .stealSwitch__sun
+          = icon('fa', 'sun')
+        .stealSwitch__moon
+          = icon('fa', 'moon')
+- else
+  .user
+    .user__name
+      名前：ゲスト
+    .user__box
+      = link_to new_user_session_path, class: 'user__box__dropdown__button' do
+        ログイン

@@ -1,4 +1,4 @@
 .main
-  .main__frame
-    - @books.each do |books|
+  - @books.each do |books|
+    .main__frame
       = render partial: 'book', locals: { b: books }
