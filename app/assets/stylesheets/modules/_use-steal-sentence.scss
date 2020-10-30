@@ -4,7 +4,7 @@
 
 .UseStealContents {
   position: fixed;
-  left: 50px;
+  right: 8%;
   bottom: 4%;
   &__stealSentences {
     position: relative;
@@ -51,7 +51,7 @@
   @include flex-bundle("", "");
   &__copyButton {
     @include steal-button();
-    margin: 0 0 0 3px;
+    margin-right: 3px;
     @include button-template("", "white");
   }
   &__copyButton:hover {
@@ -76,5 +76,6 @@
   border: solid #666 1px;
   border-radius: 5px;
   font-size: 12px;
+  text-align: center;
   opacity: 0.8;
 }

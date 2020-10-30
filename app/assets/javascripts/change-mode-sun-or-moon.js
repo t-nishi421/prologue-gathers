@@ -12,7 +12,7 @@ $(function() {
   const stealContents = '.StealContents';
 
   // new画面
-  const newBookArea = '.newWrapper';
+  // const newBookArea = '.newWrapper';
   const newStealContents = '.UseStealContents';
 
   // マイページ
@@ -33,7 +33,7 @@ $(function() {
     $(wrapper).css('background-color', "rgba(0, 50, 100, 0.3)");
     $(showBookArea).css('margin-right', '0px');
     $(stealContents).css('display', 'none');
-    $(newBookArea).css('margin', '0 auto');
+    // $(newBookArea).css('margin', '40px auto');
     $(newStealContents).css('display', 'none');
     addModeToSession();
   }
@@ -43,9 +43,9 @@ $(function() {
     $(sunArea).css('opacity', '0.2');
     $(moonArea).css('opacity', '1');
     $(wrapper).css('background-color', "rgba(0, 25, 50, 0.7)");
-    $(showBookArea).css('margin-right', '430px');
+    $(showBookArea).css('margin-right', '280px');
     $(stealContents).css('display', 'block');
-    $(newBookArea).css('margin', '0 500px');
+    // $(newBookArea).css('margin', '40px 280px 40px auto');
     $(newStealContents).css('display', 'block');
     addModeToSession();
   }

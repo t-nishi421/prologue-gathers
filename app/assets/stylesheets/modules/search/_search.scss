@@ -1,0 +1,60 @@
+@import "../mixin/flex-bundle";
+@import "../mixin/button-template";
+
+.TopItems {
+  height: 60px;
+  &__items {
+    @include flex-bundle(center, center);
+    &__search {
+      height: 35px;
+      width: 360px;
+      background-color: white;
+      border: solid 2px gray;
+      border-radius: 4px;
+      padding-left: 10px;
+      margin: 0 20px 0 10px;
+    }
+    &__search-btn {
+      height: 40px;
+      width: 75px;
+      @include button-template("", "yellow");
+      border-radius: 5px;
+      font-weight: bold;
+      margin-right: 10px;
+      @include flex-bundle(center, center);
+    }
+    &__search-btn:hover {
+      @include button-template("", "hover-yellow");
+    }
+  }
+}
+
+.SearchBar {
+  width: 500px;
+  flex-grow: 1;
+  @include flex-bundle(center,center);
+  &__textField {
+    height: 35px;
+    width: calc(100% - 35px);
+    background-color: white;
+    border: solid 2px gray;
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    padding-left: 10px;
+    outline: none;
+  }
+  &__submit {
+    height: 35px;
+    min-width: 35px;
+    width: 45px;
+    @include button-template("", "yellow");
+    border-radius: 0 4px 4px 0;
+    font-weight: bold;
+    @include flex-bundle(center, center);
+    outline: none;
+    cursor : pointer;
+  }
+  &__submit:hover {
+    @include button-template("", "hover-yellow");
+  }
+}

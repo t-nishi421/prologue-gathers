@@ -17,11 +17,12 @@
 
 .text__textbox__edit {
   height: 300px; //仮置き
-  width: 820px;
+  max-width: 100%;
+  min-width: 100%;
   padding: 10px;
   background-color: white;
-  border: solid 3px black;
-  border-radius: 0 15px 15px 15px;
+  border: solid 2px black;
+  border-radius: 0 10px 10px 10px;
   outline: none;
 }
 
@@ -44,11 +45,14 @@
 }
 
 .check-box {
-  margin: 18px 0 0 18px;
+  // margin: 18px 0 0 18px;
+  display: inline-block;
+  margin-left: 10px;
   transform: scale(2.0);
 }
 
 .check-box-msg {
-  margin: 9px 0 0 9px;
-  font-size: 22px;
+  display: inline-block;
+  // margin: 9px 0 0 9px;
+  // font-size: 22px;
 }

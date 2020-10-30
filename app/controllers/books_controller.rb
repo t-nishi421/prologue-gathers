@@ -71,27 +71,22 @@ class BooksController < ApplicationController
   end
 
   def rental
-    @path = Rails.application.routes.recognize_path(request.referer)
 
     if User.rental_status(this_book.id) == "can_not_rental"
       redirect_to( { action: :show }, notice: 'この本はあなたより先に別のユーザーに貸し出されました' )
     elsif current_user.rental == 0
       rental_book
       redirect_to action: :edit
-    elsif @path[:action] == "rental"
+    else
       rental_swap
       redirect_to action: :edit
-    else
-      @rental_book = Book.find(current_user.rental)
-      @book = this_book
-      flash.now[:notice] = '貸出中の本があります'
     end
   end
 
   def return
     @book = this_book
     rental_reset
-    redirect_to action: :index
+    redirect_to( { action: :show, id: @book.id }, notice: '本を返却しました' )
   end
 
   def save_sentence

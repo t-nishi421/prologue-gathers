@@ -1,10 +1,13 @@
 
+.TotalNumberOfBookmarks
+  = Bookmark.bookmarkCount(b.id)
 - if user_signed_in?
-  .TotalNumberOfBookmarks
-    = Bookmark.bookmarkCount(b.id)
   - if Bookmark.whetherBookmarked(current_user.id, b.id)
     .BookmarkButton.SaveBookmarkButton{"data-id" => b.id}
       = icon('fa', 'star')
   - else
     .BookmarkButton.DeleteBookmarkButton{"data-id" => b.id}
       = icon('fa', 'star')
+- else
+  .BookmarkButton
+    = icon('fa', 'star')

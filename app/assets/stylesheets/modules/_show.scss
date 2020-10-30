@@ -4,25 +4,40 @@
 @import "mixin/button-template";
 @import "mixin/steal-button";
 
+@mixin cover-title() {
+  color: white;
+  font-size: 18px;
+  text-shadow:  2px  2px 2px #333;
+  font-weight: bold;
+  border-bottom: solid 3px white;
+}
+
+@mixin text-color() {
+  color: #0e0e0f;
+}
+
+@mixin show-width {
+  max-width: 705px;
+}
+
 .ReadWrapper {
-  position: relative;
-  // margin: 0 auto;
-  // @include flex-bundle(center, "");
+  margin: 0 auto;
   .MainContents {
     margin-right: 430px; // moonモードのmargin
   }
 }
 
-.book-top {
-  height: 320px;
-  width: 840px;
+.BookTop {
+  @include show-width();
+  width: 705px;
   padding: 10px;
-  margin:20px auto 0 auto;
+  margin:40px auto 0 auto;
   border-radius: 5px;
   @include flex-bundle("", flex-end);
-  background-color: rgba(34, 24, 94, 0.9);
+  background-color: #22185ee6;
   &__info {
     width: 500px;
+    margin-left: 15px;
     &__title {
       @include flex-bundle("", "");
       @include cover-title();
@@ -33,33 +48,39 @@
     }
   }
   &__cover {
-    height: 300px;
-    width: 300px;
-    margin-left: 40px;
-    background-color: rgba(210, 222, 255, 0.5);
+    min-height: 188px;
+    min-width: 170px;
+    background-color: #d2deff80;
     position: relative;
     &__white {
-      position: absolute;
       @include book-page();
-      top: 38px;
-      left: 45px;
+      position: absolute;
+      min-height: 123px;
+      max-height: 123px;
+      min-width: 129px;
+      max-width: 129px;
+      background-color: #eee5d2;
+      top: 19px;
+      left: 19px;
     }
     &__color {
       position: absolute;
-      height: 170px;
-      width: 165px;
-      top: 94px;
-    left: 48px;
+      min-height: 112px;
+      min-width: 115px;
+      top: 57px;
+      left: 18px;
     }
     &__icon {
       position: absolute;
-      top: 108px;
-      left: 53px;
+      height: 99px;
+      top: 65px;
+      left: 24px;
     }
     &__line {
       position: absolute;
-      top: 23px;
-      left: 34px;
+      top: 10px;
+      left: 10px;
+      height: 168px;
     }
     &__bookmark {
       position: absolute;
@@ -79,25 +100,24 @@
   margin: 0 auto;
   @include text-back();
   &__info {
-    width: 800px;
+    width: 100%;
     border-bottom: solid 2px #131516;
     @include flex-bundle(space-between, "");
     &__chapter {
-      height: auto;
       @include text-color();
-      font-size: 24px;
+      font-size: 18px;
       font-weight: bold;
     }
     &__author {
       height: auto;
       @include text-color();
-      font-size: 24px;
+      font-size: 18px;
       font-weight: bold;
       @include flex-bundle("", "");
       &__icon {
-        height: 37px;
-        width: 37px;
-        margin: -3px 8px 0 0;
+        height: 35px;
+        width: 35px;
+        margin: -7px 8px 0 0;
         background-color: #d9e5f7;
         border: solid #4b6ea3 1px;
         background-size: cover;
@@ -110,9 +130,9 @@
   }
   &__text {
     height: auto;
-    width: 820px;
+    width: 100%;
     @include text-color();
-    font-size: 18px;
+    font-size: 16px;
     padding: 10px;
     margin-top: 10px;
     background-color: white;
@@ -122,7 +142,7 @@
 }
 
 .rent {
-  width: 840px;
+  @include show-width();
   margin: 20px auto 50px auto;
   @include flex-bundle(flex-end, "");
   &__button {
@@ -148,8 +168,8 @@
   &__stealSentences {
     position: relative;
     min-height: 100px;
-    max-height: 600px;
-    width: 400px;
+    max-height: 64vh;
+    width: 402px;
     padding: 5px 0;
     background-color: #b6c9e2e6;
     border-radius: 10px;
@@ -159,7 +179,7 @@
       font-size: 14px;
     }
     &__sentences {
-      max-height: 560px;
+      max-height: 59vh;
       margin: 2px 10px;
       overflow: auto;
     }

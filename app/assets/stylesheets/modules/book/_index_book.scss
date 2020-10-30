@@ -1,0 +1,103 @@
+@import "../mixin/flex-bundle";
+@import "../mixin/button-template";
+@import "../mixin/book-frame";
+
+.Book {
+  position: relative;
+  @include book-frame();
+  border-radius: 2px;
+
+  &__body {
+    height: 121px;
+    width: 110px;
+    margin: 10px 20px 0 10px;
+    background-color: #c2a97a;
+    border: inset #bb9542 5px;
+    border-radius: 6px;
+    position: relative;
+    &__white {
+      position: absolute;
+      height: 77px;
+      width: 82px;
+      margin-top: 9px;
+      margin-left: 10px;
+      background-color: #eee5d2;
+    }
+    &__top-color {
+      position: absolute;
+      height: 69px;
+      width: 71px;
+      margin-top: 33px;
+      margin-left: 9px;
+    }
+    &__icon {
+      position: absolute;
+      height: 60px;
+      top: 37px;
+      left: 13px;
+    }
+    &__book-line {
+      position: absolute;
+      width: 105px;
+      margin-top: 3px;
+      margin-left: 4px;
+    }
+  }
+
+  &__name {
+    font-size: 16px;
+    margin: 4px 10px;
+    position: relative;
+    &__hover-title {
+      position: absolute;
+      display: none;
+      top: -150%;
+      font-size: 14px;
+      border-radius: 3px;
+      background-color: #b6c9e2e6;
+      z-index: 2;
+    }
+  }
+  &__name:hover {
+    color: #069;
+    text-decoration: underline;
+  }
+  &__name:hover &__name__hover-title {
+    color: black;
+    display: block;
+  }
+
+  &__author {
+    position: absolute;
+    bottom: 33px;
+    right: 10px;
+    color: #444;
+    font-size: 14px;
+  }
+
+  &__subContents {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    .Content {
+      @include flex-bundle(flex-end, flex-end);
+
+      .BookState {
+        width: 65px;
+        font-size: 14px;
+        color: #222;
+        border-radius: 4px;
+        @include flex-bundle(center, center);
+        &--there {
+          @include button-template("", "green");
+        }
+        &--not-there {
+          @include button-template("", "red");
+        }
+        &--completion {
+          @include button-template("", "yellow");
+        }
+      }
+    }
+  }
+}

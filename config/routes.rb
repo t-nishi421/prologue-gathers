@@ -5,14 +5,14 @@ Rails.application.routes.draw do
     member do
       get 'search/bookmark', to: 'books#search_bookmark', as: 'search_bookmark'
       get 'search/user', to: 'books#search_userid', as: 'search_userid'
-      get 'rental', to: 'books#rental', as: 'rental'
-      get 'return', to: 'books#return', as: 'return'
+      post 'rental', to: 'books#rental', as: 'rental'
+      post 'return', to: 'books#return', as: 'return'
     end
     collection do
       get 'search'
       post 'save-sentence', to: 'books#save_sentence', as: 'save_sentence', defaults: { fomat: 'json'}
-      get 'bookmark', defaults: { fomat: 'json'}
-      get 'delete_bookmark', defaults: { fomat: 'json'}
+      post 'bookmark', defaults: { fomat: 'json'}
+      post 'delete_bookmark', defaults: { fomat: 'json'}
     end
   end
 

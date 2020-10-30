@@ -2,6 +2,12 @@
 @import "mixin/flex-bundle";
 @import "mixin/button-template";
 
+@mixin overCoverTemplate() {
+  position: absolute;
+  min-height: 246px;
+  min-width: 178px;
+}
+
 .rental-cover {
   width: 920px;
   margin: 60px auto 0 auto;
@@ -17,12 +23,13 @@
   font-weight: bold;
 }
   
-.rental-change-book {
+.RentalChangeBook {
   width: 680px;
   margin: 20px auto 0 auto;
-  padding: 20px 40px;
+  padding: 20px 80px;
   background-color: #22185ee6;
-  @include flex-bundle("", center);
+  position: relative;
+  @include flex-bundle(space-between, center);
   &__frame {
     // @include book-frame(); // 不要コード?
     margin-bottom: 0;
@@ -30,7 +37,13 @@
   &__icon {
     color: #eeeeee;
     font-size: 90px;
-    padding: 15px;
+  }
+  &__overCover--left {
+    @include overCoverTemplate();
+  }
+  &__overCover--right {
+    @include overCoverTemplate();
+    left: 422px;
   }
 }
 

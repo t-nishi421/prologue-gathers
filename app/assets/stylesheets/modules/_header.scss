@@ -10,41 +10,55 @@
 }
 
 header {
-  @include calc-header-height("header");
-  width: 100%;
-  background-image: image-url("wood.jpg");
-  border-bottom: solid 2px #000;
   position: relative;
   top: 0;
   left: 0;
-  z-index: 1;
+  @include calc-header-height("header");
+  max-height: 50px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 9999;
+  background-image: image-url("wood.jpg"); // 背景
+  border-bottom: solid 2px #000000aa;
   @include flex-bundle(space-between, center);
+  font-size: 14px;
+  .flexSpace {
+    width: 100px;
+    flex-grow: 3;
+  }
+  .flexSpace:nth-of-type(2) {
+    width: 200px;
+    flex-grow: 1;
+  }
+  .flexSpace:nth-of-type(3) {
+    width: 50px;
+    flex-grow: 1;
+  }
 }
 
 .logo {
-  margin-left: 10vw;
   font-size: 32px;
   @include flex-bundle(center, "");
   img {
-    height: 70px;
+    height: 48px;
   }
 }
 
 .user {
-  height: 76px;
+  height: 50px;
   width: auto;
   min-width: 247px;
-  margin-right: 10vw;
+  flex-shrink: 0;
   background-color: rgb(232, 232, 255);
-  border: solid 2px darkblue;
-  padding: 8px 10px;
+  border-left: solid 2px darkblue;
+  border-right: solid 2px darkblue;
+  padding: 0 10px;
   resize: none;
-  @include flex-bundle("", center);
+  @include flex-bundle(center, center);
 
   &__name {
-    margin-top: 8px;
     margin-right: 10px;
-    font-size: 16px;
     @include flex-bundle("", center);
     &__icon {
       min-width: 37px;
@@ -53,20 +67,20 @@ header {
   }
 
   &__box {
-    margin-top: 9px;
-    @include flex-bundle(flex-end, "");
+    @include flex-bundle(flex-end, center);
 
     &__hasbook {
       margin-right: 10px;
+      font-weight: bold;
       @include flex-bundle(center, center);
       &--taking-out {
-        @include button-template("small", "red");
+        @include button-template("headerButton", "red");
       }
       &--taking-out:hover {
         @include button-template("", "hover-red");
       }
       &--not-taking-out {
-        @include button-template("small", "green");
+        @include button-template("headerButton", "green");
       }
     }
 
@@ -76,8 +90,8 @@ header {
         position: relative;
         ul {
           position: absolute;
-          top: 13px;
-          left: -48px;
+          top: 7px;
+          left: 10px;
         }
       }
       
@@ -85,6 +99,7 @@ header {
         @include button-template("small", "yellow");
         margin-right: 10px;
         @include flex-bundle(center, center);
+        width: 137px;
       }
       &__button:hover {
         @include button-template("", "hover-yellow");
@@ -93,6 +108,7 @@ header {
       &__post-button {
         @include button-template("small", "green");
         margin-right: 10px;
+        width: 137px;
       }
       &__post-button:hover {
         @include button-template("", "hover-green");
@@ -101,11 +117,12 @@ header {
       &__arrow {
         margin: 0 10px;
         @include button-template("small", "green");
-        width: 40px;
+        height: 35px;
+        width: 35px;
         font-size: 18px;
         @include flex-bundle(center, center);
         i {
-          padding: 23px;
+          padding: 18px;
         }
       }
       &__arrow:hover {

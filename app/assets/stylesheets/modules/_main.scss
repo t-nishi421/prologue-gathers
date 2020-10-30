@@ -3,97 +3,14 @@
 @import "mixin/book-frame";
 
 .main{
-  height: calc(100vh - 170px);
-  @include flex-bundle(center, center);
+  max-width: 772px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  @include flex-bundle("", "");
+  flex-wrap: wrap;
   &__frame {
-    height: calc(90vh - 170px);
-    width: 90vw;
-    padding: 0 0 20px 20px;
-    @include flex-bundle("", "");
-    flex-wrap: wrap;
-  }
-}
-
-.book {
-  @include book-frame();
-  &__body {
-    height: 200px;
-    width: 180px;
-    margin: 15px 20px 0 20px;
-    background-color: rgb(194, 169, 122);
-    border: inset rgb(187, 149, 66) 5px;
-    border-radius: 6px;
-    position: relative;
-    &__white {
-      position: absolute;
-      height: 133px;
-      width: 139px;
-      margin-top: 16px;
-      margin-left: 16px;
-      background-color: #eee5d2;
-    }
-    &__top-color {
-      position: absolute;
-      height: 120px;
-      width: 120px;
-      margin-top: 56px;
-      margin-left: 16px;
-      background-color: darkgreen;
-    }
-    &__icon {
-      position: absolute;
-      height: 105px;
-      top: 64px;
-      left: 19px;
-    }
-    &__book-line {
-      position: absolute;
-      width: 180px;
-      margin-top: 5px;
-      margin-left: 6px;
-    }
-  }
-  &__name {
-    font-size: 22px;
-    margin:0 20px;
-    position: relative;
-    &__hover-title {
-      position: absolute;
-      display: none;
-      bottom: 32px;
-      font-size: 14px;
-      padding: 1px 4px;
-      border-radius: 3px;
-      background-color: rgba(182, 201, 226, 0.9);
-    }
-  }
-  &__name:hover &__name__hover-title {
-    display: block;
-  }
-  &__author {
-    text-align: right;
-    margin-right: 10px;
-    color: #080820;
-  }
-  &__underContent {
-    height: 36px;
-    padding: 0 10px;
-    width: 100%;
-    @include flex-bundle(flex-end, flex-end);
-    &__state {
-      width: 80px;
-      font-size: 20px;
-      border-radius: 4px;
-      @include flex-bundle(center, "");
-      &--there {
-        @include button-template("", "green");
-      }
-      &--not-there {
-        @include button-template("", "red");
-      }
-      &--completion {
-        @include button-template("", "yellow");
-      }
-    }
+    min-height: 266px;
+    min-width: 193px;
+    @include flex-bundle(center, center);
   }
 }

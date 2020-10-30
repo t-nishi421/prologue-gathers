@@ -44,10 +44,13 @@
     color: blue;
   }
   &__sentence {
+    min-height: 30px;
     width: 91%;
     padding: 0 5px;
     background-color: white;
     border: solid #777 1px;
     border-radius: 5px;
+    font-size: 12px;
+    @include flex-bundle("", center);
   }
 }

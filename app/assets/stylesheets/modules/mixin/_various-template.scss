@@ -1,6 +1,6 @@
 @mixin text-back {
   height: auto;
-  width: 840px;
+  width: 705px;
   padding: 10px;
   margin-top: 10px;
   background-color: #b6c9e2e6;
@@ -27,10 +27,10 @@
 
 @mixin calc-header-height($header-or-body) {
   @if $header-or-body == "body" {
-    height: calc(100vh - 76px);
+    height: calc(100vh - 50px);
   }
 
   @if $header-or-body == "header" {
-    height: 76px;
+    height: 50px;
   }
 }
