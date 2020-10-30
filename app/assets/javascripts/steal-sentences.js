@@ -7,6 +7,7 @@ $(function() {
   const saveButton = '.SentenceBox__saveButton';
   const sentence = '.sentence';
   const removeStealSentenceFloor = 'StealContents__stealSentences__sentences';
+  const copyMessage = '.CopyMessage';
 
   // 自動設定
   let indexNumber = 0;
@@ -55,7 +56,13 @@ $(function() {
       if ($(this).parent().parent().hasClass(removeStealSentenceFloor)) {
         $(this).parent().remove();
       }
-      alert('センテンスを保存しました');
+      const mousePositionX = e.pageX;
+      const mousePositionY = e.pageY;
+      // アラート文の表示
+      $(copyMessage).css('left', `${mousePositionX - 50}px`);
+      $(copyMessage).css('top', `${mousePositionY - 30}px`);
+      $(copyMessage).show().delay(1000).fadeOut(400);
+      // alert('センテンスを保存しました');
     })
     .fail(function(){
       alert('保存に失敗しました');

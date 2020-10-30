@@ -3,8 +3,7 @@ $(function(){
   const rentalButton = '.UnderRental';
 
   let url = function(id) {
-    let url = `/books/${id}rental`;
-    return url
+    return `/books/${id}rental`;
   }
 
   $(rentalButton).on('click', function() {
