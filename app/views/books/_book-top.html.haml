@@ -1,18 +1,17 @@
-.book-top
-  .book-top__info
-    .book-top__info__title
-      .book-top__info__title__l Title：
-      = book.title
-    .book-top__info__author
-      = "Author：#{book.user.name}"
-  .book-top__cover
-    .book-top__cover__white
-    .book-top__cover__color{style: "background-color:#{book.color.color}"}
+.BookTop
+  .BookTop__cover
+    .BookTop__cover__white
+    .BookTop__cover__color{style: "background-color:#{book.color.color}"}
     - if book.color.icon_white?
-      = image_tag "#{book.icon.icon}", alt: 'アイコン', class: 'book-top__cover__icon', style: 'filter: invert(0.9)'
+      = image_tag "#{book.icon.icon}", alt: 'アイコン', class: 'BookTop__cover__icon', style: 'filter: invert(0.9)'
     - else
-      = image_tag "#{book.icon.icon}", alt: 'アイコン', class: 'book-top__cover__icon'
-    = image_tag 'book.png', alt: '本', class: "book-top__cover__line"
+      = image_tag "#{book.icon.icon}", alt: 'アイコン', class: 'BookTop__cover__icon'
+    = image_tag 'book.png', alt: '本', class: "BookTop__cover__line"
     - if user_signed_in?
-      .book-top__cover__bookmark
+      .BookTop__cover__bookmark
         = render partial: 'books/functions/bookmark', locals: { b: book }
+  .BookTop__info
+    .BookTop__info__title
+      = book.title
+    .BookTop__info__author
+      = "作者：#{book.user.name}"

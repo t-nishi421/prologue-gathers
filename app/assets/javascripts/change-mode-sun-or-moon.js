@@ -33,7 +33,7 @@ $(function() {
     $(wrapper).css('background-color', "rgba(0, 50, 100, 0.3)");
     $(showBookArea).css('margin-right', '0px');
     $(stealContents).css('display', 'none');
-    $(newBookArea).css('margin', '0 auto');
+    $(newBookArea).css('margin', '40px auto');
     $(newStealContents).css('display', 'none');
     addModeToSession();
   }
@@ -45,7 +45,7 @@ $(function() {
     $(wrapper).css('background-color', "rgba(0, 25, 50, 0.7)");
     $(showBookArea).css('margin-right', '430px');
     $(stealContents).css('display', 'block');
-    $(newBookArea).css('margin', '0 500px');
+    $(newBookArea).css('margin', '40px 500px');
     $(newStealContents).css('display', 'block');
     addModeToSession();
   }
