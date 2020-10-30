@@ -17,7 +17,7 @@
                     = icon('fa', 'trash')
                 - else
                   .SentenceBox__saveButton{"data-index" => index, "data-text_id" => sentence.text_id}
-                  = icon('fa', 'save')
+                    = icon('fa', 'save')
               .SentenceBox__sentence{class: "sentence#{index}"}
                 = safe_join(sentence.sentence.split("\n"),tag(:br))
               = link_to book_path(sentence.text.book.id) do
