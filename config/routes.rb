@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     collection do
       get 'search'
       post 'save-sentence', to: 'books#save_sentence', as: 'save_sentence', defaults: { fomat: 'json'}
-      get 'bookmark', defaults: { fomat: 'json'}
-      get 'delete_bookmark', defaults: { fomat: 'json'}
+      post 'bookmark', defaults: { fomat: 'json'}
+      post 'delete_bookmark', defaults: { fomat: 'json'}
     end
   end
 

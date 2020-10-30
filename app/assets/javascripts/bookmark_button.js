@@ -21,7 +21,7 @@ $(function(){
     const book_id = $(this).data(bookmarkDataName);
     $.ajax({
       url: bookmarkUrl,
-      type: 'GET',
+      type: 'POST',
       data: { id: book_id },
       dataType: 'json',
       context: this
@@ -41,7 +41,7 @@ $(function(){
     const book_id = $(this).data(bookmarkDataName);
     $.ajax({
       url: deleteUrl,
-      type: 'GET',
+      type: 'POST',
       data: { id: book_id },
       dataType: 'json',
       context: this
