@@ -98,7 +98,6 @@
 .story-content {
   margin: 0 auto;
   @include text-back();
-  @include show-width();
   &__info {
     width: 100%;
     border-bottom: solid 2px #131516;

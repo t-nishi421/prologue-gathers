@@ -11,12 +11,12 @@
             .cover__text__chapter
               .cover__text__chapter__exp
                 = "#{@chapter}章"
-              = f.text_field :chapter, placeholder: '章題を入力(上限20文字)', class: 'cover__text__chapter__textbox', maxlength: 20
+              = f.text_field :chapter, placeholder: '章題を入力(上限20文字)', class: 'cover__text__chapter__textbox', maxlength: 20, required: true
           .text__exp.text__exp__edit
             本文
-          = f.text_area :text, placeholder: '本文を入力', class: 'text__textbox__edit'
+          = f.text_area :text, placeholder: '本文を入力', class: 'text__textbox__edit', required: true
           .button-cover
-            = link_to return_book_path(@book.id), class: "button-cover__return-button" do
+            = link_to return_book_path(@book.id), class: "button-cover__return-button", method: :post do
               返却する
             = f.submit value: "投稿する", class: 'button-cover__edit-button'
   = render 'steal_content'

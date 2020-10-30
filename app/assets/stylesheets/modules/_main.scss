@@ -5,6 +5,7 @@
 .main{
   max-width: 772px;
   margin: 0 auto;
+  padding-bottom: 30px;
   @include flex-bundle("", "");
   flex-wrap: wrap;
   &__frame {

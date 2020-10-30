@@ -12,9 +12,7 @@
       = render partial: 'book', locals: { b: @book }
     .RentalChangeBook__overCover--right
   .rental-button
-    = link_to book_path(@book.id) do
-      .rental-button__no
-        いいえ
-    = link_to rental_book_path(@book.id) do
-      .rental-button__yes
-        はい
+    = link_to book_path(@book.id), class: "rental-button__no" do
+      いいえ
+    = link_to rental_book_path(@book.id), class: "rental-button__yes", method: :post do
+      はい

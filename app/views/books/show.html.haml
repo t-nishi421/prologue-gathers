@@ -6,8 +6,12 @@
     - if user_signed_in? && @book.completion == false
       .rent
         - if @book.rental == false
-          = link_to rental_book_path(@book.id), class: "rent__button rent__button--there" do
-            本を借りる
+          - if current_user.rental == 0
+            = link_to rental_book_path(@book.id), class: "rent__button rent__button--there", method: :post do
+              本を借りる
+          - else
+            = link_to rental_book_path(@book.id), class: "rent__button rent__button--there UnderRental", "data-id" => @book.id, method: :post do
+              本を借りる
         - else
           .rent__button.rent__button--not-there
             貸出中
