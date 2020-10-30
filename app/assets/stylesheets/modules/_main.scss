@@ -3,7 +3,7 @@
 @import "mixin/book-frame";
 
 .main{
-  max-width: 967px;
+  max-width: 772px;
   margin: 0 auto;
   @include flex-bundle("", "");
   flex-wrap: wrap;

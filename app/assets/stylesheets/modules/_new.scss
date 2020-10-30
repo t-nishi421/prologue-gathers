@@ -13,17 +13,11 @@
   padding: 10px;
   border-radius: 5px;
   background-color: #22185ee6;
-  // width: 705px;
-  // @include flex-bundle("", flex-end);
   &__text {
-    // height: 140px;
-    // width: 500px;
-    // @include flex-bundle("", flex-end);
     flex-wrap: wrap;
     &__title {
-      // width: 500px;
       margin-top: 15px;
-      @include flex-bundle("", flex-end);
+      @include flex-bundle("", "");
       &__exp {
         @include cover-item();
       }
@@ -32,9 +26,8 @@
       }
     }
     &__chapter {
-      // width: 500px;
       margin-top: 13px;
-      @include flex-bundle("", flex-end);
+      @include flex-bundle("", "");
       &__exp {
         @include cover-item();
       }
@@ -180,14 +173,12 @@
 }
 
 .text {
-  // height: 600px;
-  // width: 840px;
   margin-top: 10px;
-  padding: 10px;
+  padding: 12px 10px;
   border-radius: 5px;
   background-color: #b6c9e2e6;
   &__exp {
-    height: 30px;
+    height: 35px;
     width: 90px;
     padding: 0 20px;
     font-size: 16px;
@@ -213,8 +204,8 @@
     height: 50px;
     width: 126px;
     padding: 0 20px;
-    margin-top: 20px;
-    float: right;
+    margin-top: 5px;
+    margin-left: auto;
     font-size: 20px;
     font-weight: bold;
     border-radius: 8px;

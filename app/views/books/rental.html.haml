@@ -2,13 +2,15 @@
   .rental-message
     本は一冊しか貸出しできません。
     貸出中の本を入れ替えますか？
-  .rental-change-book
-    .rental-change-book__frame
+  .RentalChangeBook
+    .RentalChangeBook__frame
       = render partial: 'book', locals: { b: @rental_book }
-    .rental-change-book__icon
+    .RentalChangeBook__overCover--left
+    .RentalChangeBook__icon
       = icon('fa', 'arrow-right')
-    .rental-change-book__frame
+    .RentalChangeBook__frame
       = render partial: 'book', locals: { b: @book }
+    .RentalChangeBook__overCover--right
   .rental-button
     = link_to book_path(@book.id) do
       .rental-button__no
