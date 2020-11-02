@@ -2,6 +2,38 @@
 @import "mixin/button-template";
 @import "mixin/book-frame";
 
+.IndexWrapper {
+  margin: 0 auto;
+  @include flex-bundle(center,"");
+}
+
+.SortLabel {
+  height: 80px;
+  margin: 10px 20px 0 auto;
+  padding: 20px;
+  background-color: #22185ee6;
+  @include flex-bundle(center, center);
+  
+  select {
+    padding: 0 10px;
+    height: 35px;
+    outline: none;
+  }
+  input {
+    display: none;
+  }
+}
+
+.MainLabel {
+  width: 772px;
+  margin-right:auto;
+}
+
+.MainSearchLabel {
+  width: 772px;
+  margin:0 auto;
+}
+
 .main{
   max-width: 772px;
   margin: 0 auto;
@@ -9,7 +41,7 @@
   @include flex-bundle("", "");
   flex-wrap: wrap;
   &__frame {
-    min-height: 266px;
+    min-height: 281px;
     min-width: 193px;
     @include flex-bundle(center, center);
   }
