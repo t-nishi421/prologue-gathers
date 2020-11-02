@@ -20,8 +20,11 @@ $(function() {
     };
     // 現在の表示ページ
     var current_html = window.location.href;
+    // urlの例外処理
     const searchUrl = '/search?keyword='
-    if (current_html.indexOf(searchUrl) == -1) {
+    if (current_html.indexOf('/books') == -1) {
+      current_html += 'books' + searchUrl;
+    } else if (current_html.indexOf(searchUrl) == -1) {
       current_html += searchUrl;
     }
     // ソート機能の重複防止 
