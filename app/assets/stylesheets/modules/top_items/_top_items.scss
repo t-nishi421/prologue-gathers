@@ -2,10 +2,10 @@
 @import "../mixin/button-template";
 
 .TopItems {
-  height: 80px;
-  max-width: 755px;
-  margin: 10px auto 5px auto;
-  padding: 0 20px;
+  min-height: 80px;
+  width: auto;
+  margin: 10px 9px;
+  padding: 5px 20px;
   background-color: #22185ee6;
   @include flex-bundle(center, "");
   flex-direction: column;

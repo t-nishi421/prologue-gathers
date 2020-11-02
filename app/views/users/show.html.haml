@@ -30,9 +30,6 @@
       .menu__right
         %h1 メニュー
         %ul
-          = link_to books_path do
-            %li
-              一覧画面
           = link_to search_userid_book_path(@user.id) do
             %li
               投稿した本を閲覧
@@ -48,6 +45,9 @@
                 貸出中の本を編集
           = link_to sentences_user_path(@user.id) do
             %li
-              盗んだセンテンス
+              盗んだセンテンスを閲覧
           %li
             アプリの説明(未実装)
+          = link_to books_path do
+            %li
+              トップページに戻る

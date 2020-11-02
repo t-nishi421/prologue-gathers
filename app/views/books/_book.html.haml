@@ -32,5 +32,9 @@
         - else
           .BookState.BookState--not-there
             貸出中
-  .Book__notice
-    = "#{time_ago_in_words(b.updated_at)}前更新"
+  - if b.updated_at > 1.day.ago
+    .Book__notice.Book__notice--updated24hours
+      = "#{time_ago_in_words(b.updated_at)}前更新"
+  - else
+    .Book__notice
+      = "#{time_ago_in_words(b.updated_at)}前更新"
