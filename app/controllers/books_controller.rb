@@ -1,6 +1,9 @@
 class BooksController < ApplicationController
+
   def index
     @books = Book.all.order(id: "DESC")
+    @search_title = "一覧表示"
+    @search_count = @books.count
   end
 
   def new
@@ -40,6 +43,7 @@ class BooksController < ApplicationController
         @book.completion = params[:book][:completion].to_i
       end
       rental_reset
+      @book.touch
       @text.save
       redirect_to( { action: :show, id: @book.id }, notice: '文章を投稿しました' )
     else
@@ -71,11 +75,15 @@ class BooksController < ApplicationController
 
   def search_userid
     @books = Book.search_userid(params[:id]).order(id: "DESC")
+    @search_title = "#{User.find(params[:id]).name}さんが投稿した本"
+    @search_count = @books.count
     render action: :search
   end
 
   def search_bookmark
     @books = Book.includes(:bookmarks).where(bookmarks: {user_id: params[:id]}).order(id: "DESC")
+    @search_title = "#{User.find(params[:id]).name}さんがお気に入り登録した本"
+    @search_count = @books.count
     render action: :search
   end
 
@@ -94,6 +102,7 @@ class BooksController < ApplicationController
 
   def return
     @book = this_book
+    @book.record_timestamps = false
     rental_reset
     redirect_to( { action: :show, id: @book.id }, notice: '本を返却しました' )
   end
@@ -140,6 +149,7 @@ class BooksController < ApplicationController
 
   def rental_book
     @book = this_book
+    @book.record_timestamps = false
     @book.rental = 1
     @book.save
 
@@ -158,6 +168,7 @@ class BooksController < ApplicationController
 
   def rental_swap
     @rental_book = Book.find(current_user.rental)
+    @rental_book.record_timestamps = false
     @rental_book.rental = 0
     @rental_book.save
     rental_book
