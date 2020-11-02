@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
   def index
     @books = Book.all.order(id: "DESC")
+    @search_title = "一覧表示"
+    @search_count = @books.count
   end
 
   def new
@@ -40,6 +42,7 @@ class BooksController < ApplicationController
         @book.completion = params[:book][:completion].to_i
       end
       rental_reset
+      @book.touch
       @text.save
       redirect_to( { action: :show, id: @book.id }, notice: '文章を投稿しました' )
     else
@@ -57,17 +60,34 @@ class BooksController < ApplicationController
 
   def search
     @books = Book.search(params[:keyword]).order(id: "DESC")
+    if params[:keyword] == ""
+      @search_title = "検索結果"
+    else
+      @search_title = "#{params[:keyword]}の検索結果"
+    end
+    @search_count = @books.count
     render action: :index
   end
 
   def search_userid
     @books = Book.search_userid(params[:id]).order(id: "DESC")
-    render action: :search
+    @search_title = "#{User.find(params[:id]).name}さんが投稿した本"
+    @search_count = @books.count
+    render action: :index
   end
 
   def search_bookmark
     @books = Book.includes(:bookmarks).where(bookmarks: {user_id: params[:id]}).order(id: "DESC")
-    render action: :search
+    @search_title = "#{User.find(params[:id]).name}さんがお気に入りの本"
+    @search_count = @books.count
+    render action: :index
+  end
+
+  def search_updated
+    @books = Book.all.order(updated_at: "DESC")
+    @search_title = "更新が新しい順"
+    @search_count = @books.count
+    render action: :index
   end
 
   def rental
@@ -85,6 +105,7 @@ class BooksController < ApplicationController
 
   def return
     @book = this_book
+    @book.record_timestamps = false
     rental_reset
     redirect_to( { action: :show, id: @book.id }, notice: '本を返却しました' )
   end
@@ -131,6 +152,7 @@ class BooksController < ApplicationController
 
   def rental_book
     @book = this_book
+    @book.record_timestamps = false
     @book.rental = 1
     @book.save
 
@@ -149,6 +171,7 @@ class BooksController < ApplicationController
 
   def rental_swap
     @rental_book = Book.find(current_user.rental)
+    @rental_book.record_timestamps = false
     @rental_book.rental = 0
     @rental_book.save
     rental_book

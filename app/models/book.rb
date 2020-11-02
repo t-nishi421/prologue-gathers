@@ -30,5 +30,4 @@ class Book < ApplicationRecord
   def self.number_of_books_for_user(user_id)
     Book.where(user: user_id.to_s).count
   end
-
 end

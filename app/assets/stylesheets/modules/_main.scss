@@ -9,7 +9,7 @@
   @include flex-bundle("", "");
   flex-wrap: wrap;
   &__frame {
-    min-height: 266px;
+    min-height: 281px;
     min-width: 193px;
     @include flex-bundle(center, center);
   }

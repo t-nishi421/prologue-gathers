@@ -32,3 +32,5 @@
         - else
           .BookState.BookState--not-there
             貸出中
+  .Book__notice
+    = "#{time_ago_in_words(b.updated_at)}前更新"

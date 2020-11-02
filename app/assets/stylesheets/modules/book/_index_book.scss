@@ -51,7 +51,7 @@
     &__hover-title {
       position: absolute;
       display: none;
-      top: -150%;
+      bottom: 52px;
       font-size: 14px;
       border-radius: 3px;
       background-color: #b6c9e2e6;
@@ -69,7 +69,7 @@
 
   &__author {
     position: absolute;
-    bottom: 33px;
+    bottom: 50px;
     right: 10px;
     color: #444;
     font-size: 14px;
@@ -77,7 +77,7 @@
 
   &__subContents {
     position: absolute;
-    bottom: 5px;
+    bottom: 21px;
     right: 10px;
     .Content {
       @include flex-bundle(flex-end, flex-end);
@@ -99,5 +99,13 @@
         }
       }
     }
+  }
+
+  &__notice {
+    position: absolute;
+    bottom: 3px;
+    right: 6px;
+    color: #444;
+    font-size: 11px;
   }
 }

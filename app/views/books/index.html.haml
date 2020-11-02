@@ -1,5 +1,6 @@
 .TopItems
-  .flexSpace
   .TopItems__searchedTitle
-  .flexSpace
+    = @search_title
+  .TopItems__searchedCount
+    = "#{@search_count}冊の本が見つかりました"
 = render partial: 'main'
