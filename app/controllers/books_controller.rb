@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+
   def index
     @books = Book.all.order(id: "DESC")
     @search_title = "一覧表示"
@@ -76,21 +77,14 @@ class BooksController < ApplicationController
     @books = Book.search_userid(params[:id]).order(id: "DESC")
     @search_title = "#{User.find(params[:id]).name}さんが投稿した本"
     @search_count = @books.count
-    render action: :index
+    render action: :search
   end
 
   def search_bookmark
     @books = Book.includes(:bookmarks).where(bookmarks: {user_id: params[:id]}).order(id: "DESC")
-    @search_title = "#{User.find(params[:id]).name}さんがお気に入りの本"
+    @search_title = "#{User.find(params[:id]).name}さんがお気に入り登録した本"
     @search_count = @books.count
-    render action: :index
-  end
-
-  def search_updated
-    @books = Book.all.order(updated_at: "DESC")
-    @search_title = "更新が新しい順"
-    @search_count = @books.count
-    render action: :index
+    render action: :search
   end
 
   def rental

@@ -9,6 +9,9 @@
         更新が新しい順
       %option{value: 'updated_at_asc'}
         更新が古い順
+    -# = search_form_for @search, url: search_books_path ,html: { method: :get } do |f|
+    -#   = f.select( :sorts, { '投稿が新しい順': 'created_at desc', '投稿が古い': 'created_at asc', '更新が新しい順': 'updated_at desc', '更新が古い順': 'updated_at asc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'}, class: 'SortLabel__select' )
+    -# = f.submit '完了'
   .MainLabel
     .TopItems
       .TopItems__searchedTitle

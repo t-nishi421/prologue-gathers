@@ -1,6 +1,11 @@
--# .top
--#   = form_with(url: search_books_path, local: true, method: :get) do |f|
--#     .top__items
--#       = f.text_field :keyword, placeholder: '本のタイトルを検索', class: 'top__items__search'
--#       = f.submit "検索", class: "top__items__search-btn"
-= render partial: 'main'
+.IndexWrapper
+  .MainSearchLabel
+    .TopItems
+      .TopItems__searchedTitle
+        = @search_title
+      .TopItems__searchedCount
+        = "#{@search_count}冊の本が見つかりました"
+    .main
+      - @books.each do |books|
+        .main__frame
+          = render partial: 'book', locals: { b: books }

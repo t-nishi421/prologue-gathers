@@ -3,6 +3,7 @@
 @import "mixin/book-frame";
 
 .IndexWrapper {
+  margin: 0 auto;
   @include flex-bundle(center,"");
 }
 
@@ -26,6 +27,11 @@
 .MainLabel {
   width: 772px;
   margin-right:auto;
+}
+
+.MainSearchLabel {
+  width: 772px;
+  margin:0 auto;
 }
 
 .main{
