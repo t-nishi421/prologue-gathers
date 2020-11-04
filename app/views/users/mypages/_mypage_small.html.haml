@@ -1,0 +1,58 @@
+.SmallMyPage
+  .menu.menu--compactPaper
+    .Profile
+      %h1
+        = "#{@user.name}さんのページ"
+      .Profile__items
+        .Profile__items__icon{style: "background-image: url(#{asset_path @user.image})"}
+      .Profile__bottom
+        .Profile__bottom__user-name
+          = @user.name
+        .Profile__bottom__status
+          %ul
+            %li
+              = "・投稿した本：#{@count_book}冊"
+            %li
+              = "・投稿した話：#{@count_text}話"
+            %li
+              = "・盗まれたセンテンス：#{@count_stolen_sentence}個"
+            %li
+              = "・盗んだセンテンス：#{@count_steal_sentence}個"
+      - if @user == current_user
+        .Profile__items__user-menu
+          %ul
+            = link_to edit_user_path(current_user) do
+              %li
+                アカウントを編集
+            %li
+              = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'logout LogoutButton'
+  .menu.menu--compactPaper
+    .menu__right
+      %h1 メニュー
+      %h6 閲覧
+      %ul
+        = link_to search_userid_book_path(@user.id) do
+          %li
+            投稿した本を閲覧
+        = link_to search_bookmark_book_path(@user.id) do
+          %li
+            お気に入りの本を閲覧
+        = link_to sentences_user_path(@user.id) do
+          %li
+            盗んだセンテンスを閲覧
+      %h6 投稿・編集
+      %ul
+        - if @user == current_user
+          = link_to new_book_path do
+            %li
+              本を投稿
+          = link_to edit_book_path(@user.rental) do
+            %li
+              貸出中の本を編集
+      %h6 その他
+      %ul
+        %li
+          アプリの説明(未実装)
+        = link_to books_path do
+          %li
+            トップページに戻る

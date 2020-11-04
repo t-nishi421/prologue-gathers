@@ -15,6 +15,18 @@
   border-bottom: solid rgba(6, 48, 77, 0.671) 3px;
 }
 
+@mixin menuPalerTemplate() {
+  background-image: image-url("paper_texture_01.png");
+  height: max-content;
+  max-height: 100%;
+  width: 525px;
+  padding: 30px 50px;
+  background-size: cover;
+  box-shadow: 5px 0px 5px #000000a0;
+  margin: auto;
+  background-repeat: no-repeat;
+}
+
 .center {
   @include calc-header-height("body");
   width: 100%;
@@ -25,7 +37,7 @@
     width: 100%;
     background-color: rgba(9, 11, 41, 0.37);
     overflow: auto;
-    @include flex-bundle("", "");
+    @include flex-bundle(center, "");
   }
 }
 
@@ -43,18 +55,13 @@
     @include flex-bundle("", "");
   }
   &--paper {
-    background-image: image-url("paper_texture_01.png");
-    height: max-content;
+    @include menuPalerTemplate();
     min-height: 700px;
-    max-height: 100%;
-    width: 525px;
-    padding: 30px 50px;
-    background-size: cover;
-    box-shadow: 5px 0px 5px #000000a0;
-    margin: auto;
-    background-repeat: no-repeat;
   }
-
+  &--compactPaper {
+    @include menuPalerTemplate();
+    margin-bottom: 20px;
+  }
   h1 {
     @include h1-template();
   }
@@ -68,16 +75,15 @@
   }
 
   .Profile {
-    height: 590px;
+    // height: 590px;
+    height: max-content;
     width: 430px;
-    margin: 90px 0 0 100px;
     &__items {
       margin-top: 20px;
       &__icon {
         @include icon();
       }
       &__user-menu {
-        height: 200px;
         width: 220px;
         margin:20px 0 0 auto;
         font-size: 20px;
@@ -118,9 +124,9 @@
   }
 
   &__right {
-    height: 590px;
+    // height: 590px;
+    height: max-content;
     width: 430px;
-    margin:90px 0 0 80px;
     ul {
       margin-top: 10px;
       li {
@@ -142,4 +148,17 @@
 
 .MenuContentsPaper {
   width: 100%;
+}
+
+.ContentMarginLeft {
+  margin: 90px 0 0 100px;
+}
+
+.ContentMarginRight {
+  margin: 90px 0 0 80px;
+}
+
+.SmallMyPage {
+  @include flex-bundle("", center);
+  flex-direction: column;
 }
