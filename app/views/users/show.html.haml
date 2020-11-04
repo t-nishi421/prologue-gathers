@@ -29,6 +29,7 @@
                 = "・盗んだセンテンス：#{@count_steal_sentence}個"
       .menu__right
         %h1 メニュー
+        %h6 閲覧
         %ul
           = link_to search_userid_book_path(@user.id) do
             %li
@@ -36,6 +37,11 @@
           = link_to search_bookmark_book_path(@user.id) do
             %li
               お気に入りの本を閲覧
+          = link_to sentences_user_path(@user.id) do
+            %li
+              盗んだセンテンスを閲覧
+        %h6 投稿・編集
+        %ul
           - if @user == current_user
             = link_to new_book_path do
               %li
@@ -43,9 +49,8 @@
             = link_to edit_book_path(@user.rental) do
               %li
                 貸出中の本を編集
-          = link_to sentences_user_path(@user.id) do
-            %li
-              盗んだセンテンスを閲覧
+        %h6 その他
+        %ul
           %li
             アプリの説明(未実装)
           = link_to books_path do
