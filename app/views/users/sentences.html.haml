@@ -1,6 +1,6 @@
 .center
   .center__over-color
-    .menu.menu--paper
+    .menu.menu--sentencePaper
       .SentencesPage
         .SentenceInfo
           盗んだセンテンス
@@ -20,3 +20,5 @@
                 .SentenceBox__quote
                   = "出典：『#{sentence.text.book.title}』#{StealSentence.getChapterNumber(sentence)}章 #{sentence.text.chapter}"
         = link_to "マイページに戻る", :back, class: 'Button'
+.CopyMessage
+  削除しました

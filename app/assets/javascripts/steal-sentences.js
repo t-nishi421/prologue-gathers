@@ -62,7 +62,6 @@ $(function() {
       $(copyMessage).css('left', `${mousePositionX - 50}px`);
       $(copyMessage).css('top', `${mousePositionY - 30}px`);
       $(copyMessage).show().delay(1000).fadeOut(400);
-      // alert('センテンスを保存しました');
     })
     .fail(function(){
       alert('保存に失敗しました');

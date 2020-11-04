@@ -1,6 +1,7 @@
 $(function() {
 /*** 変数 ***/
   const deleteButton = '.SentenceBox__deleteSentence';
+  const copyMessage = '.CopyMessage';
 
   const deleteMessage = 'センテンスを削除しますか？';
   const doneMessage = 'センテンスを削除しました';
@@ -21,8 +22,13 @@ $(function() {
         context: this
       })
       .done(function(data){
+        const thisPosition = $(this).offset();
+        // アラート文の表示
+        $(copyMessage).css('left', `${thisPosition.left - 50}px`);
+        $(copyMessage).css('top', `${thisPosition.top - 30}px`);
+        $(copyMessage).show().delay(1000).fadeOut(400);
+
         $(this).parent().remove();
-        alert(doneMessage);
       })
       .fail(function(){
         alert(failMessage);
