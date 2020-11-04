@@ -1,11 +1,7 @@
 .center
   .center__over-color
-    .menu
-      .menu__left
-        .hoge
-          工事中
-        ・なんかすごい機能実装予定
-      .menu__right
+    .menu.menu--paper
+      .SentencesPage
         .SentenceInfo
           盗んだセンテンス
         .SentenceList
@@ -22,4 +18,5 @@
                 = safe_join(sentence.sentence.split("\n"),tag(:br))
               = link_to book_path(sentence.text.book.id) do
                 .SentenceBox__quote
-                  = "出典：『#{sentence.text.book.title}』#{StealSentence.getChapterNumber(sentence)}章#{sentence.text.chapter}"
+                  = "出典：『#{sentence.text.book.title}』#{StealSentence.getChapterNumber(sentence)}章 #{sentence.text.chapter}"
+        = link_to "マイページに戻る", :back, class: 'Button'
