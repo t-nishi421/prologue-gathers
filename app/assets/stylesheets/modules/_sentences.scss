@@ -2,6 +2,10 @@
 @import "mixin/button-template";
 @import "mixin/steal-button";
 
+.SentencesPage {
+  min-height: 700px;
+}
+
 .SentenceInfo {
   margin-bottom: 10px;
   font-size: 30px;
@@ -9,7 +13,7 @@
 }
 
 .SentenceList {
-  max-height: calc(100% - 50px);
+  max-height: calc(100vh - 225px);
   border-top: solid rgba(6, 48, 77, 0.671) 3px;
   border-bottom: solid rgba(6, 48, 77, 0.671) 3px;
   overflow: auto;

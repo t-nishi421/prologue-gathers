@@ -4,7 +4,8 @@
 
 @mixin h1-template() {
   padding-bottom: 5px;
-  font-size: 30px;
+  margin-bottom: 10px;
+  font-size: 25px;
   border-bottom: solid rgba(6, 48, 77, 0.671) 3px;
 }
 
@@ -12,6 +13,18 @@
   padding-bottom: 5px;
   font-size: 28px;
   border-bottom: solid rgba(6, 48, 77, 0.671) 3px;
+}
+
+@mixin menuPalerTemplate() {
+  background-image: image-url("paper_texture_01.png");
+  height: max-content;
+  max-height: 100%;
+  width: 525px;
+  padding: 30px 50px;
+  background-size: cover;
+  box-shadow: 5px 0px 5px #000000a0;
+  margin: auto;
+  background-repeat: no-repeat;
 }
 
 .center {
@@ -24,47 +37,57 @@
     width: 100%;
     background-color: rgba(9, 11, 41, 0.37);
     overflow: auto;
-    @include flex-bundle("", "");
+    @include flex-bundle(center, "");
   }
 }
 
 .menu {
-  font-family: 'arial unicode ms';
-  height: 750px;
-  width: 1125px;
-  min-width: 1125px;
+  // font-family: 'arial unicode ms';
   margin-top: 30px;
   margin: 30px auto;
-  background-image: image-url("mypage.png");
   background-repeat: no-repeat;
   background-size: contain;
-  @include flex-bundle("", "");
+  &--book {
+    height: 750px;
+    min-width: 1125px;
+    width: 1125px;
+    background-image: image-url("mypage.png");
+    @include flex-bundle("", "");
+  }
+  &--paper {
+    @include menuPalerTemplate();
+    min-height: 700px;
+  }
+  &--compactPaper {
+    @include menuPalerTemplate();
+    margin-bottom: 20px;
+  }
+  h1 {
+    @include h1-template();
+  }
+  h2 {
+    margin: 20px 0;
+    @include h2-template();
+    font-size: 20px;
+  }
+  h6 {
+    font-size: 20px;
+  }
 
-  &__left {
-    height: 590px;
+  .Profile {
+    // height: 590px;
+    height: max-content;
     width: 430px;
-    margin: 90px 0 0 100px;
-    h1 {
-      @include h1-template();
-    }
-    h2 {
-      margin-bottom: 30px;
-      @include h2-template();
-      font-size: 20px;
-    }
-    &__top {
+    &__items {
       margin-top: 20px;
-      @include flex-bundle("", "");
       &__icon {
         @include icon();
       }
       &__user-menu {
-        height: 200px;
         width: 220px;
-        margin-left: 10px;
+        margin:20px 0 0 auto;
         font-size: 20px;
         ul {
-          margin-top: 435px;
           li {
             width: 100;
             padding: 2px 0;
@@ -101,22 +124,15 @@
   }
 
   &__right {
-    height: 590px;
+    // height: 590px;
+    height: max-content;
     width: 430px;
-    margin:90px 0 0 80px;
-    h1 {
-      @include h1-template();
-    }
-    h2 {
-      @include h2-template();
-      margin-bottom: 20px;
-    }
     ul {
-      margin-top: 30px;
+      margin-top: 10px;
       li {
         padding: 2px 30px;
-        font-size: 30px;
-        margin: 10px 10px 20px 10px;
+        font-size: 20px;
+        margin: 0 10px 10px 10px;
         @include button-template("", "green");
         border-radius: 5px;
       }
@@ -128,4 +144,21 @@
       margin: 30px 0 0 190px;
     }
   }
+}
+
+.MenuContentsPaper {
+  width: 100%;
+}
+
+.ContentMarginLeft {
+  margin: 90px 0 0 100px;
+}
+
+.ContentMarginRight {
+  margin: 90px 0 0 80px;
+}
+
+.SmallMyPage {
+  @include flex-bundle("", center);
+  flex-direction: column;
 }
