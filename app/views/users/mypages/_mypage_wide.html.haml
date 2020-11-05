@@ -40,9 +40,9 @@
         = link_to sentences_user_path(@user.id) do
           %li
             盗んだセンテンスを閲覧
-      %h6 投稿・編集
-      %ul
-        - if @user == current_user
+      - if @user == current_user
+        %h6 投稿・編集
+        %ul
           = link_to new_book_path do
             %li
               本を投稿
