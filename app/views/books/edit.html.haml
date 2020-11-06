@@ -19,4 +19,5 @@
             = link_to return_book_path(@book.id), class: "button-cover__return-button", method: :post do
               返却する
             = f.submit value: "投稿する", class: 'button-cover__edit-button'
-  = render 'steal_content'
+  -# = render 'steal_content'
+  = render 'use_steal_sentence', locals: { sentences: @sentences }

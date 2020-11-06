@@ -30,6 +30,7 @@ class BooksController < ApplicationController
     if current_user.rental != 0 && current_user.rental != -1 #  貸出中の時
       @book = Book.find(current_user.rental)
       @chapter = @book.texts.count + 1
+      @sentences = StealSentence.where(user_id: current_user)
     else
       redirect_to request.referer, notice: '貸出中の本がありません'
     end
