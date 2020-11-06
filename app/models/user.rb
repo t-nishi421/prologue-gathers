@@ -21,4 +21,19 @@ class User < ApplicationRecord
       "can_not_rent"
     end
   end
+
+  def self.return_book_for_three_days
+    lending_user = User.where.not(rental: 0)
+    lending_user.each do |user|
+      if user.updated_at < 3.days.ago
+        book = Book.find_by(id: user.rental)
+        book.rental = 0
+        book.record_timestamps = false
+        book.save
+
+        user.rental = -1
+        user.save
+      end
+    end
+  end
 end
