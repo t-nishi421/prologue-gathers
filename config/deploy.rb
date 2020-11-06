@@ -32,3 +32,7 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 end
+
+# wheneverをデプロイ環境でも動作するようにする
+set :whenever_command, "bundle exec whenever"
+require "whenever/capistrano"

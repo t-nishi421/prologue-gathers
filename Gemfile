@@ -73,3 +73,4 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'active_hash'
 gem 'ransack'
+gem 'whenever', :require => false

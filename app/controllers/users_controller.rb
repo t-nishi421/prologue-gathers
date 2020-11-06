@@ -4,7 +4,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_user.update(user_params)
+    user = current_user
+    user.record_timestamps = false
+    if user.update(user_params)
       redirect_to( { action: :show }, notice: 'ユーザ情報を更新しました' )
     else
       render :edit
