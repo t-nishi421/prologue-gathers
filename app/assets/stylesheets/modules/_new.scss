@@ -88,6 +88,7 @@
         background-color: #ccccdd;
         border: outset #666677 2px;
         border-radius: 3px;
+        cursor: pointer;
         .fa-plus {
           margin-left: 1px;
         }
@@ -161,6 +162,7 @@
         background-color: #ddf;
         border: outset #aab 2px;
         border-radius: 3px;
+        cursor: pointer;
         div:hover {
           height: 40px;
           width: 40px;
@@ -210,6 +212,7 @@
     font-size: 20px;
     font-weight: bold;
     border-radius: 8px;
+    cursor: pointer;
     @include button-template("", "green");
     @include flex-bundle(center, center);
   }

@@ -27,18 +27,20 @@ class BooksController < ApplicationController
   end
 
   def edit
-    if current_user.rental != 0 #  貸出中の時
+    if current_user.rental != 0 && current_user.rental != -1 #  貸出中の時
       @book = Book.find(current_user.rental)
       @chapter = @book.texts.count + 1
     else
-      redirect_to user_path(current_user), notice: '貸出中の本がありません'
+      redirect_to request.referer, notice: '貸出中の本がありません'
     end
   end
 
   def update
     @book = this_book
     @text = new_text
-    if @text.judge_create_text
+    if current_user.rental != @book.id
+      redirect_to( { action: :show, id: @book.id }, notice: 'この本は返却済みのため、文章の投稿に失敗しました' )
+    elsif @text.judge_create_text
       if params[:book][:completion].to_i == 1
         @book.completion = params[:book][:completion].to_i
       end

@@ -17,7 +17,8 @@
       - else
         = b.title
   .Book__author
-    = "作者：#{b.user.name}"
+    = link_to user_path(b.user.id) do
+      = "作者：#{b.user.name}"
 
   .Book__subContents
     .Content
