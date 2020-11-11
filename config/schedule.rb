@@ -21,6 +21,7 @@
 
 require File.expand_path(File.dirname(__FILE__) + "/environment")
 
+rails_env = ENV['RAILS_ENV'] || :production
 set :environment, Rails.env.to_sym
 set :environment, :production
 env :PATH, ENV['PATH']
