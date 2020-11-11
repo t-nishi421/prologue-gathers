@@ -22,5 +22,7 @@ module PrologueGathers
     # the framework and any gems in your application.
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
+    # cron実行で使うlibを読み込めるようにする？
+    config.paths.add 'lib', eager_load: true
   end
 end
