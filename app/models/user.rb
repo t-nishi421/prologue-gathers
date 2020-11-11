@@ -23,7 +23,7 @@ class User < ApplicationRecord
   end
 
   def self.return_book_for_three_days
-    lending_user = User.where.not(rental: 0)
+    lending_user = User.where.not(rental: 0).where.not(rental: -1)
     lending_user.each do |user|
       if user.updated_at <  1.minute.ago
       # if user.updated_at < 3.days.ago
