@@ -22,7 +22,7 @@
 require File.expand_path(File.dirname(__FILE__) + "/environment")
 
 set :environment, Rails.env.to_sym
-# set :environment, :production
+set :environment, :production
 env :PATH, ENV['PATH']
 set :output, "#{Rails.root.to_s}/log/cron.log"
 set :job_template, "/bin/zsh -l -c ':job'"
