@@ -1,5 +1,9 @@
 class BooksController < ApplicationController
 
+  def root
+
+  end
+
   def index
     @books = Book.all.order(id: "DESC")
     @search_title = "一覧表示"
