@@ -22,4 +22,4 @@
                 = f.email_field :email
             = f.submit "更新する", class: 'Button UpdateButton'
           .account-edit__link
-            = link_to "マイページに戻る", :back, class: 'Button'
+            = link_to "マイページに戻る", user_path(current_user), class: 'Button'
