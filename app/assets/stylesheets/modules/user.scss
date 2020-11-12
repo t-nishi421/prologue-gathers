@@ -54,7 +54,11 @@
 }
 
 .FormField {
-  // margin-bottom: 10px;
+  &__errorMessage {
+    margin-top: 10px;
+    color: #d65f4c;
+    font-size: 14px;
+  }
   &__label--normal {
     padding: 10px 0;
     letter-spacing: 1px;

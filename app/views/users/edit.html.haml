@@ -5,7 +5,8 @@
         .account-edit
           %h1 アカウントの編集
           .account-edit__image イメージ
-          = form_for((current_user), html: {class: "FormArea"}) do |f|
+          -# = form_for((current_user), html: {class: "FormArea"}) do |f|
+          = form_with model: @user,url: user_path, method: :patch, local: true, class: "FormArea" do |f|
             .account-edit__icon{style: "background-image: url(#{asset_path current_user.image})"}
               = f.label :image, class: 'upload-image' do
                 = icon('fa', 'camera')
@@ -15,11 +16,15 @@
                 = f.label :name
               .FormField__input--normal
                 = f.text_field :name, autofocus: true
+              .FormField__errorMessage
+                = @user.errors.full_messages_for(:name).first
             .FormField
               .FormField__label--normal
                 = f.label :email
               .FormField__input--normal
                 = f.email_field :email
+              .FormField__errorMessage
+                = @user.errors.full_messages_for(:email).first
             = f.submit "更新する", class: 'Button UpdateButton'
           .account-edit__link
             = link_to "マイページに戻る", user_path(current_user), class: 'Button'
