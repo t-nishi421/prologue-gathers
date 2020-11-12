@@ -27,7 +27,7 @@ set :output, "#{Rails.root.to_s}/log/cron.log"
 set :job_template, "bash -l -c ':job'"
 job_type :rake, "export PATH=\"$HOME/.rbenv/bin:$PATH\"; eval \"$(rbenv init -)\"; cd :path && RAILS_ENV=:environment bundle exec rake :task :output"
 
-# every 1.day, :at => '5:00 am' do
-every 1.minute do
+# every 1.minute do
+every 1.day, :at => '5:00 am' do
   rake "rental:return_for_three_days"
 end
