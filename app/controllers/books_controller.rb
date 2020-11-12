@@ -3,8 +3,8 @@ class BooksController < ApplicationController
   def root
     @sentence = StealSentence.offset( rand(StealSentence.count) ).first
     @latest_books = Book.all.order("created_at DESC").limit(8)
-    @new_story_books = Book.all.order("updated_at DESC").limit(8)
-
+    @new_story_books = []
+    get_new_story_books
   end
 
   def index
@@ -184,6 +184,20 @@ class BooksController < ApplicationController
     @rental_book.rental = 0
     @rental_book.save
     rental_book
+  end
+
+  def get_new_story_books
+    @books = Book.all.order("updated_at DESC")
+    texts = Text.group(:book_id).count
+    @books.each_with_index do |book, i|
+      if @new_story_books.length <= 8
+        if texts[book.id] >= 2
+          @new_story_books.push(book)
+        end
+      else
+        break
+      end
+    end
   end
 
 end
