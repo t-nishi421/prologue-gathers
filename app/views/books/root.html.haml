@@ -1,2 +1,32 @@
-%h1
-  ROOT
+.TopPageWrapper
+
+  .WhimsicalSentence
+    .WhimsicalSentence__image
+      イメージキャラクター
+    .WhimsicalSentence__title
+      気まぐれセンテンス
+    .WhimsicalSentence__content
+      .WhimsicalSentence__content__sentence
+        = safe_join(@sentence.sentence.split("\n"),tag(:br))
+    .WhimsicalSentence__quote
+      = link_to book_path(@sentence.text.book.id) do
+        = "出典：『#{@sentence.text.book.title}』#{StealSentence.getChapterNumber(@sentence)}章 #{@sentence.text.chapter}"
+
+  = link_to books_path, class: "GoToIndexPage" do
+    一覧画面へ
+    
+  .ShowBooks
+    .ShowBooks__title
+      新刊図書
+    .ShowBooks__content
+      - @latest_books.each do |books|
+        .main__frame
+          = render partial: 'book', locals: { b: books }
+
+  .ShowBooks
+    .ShowBooks__title
+      新章更新
+    .ShowBooks__content
+      - @new_story_books.each do |books|
+        .main__frame
+          = render partial: 'book', locals: { b: books }

@@ -1,6 +1,9 @@
 class BooksController < ApplicationController
 
   def root
+    @sentence = StealSentence.offset( rand(StealSentence.count) ).first
+    @latest_books = Book.all.order("created_at DESC").limit(8)
+    @new_story_books = Book.all.order("updated_at DESC").limit(8)
 
   end
 
