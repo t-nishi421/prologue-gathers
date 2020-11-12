@@ -20,9 +20,9 @@ class BooksController < ApplicationController
       @book.save
       @text = new_text
       @text.save
-      redirect_to( { action: :index } , notice: '本を投稿しました' )
+      redirect_to( { action: :index } , notice: '本を投稿しました。' )
     else
-      redirect_to( { action: :new }, notice: '本の投稿に失敗しました' )
+      redirect_to( { action: :new }, notice: '本の投稿に失敗しました。' )
     end
   end
 
@@ -32,7 +32,7 @@ class BooksController < ApplicationController
       @chapter = @book.texts.count + 1
       @sentences = StealSentence.where(user_id: current_user)
     else
-      redirect_to request.referer, notice: '貸出中の本がありません'
+      redirect_to request.referer, notice: '貸出中の本がありません。'
     end
   end
 
@@ -40,7 +40,7 @@ class BooksController < ApplicationController
     @book = this_book
     @text = new_text
     if current_user.rental != @book.id
-      redirect_to( { action: :show, id: @book.id }, notice: 'この本は返却済みのため、文章の投稿に失敗しました' )
+      redirect_to( { action: :show, id: @book.id }, notice: 'この本は返却済みのため、文章の投稿に失敗しました。' )
     elsif @text.judge_create_text
       if params[:book][:completion].to_i == 1
         @book.completion = params[:book][:completion].to_i
@@ -48,9 +48,9 @@ class BooksController < ApplicationController
       rental_reset
       @book.touch
       @text.save
-      redirect_to( { action: :show, id: @book.id }, notice: '文章を投稿しました' )
+      redirect_to( { action: :show, id: @book.id }, notice: '文章を投稿しました。' )
     else
-      redirect_to( { action: :edit }, notice: '文章の投稿に失敗しました' )
+      redirect_to( { action: :edit }, notice: '文章の投稿に失敗しました。' )
     end
   end
 
@@ -93,13 +93,15 @@ class BooksController < ApplicationController
   def rental
 
     if User.rental_status(this_book.id) == "can_not_rental"
-      redirect_to( { action: :show }, notice: 'この本はあなたより先に別のユーザーに貸し出されました' )
+      redirect_to( { action: :show }, notice: 'この本はあなたより先に別のユーザーに貸し出されました。' )
     elsif current_user.rental == 0
       rental_book
-      redirect_to action: :edit
+      three_days_ago = Time.now.since(3.days)
+      redirect_to( { action: :edit }, notice: "本を貸出しました。貸出期限#{three_days_ago.month}月#{three_days_ago.day}日を過ぎると自動で返却されます。" )
     else
       rental_swap
-      redirect_to action: :edit
+      three_days_ago = Time.now.since(3.days)
+      redirect_to( { action: :edit }, notice: "本を貸出しました。貸出期限#{three_days_ago.month}月#{three_days_ago.day}日を過ぎると自動で返却されます。" )
     end
   end
 
@@ -107,7 +109,7 @@ class BooksController < ApplicationController
     @book = this_book
     @book.record_timestamps = false
     rental_reset
-    redirect_to( { action: :show, id: @book.id }, notice: '本を返却しました' )
+    redirect_to( { action: :show, id: @book.id }, notice: '本を返却しました。' )
   end
 
   def save_sentence
