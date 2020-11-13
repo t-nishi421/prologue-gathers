@@ -38,10 +38,13 @@
     right: 10px;
     height: 67px;
     width: 130px;
-    background-color: lightblue; // 仮置き
     font-size: 10px; // 仮置き
+    font-weight: bold; // 仮置き
     border-radius: 25px; // 仮置き
     @include flex-bundle(center, center); // 仮置き
+    &--back {
+      background-color: lightblue; // 仮置き
+    }
   }
   &__title {
     background-color: #003b00;
