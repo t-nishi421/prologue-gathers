@@ -20,6 +20,9 @@
               = link_to user_path(current_user), class: 'user__box__dropdown__button' do
                 マイページ
             %li
+              = link_to books_path, class: 'user__box__dropdown__post-button' do
+                一覧画面へ
+            %li
               = link_to new_book_path, class: 'user__box__dropdown__post-button' do
                 本を投稿
       .stealSwitch

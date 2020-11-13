@@ -2,8 +2,8 @@
 @import "../mixin/button-template";
 
 .SearchBar {
-  width: 500px;
-  flex-grow: 1;
+  max-width: 500px;
+  // flex-grow: 1;
   @include flex-bundle(center,center);
   &__textField {
     height: 35px;

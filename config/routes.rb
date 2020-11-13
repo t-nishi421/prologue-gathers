@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root "books#index"
+  root "books#root"
 
   resources :users, only: [:edit, :update, :show] do
     member do

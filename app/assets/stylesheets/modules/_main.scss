@@ -46,3 +46,17 @@
     @include flex-bundle(center, center);
   }
 }
+
+.SmallContent.Search {
+  display: none;
+  width: max-content;
+  margin: 15px auto 0 auto;
+  color: white;
+  font-size: 14px;
+}
+
+.TopAndBottomCenterCover {
+  flex-grow: 1;
+  @include flex-bundle(center, "");
+  flex-direction: column;
+}
