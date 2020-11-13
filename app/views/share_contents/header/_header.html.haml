@@ -1,9 +1,11 @@
 %header
   .flexSpace
   = link_to root_path, class: "logo" do
-    = image_tag 'title.jpg', alt: '始まりの図書館'
-  .flexSpace
-  = render 'share_contents/search/search_bar'
-  .flexSpace
+    = image_tag 'title.jpg', alt: '始まりの図書館', class: "VerySmallNone"
+  .flexSpace.WideContent
+  .WideContent
+    = render 'share_contents/search/search_bar'
+  .flexSpace.VerySmallNone
   = render 'share_contents/header/user_content'
   .flexSpace
+    

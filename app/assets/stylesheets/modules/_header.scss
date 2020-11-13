@@ -14,25 +14,28 @@ header {
   top: 0;
   left: 0;
   @include calc-header-height("header");
-  max-height: 50px;
   width: 100%;
   margin: 0;
   padding: 0;
   z-index: 9999;
   background-image: image-url("wood.jpg"); // 背景
   border-bottom: solid 2px #000000aa;
-  @include flex-bundle(space-between, center);
   font-size: 14px;
+  @include flex-bundle(space-between, center);
   .flexSpace {
     width: 100px;
     flex-grow: 3;
   }
   .flexSpace:nth-of-type(2) {
     width: 200px;
-    flex-grow: 1;
+    flex-grow: 2;
   }
   .flexSpace:nth-of-type(3) {
     width: 50px;
+    flex-grow: 2;
+  }
+  .WideContent {
+    width: auto;
     flex-grow: 1;
   }
 }
