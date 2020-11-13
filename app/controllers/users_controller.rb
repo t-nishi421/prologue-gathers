@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   end
 
   def sentences
+    @user = User.find(params[:id])
     @sentences = StealSentence.where(user_id: params[:id])
   end
 

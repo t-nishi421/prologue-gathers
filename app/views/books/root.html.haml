@@ -8,10 +8,12 @@
       気まぐれセンテンス
     .WhimsicalSentence__content
       .WhimsicalSentence__content__sentence
-        = safe_join(@sentence.sentence.split("\n"),tag(:br))
+        - if @sentence != nil
+          = safe_join(@sentence.sentence.split("\n"),tag(:br))
     .WhimsicalSentence__quote
-      = link_to book_path(@sentence.text.book.id) do
-        = "出典：『#{@sentence.text.book.title}』#{StealSentence.getChapterNumber(@sentence)}章 #{@sentence.text.chapter}"
+      - if @sentence != nil
+        = link_to book_path(@sentence.text.book.id) do
+          = "出典：『#{@sentence.text.book.title}』#{StealSentence.getChapterNumber(@sentence)}章 #{@sentence.text.chapter}"
 
   = link_to books_path, class: "GoToIndexPage" do
     一覧画面へ

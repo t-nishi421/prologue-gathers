@@ -6,7 +6,7 @@
       .menu.menu--sentencePaper
         .SentencesPage
           .SentenceInfo
-            = "#{@sentences[0].user.name}さんが盗んだセンテンス"
+            = "#{@user.name}さんが盗んだセンテンス"
           - if @sentences.count == 0
             .NoSentenceMessage
               盗んだセンテンスはありません
