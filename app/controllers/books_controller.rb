@@ -27,7 +27,7 @@ class BooksController < ApplicationController
       @book.save
       @text = new_text
       @text.save
-      redirect_to( { action: :index } , notice: '本を投稿しました。' )
+      redirect_to( { action: :show, id: @book.id } , notice: '本を投稿しました。' )
     else
       redirect_to( { action: :new }, notice: '本の投稿に失敗しました。' )
     end
