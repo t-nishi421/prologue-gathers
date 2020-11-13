@@ -54,3 +54,9 @@
   color: white;
   font-size: 14px;
 }
+
+.TopAndBottomCenterCover {
+  flex-grow: 1;
+  @include flex-bundle(center, "");
+  flex-direction: column;
+}

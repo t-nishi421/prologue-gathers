@@ -4,17 +4,28 @@ $(function(){
   $(window).on('load resize', function(){
     const WideContent = '.WideContent';
     const SmallContent = '.SmallContent';
+    const SmallContentSpecial = '.SmallContent.Special';
     
     var winW = $(window).width();
     var devW = 1090;
     if (winW <= devW) {
       //devWpx以下の時の処理
       $(WideContent).css('display', 'none');
-      $(SmallContent).css('display', 'block');
+      if($('.center').length) {
+        //classが存在したら実行する
+        $(SmallContentSpecial).css('display', 'block');
+      } else {
+        $(SmallContent).css('display', 'block');
+      }
     } else {
       //devWpxより大きい時の処理
-      $(SmallContent).css('display', 'none');
       $(WideContent).css('display', 'block');
+      if($('.center').length) {
+        //classが存在したら実行する
+        $(SmallContentSpecial).css('display', 'none');
+      } else {
+        $(SmallContent).css('display', 'none');
+      }
     }
   });
 

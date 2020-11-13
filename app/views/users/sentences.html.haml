@@ -1,28 +1,31 @@
 .center
   .center__over-color
-    .menu.menu--sentencePaper
-      .SentencesPage
-        .SentenceInfo
-          盗んだセンテンス
-        - if @sentences.count == 0
-          .NoSentenceMessage
-            盗んだセンテンスはありません
-        - else
-          .SentenceList
-            - @sentences.each_with_index do |sentence, index|
-              .SentenceBox
-                - if user_signed_in?
-                  - if sentence.user_id == current_user.id
-                    .SentenceBox__deleteSentence{"data-id" => sentence.id}
-                      = icon('fa', 'trash')
-                  - else
-                    .SentenceBox__saveButton{"data-index" => index, "data-text_id" => sentence.text_id}
-                      = icon('fa', 'save')
-                .SentenceBox__sentence{class: "sentence#{index}"}
-                  = safe_join(sentence.sentence.split("\n"),tag(:br))
-                = link_to book_path(sentence.text.book.id) do
-                  .SentenceBox__quote
-                    = "出典：『#{sentence.text.book.title}』#{StealSentence.getChapterNumber(sentence)}章 #{sentence.text.chapter}"
-        = link_to "マイページに戻る", :back, class: 'Button'
+    .SmallContent.Special.Search
+      = render 'share_contents/search/search_bar'
+    .TopAndBottomCenterCover
+      .menu.menu--sentencePaper
+        .SentencesPage
+          .SentenceInfo
+            = "#{@sentences[0].user.name}さんが盗んだセンテンス"
+          - if @sentences.count == 0
+            .NoSentenceMessage
+              盗んだセンテンスはありません
+          - else
+            .SentenceList
+              - @sentences.each_with_index do |sentence, index|
+                .SentenceBox
+                  - if user_signed_in?
+                    - if sentence.user_id == current_user.id
+                      .SentenceBox__deleteSentence{"data-id" => sentence.id}
+                        = icon('fa', 'trash')
+                    - else
+                      .SentenceBox__saveButton{"data-index" => index, "data-text_id" => sentence.text_id}
+                        = icon('fa', 'save')
+                  .SentenceBox__sentence{class: "sentence#{index}"}
+                    = safe_join(sentence.sentence.split("\n"),tag(:br))
+                  = link_to book_path(sentence.text.book.id) do
+                    .SentenceBox__quote
+                      = "出典：『#{sentence.text.book.title}』#{StealSentence.getChapterNumber(sentence)}章 #{sentence.text.chapter}"
+          = link_to "マイページに戻る", :back, class: 'Button'
 .CopyMessage
   削除しました

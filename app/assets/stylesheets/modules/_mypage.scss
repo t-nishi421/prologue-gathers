@@ -23,7 +23,7 @@
   padding: 30px 50px;
   background-size: cover;
   box-shadow: 5px 0px 5px #000000a0;
-  margin: auto;
+  margin: 0 auto 0 auto;
   background-repeat: no-repeat;
 }
 
@@ -37,7 +37,8 @@
     width: 100%;
     background-color: rgba(9, 11, 41, 0.37);
     overflow: auto;
-    @include flex-bundle(center, "");
+    @include flex-bundle("","");
+    flex-direction: column;
   }
 }
 
@@ -61,7 +62,7 @@
   &--compactPaper {
     @include menuPalerTemplate();
     width: 525px;
-    margin-bottom: 20px;
+    margin-top: 20px;
   }
   &--sentencePaper {
     @include menuPalerTemplate();
