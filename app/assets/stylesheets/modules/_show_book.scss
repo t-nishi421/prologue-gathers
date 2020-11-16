@@ -225,6 +225,7 @@
 
 .StopStoryEditButton {
   @include editButtonTemplate();
+  margin: -1px 0 0 5px;
   @include button-template("","yellow");
 }
 .StopStoryEditButton:hover {
@@ -239,9 +240,10 @@
 
 .MyStoryEditForm {
   display: none;
-  .TextField {
+  textarea {
     height: auto;
-    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
     color: #0e0e0f;
     font-size: 16px;
     padding: 10px;
@@ -253,8 +255,9 @@
   .ButtonArea {
     @include flex-bundle(flex-end, "");
   }
-  .UpdateButton {
+  .MyStoryUpdateButton {
     @include editButtonTemplate();
+    margin: -1px 0 0 5px;
     @include button-template("","green");
   }
   .UpdateButton:hover {

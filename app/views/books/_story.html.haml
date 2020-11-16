@@ -9,24 +9,24 @@
           = t.user.name
     - if user_signed_in? && t.user == current_user
       .SunContent
-        .story-content__text{"data-text_id" => t.id}
+        .story-content__text{class: "text_id#{t.id}", "data-text_id" => t.id}
           = safe_join(t.text.split("\n"),tag(:br))
 
       .MoonContent
         .MyStoryEditText
-          .story-content__text{"data-text_id" => t.id}
+          .story-content__text{class: "text_id#{t.id}", "data-text_id" => t.id}
             = safe_join(t.text.split("\n"),tag(:br))
           .ButtonArea
             .StoryEditButton
               編集する
 
         .MyStoryEditForm
-          = form_with model: @my_story,url: text_path(t.id), method: :patch,  local: true do |f|
-            = f.text_area :text, value: "#{safe_join(t.text.split("\n"),tag(:br))}", class: 'TextField', required: true
-            .ButtonArea
-              .StopStoryEditButton
-                編集をやめる
-              = f.submit "更新", class: "UpdateButton"
+          %textarea{class: 'TextField', required: true}=t.text
+          .ButtonArea
+            .StopStoryEditButton
+              編集をやめる
+            .MyStoryUpdateButton{"data-id" => t.id}
+              更新
     - else
       .story-content__text{"data-text_id" => t.id}
         = safe_join(t.text.split("\n"),tag(:br))

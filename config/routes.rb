@@ -27,5 +27,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :texts, only: [:update]
+  resources :texts, only: [:update], defaults: { fomat: 'json'}
 end
