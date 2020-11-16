@@ -62,6 +62,7 @@ class BooksController < ApplicationController
   end
 
   def show
+      @my_story = Text.new
     if user_signed_in? && current_user.rental == params[:id].to_i
       redirect_to action: :edit
     else

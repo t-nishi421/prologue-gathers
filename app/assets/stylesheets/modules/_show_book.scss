@@ -205,3 +205,59 @@
   }
 }
 
+// 自分の話を編集する系
+@mixin editButtonTemplate() {
+  display: inline;
+  width: max-content;
+  margin: 5px 0 0 5px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.StoryEditButton {
+  @include editButtonTemplate();
+  @include button-template("","yellow");
+}
+.StoryEditButton:hover {
+  @include button-template("","hover-yellow");
+}
+
+.StopStoryEditButton {
+  @include editButtonTemplate();
+  @include button-template("","yellow");
+}
+.StopStoryEditButton:hover {
+  @include button-template("","hover-yellow");
+}
+
+.MyStoryEditText {
+  .ButtonArea {
+    @include flex-bundle(flex-end, "");
+  }
+}
+
+.MyStoryEditForm {
+  display: none;
+  .TextField {
+    height: auto;
+    width: 100%;
+    color: #0e0e0f;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: white;
+    border: solid 2px #1b65d4;
+    border-radius: 5px;
+  }
+  .ButtonArea {
+    @include flex-bundle(flex-end, "");
+  }
+  .UpdateButton {
+    @include editButtonTemplate();
+    @include button-template("","green");
+  }
+  .UpdateButton:hover {
+    @include button-template("","hover-green");
+  }
+}
