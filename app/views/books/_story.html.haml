@@ -7,5 +7,26 @@
         .story-content__info__author
           .story-content__info__author__icon{style: "background-image: url(#{asset_path t.user.image})"}
           = t.user.name
-    .story-content__text{"data-text_id" => t.id}
-      = safe_join(t.text.split("\n"),tag(:br))
+    - if user_signed_in? && t.user == current_user
+      .SunContent
+        .story-content__text{class: "text_id#{t.id}", "data-text_id" => t.id}
+          = safe_join(t.text.split("\n"),tag(:br))
+
+      .MoonContent
+        .MyStoryEditText
+          .story-content__text{class: "text_id#{t.id}", "data-text_id" => t.id}
+            = safe_join(t.text.split("\n"),tag(:br))
+          .ButtonArea
+            .StoryEditButton
+              編集する
+
+        .MyStoryEditForm
+          %textarea{class: 'TextField', required: true}=t.text
+          .ButtonArea
+            .StopStoryEditButton
+              編集をやめる
+            .MyStoryUpdateButton{"data-id" => t.id}
+              更新
+    - else
+      .story-content__text{"data-text_id" => t.id}
+        = safe_join(t.text.split("\n"),tag(:br))

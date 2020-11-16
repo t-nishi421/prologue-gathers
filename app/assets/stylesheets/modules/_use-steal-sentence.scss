@@ -67,7 +67,7 @@
   }
 }
 
-.CopyMessage {
+@mixin messageTemplate() {
   display: none;
   position: absolute;
   width: 93px;
@@ -78,4 +78,12 @@
   font-size: 12px;
   text-align: center;
   opacity: 0.8;
+}
+
+.CopyMessage {
+  @include messageTemplate();
+}
+
+.UpdateMessage {
+  @include messageTemplate();
 }

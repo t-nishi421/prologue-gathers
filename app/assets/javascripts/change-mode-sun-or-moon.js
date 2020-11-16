@@ -6,6 +6,8 @@ $(function() {
   const sunArea = '.stealSwitch__sun';
   const moonArea = '.stealSwitch__moon';
   const wrapper =  '.wrapper';
+  const moonContent = '.MoonContent';
+  const sunContent = '.SunContent';
 
   // show, edit画面
   const showBookArea = '.MainContents';
@@ -35,6 +37,8 @@ $(function() {
     $(stealContents).css('display', 'none');
     // $(newBookArea).css('margin', '40px auto');
     $(newStealContents).css('display', 'none');
+    $(moonContent).css('display', 'none');
+    $(sunContent).css('display', 'block');
     addModeToSession();
   }
   
@@ -47,6 +51,8 @@ $(function() {
     $(stealContents).css('display', 'block');
     // $(newBookArea).css('margin', '40px 280px 40px auto');
     $(newStealContents).css('display', 'block');
+    $(moonContent).css('display', 'block');
+    $(sunContent).css('display', 'none');
     addModeToSession();
   }
   
