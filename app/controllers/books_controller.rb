@@ -82,6 +82,7 @@ class BooksController < ApplicationController
     
     @books = Book.includes(book_set_content).search(@keyword).order(@sort)
     @search_count = @books.count
+    binding.pry
     render action: :index
   end
 

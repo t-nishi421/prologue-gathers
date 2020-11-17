@@ -8,21 +8,21 @@
         %table
           %tr
             %th
-              = f.check_box :book_state, class: 'CheckBox'
+              = f.check_box :book_state, {multiple: true, include_hidden: false, class: 'CheckBox', id: 'book_state[1]'}
             %td
-              .RentalState 貸出可
+              .CanRental 貸出可
           %tr
             %th
-              = f.check_box :book_state, class: 'CheckBox'
+              = f.check_box :book_state, {multiple: true, include_hidden: false, class: 'CheckBox', id: 'book_state[2]'}
             %td
-              .RentalState 貸出中
+              .CanNotRental 貸出中
           %tr
             %th
-              = f.check_box :book_state, class: 'CheckBox'
+              = f.check_box :book_state, {multiple: true, include_hidden: false, class: 'CheckBox', id: 'book_state[3]'}
             %td
-              .RentalState 完結
-        = f.hidden_field :keyword
-        = f.hidden_field :sort
+              .Complete 完結
+        = f.hidden_field :keyword, value: @keyword
+        = f.hidden_field :sort, value: @sort
         = f.submit value: '検索する'
   .MainLabel
     .TopItems
