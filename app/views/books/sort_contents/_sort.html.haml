@@ -1,0 +1,5 @@
+= form_with(url: search_books_path, local: true, method: :get) do |f|
+  .SortLabel__select{"data-sort" => @sort}
+    = f.collection_select :sort, Sort.all, :code, :name
+    = f.hidden_field :keyword, value: @keyword
+  = f.submit "sort", class: "SortSubmit"

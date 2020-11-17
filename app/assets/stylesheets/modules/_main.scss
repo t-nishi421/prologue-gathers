@@ -8,20 +8,69 @@
 }
 
 .SortLabel {
-  height: 80px;
   margin: 10px 20px 0 auto;
-  padding: 20px;
-  background-color: #22185ee6;
-  @include flex-bundle(center, center);
-  
-  select {
-    padding: 0 10px;
-    height: 35px;
-    outline: none;
+  &__select {
+    height: 80px;
+    padding: 20px;
+    background-color: #22185ee6;
+    @include flex-bundle(center, center);
+    select {
+      padding: 0 10px;
+      height: 35px;
+      outline: none;
+    }
+    input {
+      display: none;
+    }
   }
-  input {
+  .SortSubmit {
     display: none;
   }
+
+  &__radio {
+    height: max-content;
+    padding: 20px;
+    margin-top: 15px;
+    background-color: #22185ee6;
+    h1 {
+      color: whitesmoke;
+      font-size: 18px;
+    }
+    h2 {
+      color: whitesmoke;
+      margin-top: 10px;
+    }
+    table {
+      margin: 0 auto;
+      th {
+        .CheckBox {
+          height: 20px;
+          width: 20px;
+          margin-top: 6px;
+        }
+      }
+      td {
+        padding: 5px 0 0 10px;
+
+        .CanRental {
+          @include button-template("very-small", "green");
+        }
+        .CanNotRental {
+          @include button-template("very-small", "red");
+        }
+        .Complete {
+          @include button-template("very-small", "yellow");
+        }
+      }
+    }
+
+    .RentalStateSubmit {
+      display: block;
+      margin: 15px 0 0 auto;
+      padding: 2px 5px;
+    }
+  }
+  
 }
 
 .MainLabel {

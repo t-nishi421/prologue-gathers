@@ -74,3 +74,4 @@ gem 'fog-aws'
 gem 'active_hash'
 gem 'ransack'
 gem 'whenever', :require => false
+gem 'active_hash'

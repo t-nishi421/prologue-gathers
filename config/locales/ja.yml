@@ -79,7 +79,7 @@ ja:
         one: 1秒以内
         other: "%{count}秒未満"
       less_than_x_minutes:
-        one: 1分以内
+        one: 1分
         other: "%{count}分未満"
       over_x_years:
         one: 1年以上

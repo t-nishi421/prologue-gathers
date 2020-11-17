@@ -8,7 +8,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all.order(id: "DESC")
+    @books = Book.includes(book_set_content).all.order(id: "DESC")
     @search_title = "一覧表示"
     @search_count = @books.count
   end
@@ -71,16 +71,25 @@ class BooksController < ApplicationController
   end
 
   def search
-    sort = params[:sort] || "created_at DESC"
-    
-    if params[:keyword] == ""
-      @search_title = "一覧表示"
-    else
-      @search_title = "#{params[:keyword]}の検索結果"
+    @sort = params[:sort]
+    if @sort == ""
+      @sort = "created_at DESC"
+    end
+    @keyword = params[:keyword]
+    if params[:rental_state]
+      trans_rental_state_params
+      @rental_params = params[:rental_state]
     end
     
-    @books = Book.search(params[:keyword]).order(sort)
+    if @keyword == ""
+      @search_title = "一覧表示"
+    else
+      @search_title = "#{@keyword}の検索結果"
+    end
+    
+    @books = Book.includes(book_set_content).search(@keyword).where(@rental_state).order(@sort)
     @search_count = @books.count
+    # binding.pry
     render action: :index
   end
 
@@ -197,6 +206,45 @@ class BooksController < ApplicationController
         end
       else
         break
+      end
+    end
+  end
+
+  def book_set_content
+    [:user, :texts, :icon, :color, :bookmarks]
+  end
+
+  def trans_rental_state_params
+    @rental_state = ""
+    
+    if params[:rental_state].include? "rental"
+      @rental_state += "(rental = 0)"
+    end
+
+    if params[:rental_state].include? "notRental"
+      if @rental_state == ""
+        @rental_state += "(rental >= 1)"
+      else
+        @rental_state += " OR (rental >= 1)"
+      end
+    end
+
+    if (params[:rental_state].include? "rental") && (params[:rental_state].include? "notRental")
+      @rental_state.insert(0, "(")
+      @rental_state += ")"
+    end
+
+    if params[:rental_state].include? "complete"
+      if @rental_state == ""
+        @rental_state += "(completion = 1)"
+      else
+        @rental_state += " OR (completion = 1)"
+      end
+    else
+      if @rental_state == ""
+        @rental_state += "(completion = 0)"
+      else
+        @rental_state += " AND (completion = 0)"
       end
     end
   end
