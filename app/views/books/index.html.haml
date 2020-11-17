@@ -5,20 +5,20 @@
       = form_with(url: search_books_path, local: true, method: :get) do |f|
         %h1 詳細検索
         %h2 本の状態
-        %table
+        %table.SearchRentalState{"data-rental" => @rental_params}
           %tr
             %th
-              = f.check_box :book_state, {multiple: true, include_hidden: false, class: 'CheckBox', id: 'book_state[1]'}
+              = f.check_box :rental_state, {multiple: true, include_hidden: false, class: 'CheckBox rental', id: 'rental_state[1]'}, 'rental'
             %td
               .CanRental 貸出可
           %tr
             %th
-              = f.check_box :book_state, {multiple: true, include_hidden: false, class: 'CheckBox', id: 'book_state[2]'}
+              = f.check_box :rental_state, {multiple: true, include_hidden: false, class: 'CheckBox notRental', id: 'rental_state[2]'}, 'notRental'
             %td
               .CanNotRental 貸出中
           %tr
             %th
-              = f.check_box :book_state, {multiple: true, include_hidden: false, class: 'CheckBox', id: 'book_state[3]'}
+              = f.check_box :rental_state, {multiple: true, include_hidden: false, class: 'CheckBox complete', id: 'rental_state[3]'}, 'complete'
             %td
               .Complete 完結
         = f.hidden_field :keyword, value: @keyword

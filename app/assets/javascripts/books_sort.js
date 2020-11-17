@@ -1,9 +1,11 @@
 $(function() {
+  // sort機能
   const selectMenu = '.SortLabel__select'
+  const submit = '.SortSubmit';
 
   // プルダウンメニューを選択することでイベントが発生
   $(selectMenu).change(function() {
-    $('.SortSubmit').trigger('click');
+    $(submit).trigger('click');
   });
 
   // ページ遷移後の挙動
@@ -22,5 +24,25 @@ $(function() {
 
     var add_selected = $(selectMenu).children().children()[sort]
     $(add_selected).attr('selected', true)
+  });
+
+  // 貸出状態
+
+  const SearchRentalState = '.SearchRentalState';
+  const checkBox = '.CheckBox';
+
+  $(function () {
+    const rentalParams = $(SearchRentalState).data('rental');
+    console.log(rentalParams);
+
+    if (rentalParams.includes("rental")) {
+      $(checkBox + '.rental').attr("checked",true);
+    }
+    if (rentalParams.includes("notRental")) {
+      $(checkBox + '.notRental').attr("checked",true);
+    }
+    if (rentalParams.includes("complete")) {
+      $(checkBox + '.complete').attr("checked",true);
+    }
   });
 });

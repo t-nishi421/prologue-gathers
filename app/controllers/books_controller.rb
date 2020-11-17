@@ -71,8 +71,15 @@ class BooksController < ApplicationController
   end
 
   def search
-    @sort = params[:sort] || "created_at DESC"
+    @sort = params[:sort]
+    if @sort == ""
+      @sort = "created_at DESC"
+    end
     @keyword = params[:keyword]
+    if params[:rental_state]
+      trans_rental_state_params
+      @rental_params = params[:rental_state]
+    end
     
     if @keyword == ""
       @search_title = "一覧表示"
@@ -80,9 +87,9 @@ class BooksController < ApplicationController
       @search_title = "#{@keyword}の検索結果"
     end
     
-    @books = Book.includes(book_set_content).search(@keyword).order(@sort)
+    @books = Book.includes(book_set_content).search(@keyword).where(@rental_state).order(@sort)
     @search_count = @books.count
-    binding.pry
+    # binding.pry
     render action: :index
   end
 
@@ -204,7 +211,42 @@ class BooksController < ApplicationController
   end
 
   def book_set_content
-    [:texts, :icon, :color, :bookmarks]
+    [:user, :texts, :icon, :color, :bookmarks]
+  end
+
+  def trans_rental_state_params
+    @rental_state = ""
+    
+    if params[:rental_state].include? "rental"
+      @rental_state += "(rental = 0)"
+    end
+
+    if params[:rental_state].include? "notRental"
+      if @rental_state == ""
+        @rental_state += "(rental >= 1)"
+      else
+        @rental_state += " OR (rental >= 1)"
+      end
+    end
+
+    if (params[:rental_state].include? "rental") && (params[:rental_state].include? "notRental")
+      @rental_state.insert(0, "(")
+      @rental_state += ")"
+    end
+
+    if params[:rental_state].include? "complete"
+      if @rental_state == ""
+        @rental_state += "(completion = 1)"
+      else
+        @rental_state += " OR (completion = 1)"
+      end
+    else
+      if @rental_state == ""
+        @rental_state += "(completion = 0)"
+      else
+        @rental_state += " AND (completion = 0)"
+      end
+    end
   end
 
 end
