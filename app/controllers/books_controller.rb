@@ -71,15 +71,16 @@ class BooksController < ApplicationController
   end
 
   def search
-    sort = params[:sort] || "created_at DESC"
+    @sort = params[:sort] || "created_at DESC"
+    @keyword = params[:keyword]
     
-    if params[:keyword] == ""
+    if @keyword == ""
       @search_title = "一覧表示"
     else
-      @search_title = "#{params[:keyword]}の検索結果"
+      @search_title = "#{@keyword}の検索結果"
     end
     
-    @books = Book.includes(book_set_content).search(params[:keyword]).order(sort)
+    @books = Book.includes(book_set_content).search(@keyword).order(@sort)
     @search_count = @books.count
     render action: :index
   end

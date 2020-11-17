@@ -1,14 +1,29 @@
 .IndexWrapper
   .SortLabel
-    %select.SortLabel__select
-      %option{value: 'created_at_desc'}
-        投稿が新しい順
-      %option{value: 'created_at_asc'}
-        投稿が古い順
-      %option{value: 'updated_at_desc'}
-        更新が新しい順
-      %option{value: 'updated_at_asc'}
-        更新が古い順
+    = render 'books/sort_contents/sort'
+    .SortLabel__radio
+      = form_with(url: search_books_path, local: true, method: :get) do |f|
+        %h1 詳細検索
+        %h2 本の状態
+        %table
+          %tr
+            %th
+              = f.check_box :book_state, class: 'CheckBox'
+            %td
+              .RentalState 貸出可
+          %tr
+            %th
+              = f.check_box :book_state, class: 'CheckBox'
+            %td
+              .RentalState 貸出中
+          %tr
+            %th
+              = f.check_box :book_state, class: 'CheckBox'
+            %td
+              .RentalState 完結
+        = f.hidden_field :keyword
+        = f.hidden_field :sort
+        = f.submit value: '検索する'
   .MainLabel
     .TopItems
       .TopItems__searchedTitle

@@ -8,20 +8,60 @@
 }
 
 .SortLabel {
-  height: 80px;
   margin: 10px 20px 0 auto;
-  padding: 20px;
-  background-color: #22185ee6;
-  @include flex-bundle(center, center);
-  
-  select {
-    padding: 0 10px;
-    height: 35px;
-    outline: none;
+  &__select {
+    height: 80px;
+    padding: 20px;
+    background-color: #22185ee6;
+    @include flex-bundle(center, center);
+    select {
+      padding: 0 10px;
+      height: 35px;
+      outline: none;
+    }
+    input {
+      display: none;
+    }
   }
-  input {
+  .SortSubmit {
     display: none;
   }
+
+  &__radio {
+    height: max-content;
+    padding: 20px;
+    margin-top: 15px;
+    background-color: violet;
+    h1 {
+      color: whitesmoke;
+      font-size: 18px;
+    }
+    h2 {
+      color: whitesmoke;
+      margin-top: 10px;
+    }
+    table {
+      margin: 10px auto;
+      .CheckBox {
+        height: 20px;
+        width: 20px;
+      }
+      td {
+        padding: 0 0 0 10px;
+
+        .RentalState {
+          @include button-template("very-small", "green");
+        }
+        .RentalState:nth-of-type(2) {
+          @include button-template("very-small", "red");
+        }
+        .RentalState:nth-of-type(3) {
+          @include button-template("very-small", "yellow");
+        }
+      }
+    }
+  }
+  
 }
 
 .MainLabel {
