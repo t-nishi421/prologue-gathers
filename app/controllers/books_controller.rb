@@ -8,7 +8,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all.order(id: "DESC")
+    @books = Book.includes(book_set_content).all.order(id: "DESC")
     @search_title = "一覧表示"
     @search_count = @books.count
   end
@@ -79,7 +79,7 @@ class BooksController < ApplicationController
       @search_title = "#{params[:keyword]}の検索結果"
     end
     
-    @books = Book.search(params[:keyword]).order(sort)
+    @books = Book.includes(book_set_content).search(params[:keyword]).order(sort)
     @search_count = @books.count
     render action: :index
   end
@@ -199,6 +199,10 @@ class BooksController < ApplicationController
         break
       end
     end
+  end
+
+  def book_set_content
+    [:texts, :icon, :color, :bookmarks]
   end
 
 end

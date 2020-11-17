@@ -3,7 +3,7 @@ $(function() {
     let reader = new FileReader();
 
     reader.onload = function (e) {
-      $('.account-edit-right__icon').css('background-image', 'url(' + e.target.result + ')');
+      $('.account-edit__icon').css('background-image', 'url(' + e.target.result + ')');
     }
     reader.readAsDataURL(e.target.files[0]);
   });

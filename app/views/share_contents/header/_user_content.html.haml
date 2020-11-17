@@ -2,7 +2,11 @@
   .user
     = link_to user_path(current_user) do
       .user__name
-        .user__name__icon{style: "background-image: url(#{asset_path current_user.image})"}
+        -# .user__name__icon{style: "background-image: url(#{asset_path current_user.image})"}
+        - if current_user.image?
+          = image_tag "#{current_user.image}", class: "user__name__icon"
+        - else
+          = image_tag "noimage.jpg", class: "user__name__icon"
         = "名前：#{current_user.name}"
     .user__box
       - if current_user.rental == 0
