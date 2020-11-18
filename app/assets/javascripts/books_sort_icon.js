@@ -21,12 +21,14 @@ $(function() {
     const input = '#book_icon';
     let indexIcon = null;
 
-    for (let i = 0; i < selected_option.length; i++) {
-      indexIcon = selected_option[i];
-      $(input + indexIcon).attr("checked",true);
-      $(image + indexIcon).css('background-color', '#e6a121');
-      $(image + indexIcon).css('filter', 'invert(1)');
-      $(image + indexIcon).addClass(selectedIcon);
+    if (selected_option != undefined) {
+      for (let i = 0; i < selected_option.length; i++) {
+        indexIcon = selected_option[i];
+        $(input + indexIcon).attr("checked",true);
+        $(image + indexIcon).css('background-color', '#e6a121');
+        $(image + indexIcon).css('filter', 'invert(1)');
+        $(image + indexIcon).addClass(selectedIcon);
+      }
     }
   });
 });
