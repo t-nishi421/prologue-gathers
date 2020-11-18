@@ -2,7 +2,10 @@
   %h1
     = "#{@user.name}さんのページ"
   .Profile__items
-    .Profile__items__icon{style: "background-image: url(#{asset_path @user.image})"}
+    - if current_user.image?
+      = image_tag "#{@user.image}", class: "Profile__items__icon"
+    - else
+      = image_tag "noimage.jpg", class: "Profile__items__icon"
   .Profile__bottom
     .Profile__bottom__user-name
       = @user.name
