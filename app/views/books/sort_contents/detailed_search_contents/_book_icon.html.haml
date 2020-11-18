@@ -5,3 +5,9 @@
       %li.BookIcon
         = image_tag "#{icon.icon}", class: "BookIcon__image SortIconNumber#{icon.id}"
     = f.check_box :book_icon, {multiple: true, include_hidden: false, class: 'SortBookIcon', id: "book_icon#{icon.id}"}, icon.id
+  .allCheckContents
+    全項目チェック
+    .AllChecked.CheckButton
+      ON
+    .AllDeleteChecked.CheckButton
+      OFF

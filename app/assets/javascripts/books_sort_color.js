@@ -2,6 +2,8 @@ $(function() {
   const selectMenu = '.SortColors'
   const noSelectColor = '.BookColor';
   const selectedColor = '.BookColor--selected';
+  const allCheckedButton = '.AllChecked';
+  const allDeleteCheckedButton = '.AllDeleteChecked';
 
   $(noSelectColor).on('click', function() {
     if ($(this).hasClass(selectedColor)) {
@@ -27,5 +29,15 @@ $(function() {
         $(color + indexColor).addClass(selectedColor);
       }
     }
+  });
+
+  $(allCheckedButton).on('click', function(){
+    $(this).parent().parent().find('i').css('display', 'block');
+    $(this).parent().parent().find(noSelectColor).addClass(selectedColor);
+  });
+
+  $(allDeleteCheckedButton).on('click', function(){
+    $(this).parent().parent().find('i').css('display', 'none');
+    $(this).parent().parent().find(noSelectColor).removeClass(selectedColor);
   });
 });

@@ -107,7 +107,7 @@
 @mixin SortBoxTemplate() {
   width: 198px;
   margin-top: 5px;
-  padding: 15px;
+  padding: 15px 15px 5px 15px;
   background-color: #ebd0ad;
   border: solid #d8ab71 4px;
   border-radius: 15px;
@@ -166,5 +166,22 @@
   }
   input {
     display: none;
+  }
+}
+
+.allCheckContents {
+  margin-top: 10px;
+  font-size: 12px;
+  @include flex-bundle("","");
+  .CheckButton {
+    margin-left: 3px;
+    padding: 0 4px;
+    background-color: #efefef;
+    border: solid 1px #767676;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .CheckButton:hover {
+    background-color: #dfdfdf;
   }
 }

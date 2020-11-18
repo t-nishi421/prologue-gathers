@@ -5,3 +5,9 @@
       %li.BookColor{style: "background-color: #{color.color}", class: "SortColorNumber#{color.id}"}
         = icon('fa', 'check')
     = f.check_box :book_color, {multiple: true, include_hidden: false, class: 'SortBookColor', id: "book_color#{color.id}"}, color.id
+  .allCheckContents
+    全項目チェック
+    .AllChecked.CheckButton
+      ON
+    .AllDeleteChecked.CheckButton
+      OFF

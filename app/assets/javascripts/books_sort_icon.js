@@ -2,6 +2,8 @@ $(function() {
   const selectMenu = '.SortIcons'
   const noSelectIcon = '.BookIcon__image';
   const selectedIcon = '.BookIcon__image--selected';
+  const allCheckedButton = '.AllChecked';
+  const allDeleteCheckedButton = '.AllDeleteChecked';
 
   $(noSelectIcon).on('click', function() {
     if ($(this).hasClass(selectedIcon)) {
@@ -30,5 +32,19 @@ $(function() {
         $(image + indexIcon).addClass(selectedIcon);
       }
     }
+  });
+
+  $(allCheckedButton).on('click', function(){
+    $(this).parent().parent().find('input').attr("checked", true).prop("checked", true).change();
+    $(this).parent().parent().find(noSelectIcon).css('background-color', '#e6a121');
+    $(this).parent().parent().find(noSelectIcon).css('filter', 'invert(1)');
+    $(this).parent().parent().find(noSelectIcon).addClass(selectedIcon);
+  });
+
+  $(allDeleteCheckedButton).on('click', function(){
+    $(this).parent().parent().find('input').removeAttr("checked").prop("checked", false).change();
+    $(this).parent().parent().find(noSelectIcon).css('background-color', '');
+    $(this).parent().parent().find(noSelectIcon).css('filter', 'invert(0)');
+    $(this).parent().parent().find(noSelectIcon).removeClass(selectedIcon);
   });
 });
