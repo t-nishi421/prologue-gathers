@@ -97,7 +97,6 @@ class BooksController < ApplicationController
     
     @books = sortBooks
     @search_count = @books.count
-    # binding.pry
     render action: :index
   end
 
