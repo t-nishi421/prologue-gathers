@@ -33,16 +33,17 @@ $(function() {
 
   $(function () {
     const rentalParams = $(SearchRentalState).data('rental');
-    console.log(rentalParams);
-
-    if (rentalParams.includes("rental")) {
-      $(checkBox + '.rental').attr("checked",true);
-    }
-    if (rentalParams.includes("notRental")) {
-      $(checkBox + '.notRental').attr("checked",true);
-    }
-    if (rentalParams.includes("complete")) {
-      $(checkBox + '.complete').attr("checked",true);
+    
+    if (rentalParams != undefined) {
+      if (rentalParams.includes("rental")) {
+        $(checkBox + '.rental').attr("checked",true);
+      }
+      if (rentalParams.includes("notRental")) {
+        $(checkBox + '.notRental').attr("checked",true);
+      }
+      if (rentalParams.includes("complete")) {
+        $(checkBox + '.complete').attr("checked",true);
+      }
     }
   });
 });
