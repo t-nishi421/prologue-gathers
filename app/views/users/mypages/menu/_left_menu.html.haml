@@ -2,7 +2,7 @@
   %h1
     = "#{@user.name}さんのページ"
   .Profile__items
-    - if current_user.image?
+    - if @user.image?
       = image_tag "#{@user.image}", class: "Profile__items__icon"
     - else
       = image_tag "noimage.jpg", class: "Profile__items__icon"
