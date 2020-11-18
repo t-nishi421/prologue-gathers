@@ -2,6 +2,7 @@
   = form_with(url: search_books_path, local: true, method: :get) do |f|
     %h1 詳細検索
     = render partial: 'books/sort_contents/detailed_search_contents/book_icon', locals: { f: f , icons: @icons}
+    = render partial: 'books/sort_contents/detailed_search_contents/book_color', locals: { f: f , colors: @colors}
     = render partial: 'books/sort_contents/detailed_search_contents/rental_state', locals: { f: f }
     = f.hidden_field :keyword, value: @keyword
     = f.hidden_field :sort, value: @sort

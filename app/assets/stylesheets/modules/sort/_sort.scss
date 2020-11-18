@@ -104,7 +104,7 @@
   flex-direction: column;
 }
 
-.SortIcons {
+@mixin SortBoxTemplate() {
   width: 198px;
   margin-top: 5px;
   padding: 15px;
@@ -113,14 +113,22 @@
   border-radius: 15px;
   display: flex;
   flex-wrap: wrap;
-  .BookIcon {
-    height: 40px;
-    width: 40px;
-    text-align: center;
-    background-color: #ddf;
-    border: outset #aab 2px;
-    border-radius: 3px;
-    cursor: pointer;
+}
+
+@mixin SelectItemTemplate() {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  background-color: #ddf;
+  border: outset #aab 2px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.SortIcons {
+  @include SortBoxTemplate();
+  .BookIcon, .BookColor {
+    @include SelectItemTemplate();
     &__image {
       height: 100%;
       width: 100%;
@@ -129,14 +137,32 @@
       opacity: 0.5;
       background-color: #bbbbcc;
     }
-    &__image--selected {
-      background-color: yellow;
-      filter: invert(1);
+  }
+  input {
+    display: none;
+  }
+}
+
+.SortColors {
+  @include SortBoxTemplate();
+  .BookColor {
+    @include SelectItemTemplate();
+    position: relative;
+    i {
+      display: none;
+      position: absolute;
+      right: -2px;
+      bottom: -2px;
+      padding: 3px;
+      font-size: 16px;
+      color: whitesmoke;
+      border: outset 2px  rgb(25, 95, 223);
+      border-radius: 2px;
+      background-color: rgb(25, 95, 223);
     }
-    &__image--selected:hover {
-      opacity: 0.5;
-      background-color: #bbbbcc;
-    }
+  }
+  .BookColor:hover {
+    opacity: 0.5;
   }
   input {
     display: none;

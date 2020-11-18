@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :get_icons, only: [:index, :new, :search]
+  before_action :get_colors, only: [:index, :new, :search]
 
   def root
     @sentence = StealSentence.offset( rand(StealSentence.count) ).first
@@ -16,7 +17,6 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
-    @colors = Color.all
     @sentences = StealSentence.where(user_id: current_user)
   end
 
@@ -80,9 +80,13 @@ class BooksController < ApplicationController
       @sort_rental_state = get_sql_rental_state
       @rental_state_hidden_params = params[:rental_state]
     end
-    if params[:book_icon] # 本のアイコン
+    if params[:book_icon] # 表紙のアイコン
       @sort_book_icon = get_sql_sort_book_icon
       @book_icon_hidden_params = params[:book_icon]
+    end
+    if params[:book_color] # 表紙の色
+      @sort_book_color = get_sql_sort_book_color
+      @book_color_hidden_params = params[:book_color]
     end
     
     if @keyword == ""
@@ -93,6 +97,7 @@ class BooksController < ApplicationController
     
     @books = sortBooks
     @search_count = @books.count
+    # binding.pry
     render action: :index
   end
 
@@ -153,6 +158,10 @@ class BooksController < ApplicationController
   private
   def get_icons
     @icons = Icon.all
+  end
+
+  def get_colors
+    @colors = Color.all
   end
 
   def this_book
@@ -269,8 +278,20 @@ class BooksController < ApplicationController
     sql_sort_book_icon
   end
 
+  def get_sql_sort_book_color
+    sql_sort_book_color = ""
+    params[:book_color].each do |color|
+      if sql_sort_book_color == ""
+        sql_sort_book_color += "(color_id = #{color.to_i})"
+      else
+        sql_sort_book_color += " OR (color_id = #{color.to_i})"
+      end
+    end
+    sql_sort_book_color
+  end
+
   def sortBooks
-    sort_pattern = Book.includes(book_set_content).search(@keyword).where(@sort_rental_state).where(@sort_book_icon)
+    sort_pattern = Book.includes(book_set_content).search(@keyword).where(@sort_rental_state).where(@sort_book_icon).where(@sort_book_color)
 
     if @sort == 'bookmarks DESC'
       sort_pattern.sort {|a,b| b.bookmarks.size <=> a.bookmarks.size}

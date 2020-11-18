@@ -6,4 +6,7 @@
     - if @book_icon_hidden_params != nil
       - @book_icon_hidden_params.each do |icon_id|
         = hidden_field_tag 'book_icon[]', icon_id
+    - if @book_color_hidden_params != nil
+      - @book_color_hidden_params.each do |color_id|
+        = hidden_field_tag 'book_color[]', color_id
   = f.submit "sort", class: "SortSubmit"
