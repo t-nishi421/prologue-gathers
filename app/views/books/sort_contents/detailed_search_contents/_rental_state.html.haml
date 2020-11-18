@@ -4,14 +4,17 @@
     %th
       = f.check_box :rental_state, {multiple: true, include_hidden: false, class: 'CheckBox rental', id: 'rental_state[1]'}, 'rental'
     %td
-      .CanRental 貸出可
+      %label{for: 'rental_state[1]'}
+        .CanRental 貸出可
   %tr
     %th
       = f.check_box :rental_state, {multiple: true, include_hidden: false, class: 'CheckBox notRental', id: 'rental_state[2]'}, 'notRental'
     %td
-      .CanNotRental 貸出中
+      %label{for: 'rental_state[2]'}
+        .CanNotRental 貸出中
   %tr
     %th
       = f.check_box :rental_state, {multiple: true, include_hidden: false, class: 'CheckBox complete', id: 'rental_state[3]'}, 'complete'
     %td
-      .Complete 完結
+      %label{for: 'rental_state[3]'}
+        .Complete 完結

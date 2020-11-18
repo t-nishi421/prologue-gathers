@@ -13,6 +13,7 @@
       height: 35px;
       padding: 0 10px;
       outline: none;
+      cursor: pointer;
     }
     input {
       display: none;
@@ -41,18 +42,22 @@
           height: 20px;
           width: 20px;
           margin-top: 6px;
+          cursor: pointer;
         }
       }
       td {
         padding: 5px 0 0 10px;
 
         .CanRental {
+          cursor: pointer;
           @include button-template("very-small", "green");
         }
         .CanNotRental {
+          cursor: pointer;
           @include button-template("very-small", "red");
         }
         .Complete {
+          cursor: pointer;
           @include button-template("very-small", "yellow");
         }
       }
