@@ -1,29 +1,7 @@
 .IndexWrapper
   .SortLabel
     = render 'books/sort_contents/sort'
-    .SortLabel__radio
-      = form_with(url: search_books_path, local: true, method: :get) do |f|
-        %h1 詳細検索
-        %h2 本の貸出状態
-        %table.SearchRentalState{"data-rental" => @rental_params}
-          %tr
-            %th
-              = f.check_box :rental_state, {multiple: true, include_hidden: false, class: 'CheckBox rental', id: 'rental_state[1]'}, 'rental'
-            %td
-              .CanRental 貸出可
-          %tr
-            %th
-              = f.check_box :rental_state, {multiple: true, include_hidden: false, class: 'CheckBox notRental', id: 'rental_state[2]'}, 'notRental'
-            %td
-              .CanNotRental 貸出中
-          %tr
-            %th
-              = f.check_box :rental_state, {multiple: true, include_hidden: false, class: 'CheckBox complete', id: 'rental_state[3]'}, 'complete'
-            %td
-              .Complete 完結
-        = f.hidden_field :keyword, value: @keyword
-        = f.hidden_field :sort, value: @sort
-        = f.submit value: '検索する',class: 'RentalStateSubmit'
+    = render 'books/sort_contents/detailed_search'
   .MainLabel
     .TopItems
       .TopItems__searchedTitle

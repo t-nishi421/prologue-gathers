@@ -20,6 +20,10 @@ $(function() {
       var sort = 2
     } else if (selected_option == "updated_at ASC") {
       var sort = 3
+    } else if (selected_option == "bookmarks DESC") {
+      var sort = 4
+    } else if (selected_option == "bookmarks ASC") {
+      var sort = 5
     }
 
     var add_selected = $(selectMenu).children().children()[sort]

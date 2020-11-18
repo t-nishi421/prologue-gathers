@@ -2,4 +2,8 @@
   .SortLabel__select{"data-sort" => @sort}
     = f.collection_select :sort, Sort.all, :code, :name
     = f.hidden_field :keyword, value: @keyword
+    = f.hidden_field :rental_state, value: @rental_state_hidden_params
+    - if @book_icon_hidden_params != nil
+      - @book_icon_hidden_params.each do |icon_id|
+        = hidden_field_tag 'book_icon[]', icon_id
   = f.submit "sort", class: "SortSubmit"

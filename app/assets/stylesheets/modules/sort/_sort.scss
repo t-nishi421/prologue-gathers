@@ -1,0 +1,144 @@
+@import "../mixin/flex-bundle";
+@import "../mixin/button-template";
+@import "../mixin/book-frame";
+
+.SortLabel {
+  margin: 10px 20px 0 auto;
+  &__select {
+    height: 80px;
+    padding: 20px;
+    background-color: #22185ee6;
+    @include flex-bundle(center, center);
+    select {
+      height: 35px;
+      padding: 0 10px;
+      outline: none;
+    }
+    input {
+      display: none;
+    }
+  }
+  .SortSubmit {
+    display: none;
+  }
+
+  &__radio {
+    height: max-content;
+    padding: 20px;
+    margin-top: 15px;
+    background-color: #22185ee6;
+    h1 {
+      color: whitesmoke;
+      font-size: 18px;
+    }
+    h2 {
+      color: whitesmoke;
+      margin-top: 10px;
+    }
+    table {
+      th {
+        .CheckBox {
+          height: 20px;
+          width: 20px;
+          margin-top: 6px;
+        }
+      }
+      td {
+        padding: 5px 0 0 10px;
+
+        .CanRental {
+          @include button-template("very-small", "green");
+        }
+        .CanNotRental {
+          @include button-template("very-small", "red");
+        }
+        .Complete {
+          @include button-template("very-small", "yellow");
+        }
+      }
+    }
+
+    .RentalStateSubmit {
+      display: block;
+      margin: 15px 0 0 auto;
+      padding: 2px 5px;
+    }
+  }
+  
+}
+
+.MainLabel {
+  width: 772px;
+  margin-right:auto;
+}
+
+.MainSearchLabel {
+  width: 772px;
+  margin:0 auto;
+}
+
+.main{
+  max-width: 772px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  @include flex-bundle("", "");
+  flex-wrap: wrap;
+  &__frame {
+    min-height: 281px;
+    min-width: 193px;
+    @include flex-bundle(center, center);
+  }
+}
+
+.SmallContent.Search {
+  display: none;
+  width: max-content;
+  margin: 15px auto 0 auto;
+  color: white;
+  font-size: 14px;
+}
+
+.TopAndBottomCenterCover {
+  flex-grow: 1;
+  @include flex-bundle(center, "");
+  flex-direction: column;
+}
+
+.SortIcons {
+  width: 198px;
+  margin-top: 5px;
+  padding: 15px;
+  background-color: #ebd0ad;
+  border: solid #d8ab71 4px;
+  border-radius: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  .BookIcon {
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    background-color: #ddf;
+    border: outset #aab 2px;
+    border-radius: 3px;
+    cursor: pointer;
+    &__image {
+      height: 100%;
+      width: 100%;
+    }
+    &__image:hover {
+      opacity: 0.5;
+      background-color: #bbbbcc;
+    }
+    &__image--selected {
+      background-color: yellow;
+      filter: invert(1);
+    }
+    &__image--selected:hover {
+      opacity: 0.5;
+      background-color: #bbbbcc;
+    }
+  }
+  input {
+    display: none;
+  }
+}

@@ -1,0 +1,17 @@
+%h2 本の貸出状態
+%table.SearchRentalState{"data-rental" => @rental_state_hidden_params}
+  %tr
+    %th
+      = f.check_box :rental_state, {multiple: true, include_hidden: false, class: 'CheckBox rental', id: 'rental_state[1]'}, 'rental'
+    %td
+      .CanRental 貸出可
+  %tr
+    %th
+      = f.check_box :rental_state, {multiple: true, include_hidden: false, class: 'CheckBox notRental', id: 'rental_state[2]'}, 'notRental'
+    %td
+      .CanNotRental 貸出中
+  %tr
+    %th
+      = f.check_box :rental_state, {multiple: true, include_hidden: false, class: 'CheckBox complete', id: 'rental_state[3]'}, 'complete'
+    %td
+      .Complete 完結
