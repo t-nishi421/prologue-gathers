@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :get_icons, only: [:index, :new, :search]
+  before_action :get_colors, only: [:index, :new, :search]
 
   def root
     @sentence = StealSentence.offset( rand(StealSentence.count) ).first
@@ -15,8 +17,6 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
-    @colors = Color.all
-    @icons = Icon.all
     @sentences = StealSentence.where(user_id: current_user)
   end
 
@@ -71,14 +71,22 @@ class BooksController < ApplicationController
   end
 
   def search
-    @sort = params[:sort]
+    @sort = params[:sort] # 並び順
     if @sort == ""
       @sort = "created_at DESC"
     end
-    @keyword = params[:keyword]
-    if params[:rental_state]
-      trans_rental_state_params
-      @rental_params = params[:rental_state]
+    @keyword = params[:keyword] # 検索ワード
+    if params[:rental_state] # 貸出状態
+      @sort_rental_state = get_sql_rental_state
+      @rental_state_hidden_params = params[:rental_state]
+    end
+    if params[:book_icon] # 表紙のアイコン
+      @sort_book_icon = get_sql_sort_book_icon
+      @book_icon_hidden_params = params[:book_icon]
+    end
+    if params[:book_color] # 表紙の色
+      @sort_book_color = get_sql_sort_book_color
+      @book_color_hidden_params = params[:book_color]
     end
     
     if @keyword == ""
@@ -87,7 +95,7 @@ class BooksController < ApplicationController
       @search_title = "#{@keyword}の検索結果"
     end
     
-    @books = Book.includes(book_set_content).search(@keyword).where(@rental_state).order(@sort)
+    @books = sortBooks
     @search_count = @books.count
     # binding.pry
     render action: :index
@@ -148,6 +156,14 @@ class BooksController < ApplicationController
   end
 
   private
+  def get_icons
+    @icons = Icon.all
+  end
+
+  def get_colors
+    @colors = Color.all
+  end
+
   def this_book
     Book.find(params[:id])
   end
@@ -214,38 +230,75 @@ class BooksController < ApplicationController
     [:user, :texts, :icon, :color, :bookmarks]
   end
 
-  def trans_rental_state_params
-    @rental_state = ""
+  def get_sql_rental_state
+    rental_state = ""
     
     if params[:rental_state].include? "rental"
-      @rental_state += "(rental = 0)"
+      rental_state += "(rental = 0)"
     end
 
     if params[:rental_state].include? "notRental"
-      if @rental_state == ""
-        @rental_state += "(rental >= 1)"
+      if rental_state == ""
+        rental_state += "(rental >= 1)"
       else
-        @rental_state += " OR (rental >= 1)"
+        rental_state += " OR (rental >= 1)"
       end
     end
 
     if (params[:rental_state].include? "rental") && (params[:rental_state].include? "notRental")
-      @rental_state.insert(0, "(")
-      @rental_state += ")"
+      rental_state.insert(0, "(")
+      rental_state += ")"
     end
 
     if params[:rental_state].include? "complete"
-      if @rental_state == ""
-        @rental_state += "(completion = 1)"
+      if rental_state == ""
+        rental_state += "(completion = 1)"
       else
-        @rental_state += " OR (completion = 1)"
+        rental_state += " OR (completion = 1)"
       end
     else
-      if @rental_state == ""
-        @rental_state += "(completion = 0)"
+      if rental_state == ""
+        rental_state += "(completion = 0)"
       else
-        @rental_state += " AND (completion = 0)"
+        rental_state += " AND (completion = 0)"
       end
+    end
+    rental_state
+  end
+
+  def get_sql_sort_book_icon
+    sql_sort_book_icon = ""
+    params[:book_icon].each do |icon|
+      if sql_sort_book_icon == ""
+        sql_sort_book_icon += "(icon_id = #{icon.to_i})"
+      else
+        sql_sort_book_icon += " OR (icon_id = #{icon.to_i})"
+      end
+    end
+    sql_sort_book_icon
+  end
+
+  def get_sql_sort_book_color
+    sql_sort_book_color = ""
+    params[:book_color].each do |color|
+      if sql_sort_book_color == ""
+        sql_sort_book_color += "(color_id = #{color.to_i})"
+      else
+        sql_sort_book_color += " OR (color_id = #{color.to_i})"
+      end
+    end
+    sql_sort_book_color
+  end
+
+  def sortBooks
+    sort_pattern = Book.includes(book_set_content).search(@keyword).where(@sort_rental_state).where(@sort_book_icon).where(@sort_book_color)
+
+    if @sort == 'bookmarks DESC'
+      sort_pattern.sort {|a,b| b.bookmarks.size <=> a.bookmarks.size}
+    elsif @sort == 'bookmarks ASC'
+      sort_pattern.sort {|a,b| b.bookmarks.size <=> a.bookmarks.size}.reverse
+    else
+      sort_pattern.order(@sort)
     end
   end
 
