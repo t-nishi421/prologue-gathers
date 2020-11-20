@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
     collection do
       get 'search'
+      get 'info', to: 'books#info', as: 'info'
       post 'save-sentence', to: 'books#save_sentence', as: 'save_sentence', defaults: { fomat: 'json'}
       post 'bookmark', defaults: { fomat: 'json'}
       post 'delete_bookmark', defaults: { fomat: 'json'}

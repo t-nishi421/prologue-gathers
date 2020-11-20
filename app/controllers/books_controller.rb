@@ -9,6 +9,9 @@ class BooksController < ApplicationController
     get_new_story_books
   end
 
+  def info
+  end
+
   def index
     @books = Book.includes(book_set_content).all.order(id: "DESC")
     @search_title = "一覧表示"
