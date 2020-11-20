@@ -10,8 +10,11 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.includes(book_set_content).all.order(id: "DESC")
     @search_title = "一覧表示"
+    unless session["sort-data"].nil?
+      @sort = session["sort-data"]
+    end
+    @books = sortBooks
     @search_count = @books.count
   end
 
@@ -72,6 +75,7 @@ class BooksController < ApplicationController
 
   def search
     @sort = params[:sort] # 並び順
+    session["sort-data"] = @sort
     if @sort == ""
       @sort = "created_at DESC"
     end
