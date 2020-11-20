@@ -29,14 +29,14 @@
 
 .BookTop {
   @include show-width();
-  width: 705px;
+  max-width: 705px;
   padding: 10px;
   margin:40px auto 0 auto;
   border-radius: 5px;
   @include flex-bundle("", flex-end);
   background-color: #22185ee6;
   &__info {
-    width: 500px;
+    width: 100%;
     margin-left: 15px;
     &__title {
       @include flex-bundle("", "");

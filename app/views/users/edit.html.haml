@@ -12,7 +12,7 @@
               .account-edit__icon{style: "background-image: url(#{asset_path current_user.image})"}
                 = f.label :image, class: 'upload-image' do
                   = icon('fa', 'camera')
-                  = f.file_field :image, class: 'image-icon'
+                  = f.file_field :image, class: 'image-icon', accept: "image/*"
               .FormField
                 .FormField__label--normal
                   = f.label :name
