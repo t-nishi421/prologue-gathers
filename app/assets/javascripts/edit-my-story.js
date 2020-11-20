@@ -37,22 +37,26 @@ $(function() {
       context: this
     })
     .done(function(data){
-      const text = data.text.replace( /\r?\n/g, '<br />' );
-      $(this).parent().parent().find('textarea').val(data.text);
-      $(`.story-content__text.text_id${data.id}`).html(text);
-      
-      $(this).parent().parent().css('display', 'none');
-      $(this).parent().parent().parent().find(showContent).css('display', 'block');
-
-      const mousePositionX = e.pageX;
-      const mousePositionY = e.pageY;
-      // アラート文の表示
-      $(updateMessage).css('left', `${mousePositionX - 50}px`);
-      $(updateMessage).css('top', `${mousePositionY - 30}px`);
-      $(updateMessage).show().delay(1000).fadeOut(400);
+      if (data.judge) {
+        const text = data.text.replace( /\r?\n/g, '<br />' );
+        $(this).parent().parent().find('textarea').val(data.text);
+        $(`.story-content__text.text_id${data.id}`).html(text);
+        
+        $(this).parent().parent().css('display', 'none');
+        $(this).parent().parent().parent().find(showContent).css('display', 'block');
+  
+        const mousePositionX = e.pageX;
+        const mousePositionY = e.pageY;
+        // アラート文の表示
+        $(updateMessage).css('left', `${mousePositionX - 50}px`);
+        $(updateMessage).css('top', `${mousePositionY - 30}px`);
+        $(updateMessage).show().delay(1000).fadeOut(400);
+      } else {
+        alert(failMessage);
+      }
     })
     .fail(function(){
       alert(failMessage);
-    })
+    });
   });
 });
