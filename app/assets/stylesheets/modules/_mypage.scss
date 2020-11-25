@@ -167,6 +167,13 @@
 .SmallMyPage {
   @include flex-bundle("", center);
   flex-direction: column;
+  .InfoPage {
+    padding: 20px 30px;
+    height: 800px;
+    .infoHeading {
+      width: max-content;
+    }
+  }
 }
 
 .MyPageSmall {

@@ -9,6 +9,9 @@ class BooksController < ApplicationController
     get_new_story_books
   end
 
+  def info
+  end
+
   def index
     @search_title = "一覧表示"
     unless session["sort-data"].nil?
