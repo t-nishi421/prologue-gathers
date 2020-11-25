@@ -1,43 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>The page you were looking for doesn't exist (404)</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
+  .error-page {
+    position: absolute;
+    height: 100%;
+    width: 100%;
     margin: 0;
+    background-image: url("/images/library.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
   }
 
-  .rails-default-error-page div.dialog {
+  .wrapper {
+    height: 100%;
+    width: 100%;
+    background-color:rgba(0, 50, 100, 0.3);
+    overflow: auto;
+  }
+
+  div.dialog {
     width: 95%;
     max-width: 33em;
     margin: 4em auto 0;
   }
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  div.dialog > div {
+    padding: 15px 30px;
+    background-color: #22185ee6;
   }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
+  .error-page h1 {
+    font-size: 150%;
+    color: whitesmoke;
     line-height: 1.5em;
   }
 
-  .rails-default-error-page div.dialog > p {
+  .error-page h2 {
+    font-size: 120%;
+    color: whitesmoke;
+    line-height: 1.5em;
+  }
+
+  .error-page div.dialog > p {
     margin: 0 0 1em;
     padding: 1em;
     background-color: #F7F7F7;
@@ -51,16 +61,39 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  p {
+    color: silver;
+  }
+
+  .link {
+    margin-top: 20px;
+    text-align: right;
+  }
+
+  a {
+    color: whitesmoke;
+  }
+
+  .back {
+    margin-left: 10px;
+  }
+
   </style>
 </head>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
+<body class="error-page">
+  <div class="wrapper">
+    <div class="dialog">
+      <div>
+        <h2>500: Internal Server Error</h2>
+        <p>アクセスしようとしたページは表示できませんでした。</p>
+      </div>
+      <div class="link">
+        <a href="/">トップページに戻る</a>
+        <a href="javascript:history.back()" class="back">前のページに戻る</a>
+      </div>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
 </body>
 </html>
