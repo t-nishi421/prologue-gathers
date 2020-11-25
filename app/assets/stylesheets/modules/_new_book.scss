@@ -216,4 +216,7 @@
     @include button-template("", "green");
     @include flex-bundle(center, center);
   }
+  &__post:hover {
+    @include button-template("", "hover-green");
+  }
 }

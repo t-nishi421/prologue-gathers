@@ -11,6 +11,9 @@
   margin: 20px 0 0 auto;
   cursor: pointer;
 }
+.Button:hover {
+  @include button-template("", "hover-yellow");
+}
 
 
 .account-edit {

@@ -250,6 +250,7 @@
     margin-top: 10px;
     background-color: white;
     border: solid 2px #1b65d4;
+    box-shadow: 0 0 0 2px white;
     border-radius: 5px;
   }
   .ButtonArea {
@@ -260,7 +261,7 @@
     margin: -1px 0 0 5px;
     @include button-template("","green");
   }
-  .UpdateButton:hover {
+  .MyStoryUpdateButton:hover {
     @include button-template("","hover-green");
   }
 }
