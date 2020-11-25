@@ -28,4 +28,8 @@ Rails.application.routes.draw do
   end
 
   resources :texts, only: [:update], defaults: { fomat: 'json'}
+
+  get '404', to: 'application#render_404'
+  get '422', to: 'application#render_422'
+  get '500', to: 'application#render_500'
 end

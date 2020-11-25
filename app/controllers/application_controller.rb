@@ -2,6 +2,27 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :return_message
 
+  def render_404(exception = nil)
+    if exception
+      logger.info "Rendering 404 with exception: #{exception.message}"
+    end
+    render template: "errors/error_404", status: 404, layout: 'application'
+  end
+
+  def render_422(exception = nil)
+    if exception
+      logger.info "Rendering 422 with exception: #{exception.message}"
+    end
+    render template: "errors/error_422", status: 422, layout: 'application'
+  end
+
+  def render_500(exception = nil)
+    if exception
+      logger.info "Rendering 500 with exception: #{exception.message}"
+    end
+    render template: "errors/error_500", status: 500, layout: 'application'
+  end
+
   protected
 
   def configure_permitted_parameters
