@@ -29,8 +29,7 @@ Rails.application.routes.draw do
 
   resources :texts, only: [:update], defaults: { fomat: 'json'}
 
-  get '*anything' => 'errors#routing_error'
-  # get '404', to: 'application#render_404'
-  # get '422', to: 'application#render_422'
-  # get '500', to: 'application#render_500'
+  get '404', to: 'application#render_404'
+  get '422', to: 'application#render_422'
+  get '500', to: 'application#render_500'
 end
