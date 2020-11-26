@@ -22,11 +22,13 @@
   margin-top: 10px;
   border-radius: 10px;
   @include button-template("", "green");
+  // background: linear-gradient(#ddffdd, #a9e4a9);
   @include flex-bundle(center, center);
   font-size: 30px;
 }
 .GoToIndexPage:hover {
   @include button-template("", "hover-green");
+  // background: linear-gradient(#afdaaf, #7db37d);
 }
 
 .WhimsicalSentence {
