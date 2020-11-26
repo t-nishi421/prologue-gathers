@@ -34,8 +34,8 @@
   margin-top: 30px;
   &__image {
     position: absolute;
-    bottom: 23px;
-    right: 5px;
+    bottom: 0px;
+    right: 0px;
     width: 120px;
   }
   &__title {
@@ -58,6 +58,9 @@
     font-size: 12px;
     text-align: right;
     background-color: whitesmoke;
+    a {
+      padding-right: 105px;
+    }
     a:hover {
       color: #069;
     }
