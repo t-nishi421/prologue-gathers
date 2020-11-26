@@ -34,13 +34,9 @@
   margin-top: 30px;
   &__image {
     position: absolute;
-    top: -30px;
+    bottom: 23px;
     right: 5px;
     width: 120px;
-    font-size: 10px; // 仮置き
-    font-weight: bold; // 仮置き
-    border-radius: 25px; // 仮置き
-    @include flex-bundle(center, center); // 仮置き
   }
   &__title {
     background-color: #003b00;
@@ -53,7 +49,7 @@
     background-color: #b7eeb7;
     &__sentence {
       max-width: max-content;
-      padding: 0 25px;
+      padding: 0 110px 0 25px;
       margin: 0 auto;
     }
   }
