@@ -10,9 +10,8 @@
           = safe_join(@sentence.sentence.split("\n"),tag(:br))
     .WhimsicalSentence__quote
       - if @sentence != nil
-        = "出典："
         = link_to book_path(@sentence.text.book.id) do
-          = "『#{@sentence.text.book.title}』#{StealSentence.getChapterNumber(@sentence)}章 #{@sentence.text.chapter}"
+          = "出典：『#{@sentence.text.book.title}』#{StealSentence.getChapterNumber(@sentence)}章 #{@sentence.text.chapter}"
 
   = link_to books_path, class: "GoToIndexPage" do
     一覧画面へ
