@@ -9,6 +9,10 @@ $(function() {
   const moonContent = '.MoonContent';
   const sunContent = '.SunContent';
 
+  // トップページ
+  const goToIndexPage = '.GoToIndexPage';
+  const goToIndexPageHover = '.GoToIndexPage:hover';
+
   // show, edit画面
   const showBookArea = '.MainContents';
   const stealContents = '.StealContents';
@@ -39,6 +43,8 @@ $(function() {
     $(newStealContents).css('display', 'none');
     $(moonContent).css('display', 'none');
     $(sunContent).css('display', 'block');
+    $(goToIndexPage).css('background', '');
+    $(goToIndexPageHover).css('background', '');
     addModeToSession();
   }
   
@@ -53,6 +59,8 @@ $(function() {
     $(newStealContents).css('display', 'block');
     $(moonContent).css('display', 'block');
     $(sunContent).css('display', 'none');
+    $(goToIndexPage).css('background', 'linear-gradient(#ddffdd, #a9e4a9)');
+    $(goToIndexPageHover).css('background', 'linear-gradient(#afdaaf, #7db37d)');
     addModeToSession();
   }
   
