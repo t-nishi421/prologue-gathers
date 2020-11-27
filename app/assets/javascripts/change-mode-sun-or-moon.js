@@ -11,14 +11,12 @@ $(function() {
 
   // トップページ
   const goToIndexPage = '.GoToIndexPage';
-  const goToIndexPageHover = '.GoToIndexPage:hover';
 
   // show, edit画面
   const showBookArea = '.MainContents';
   const stealContents = '.StealContents';
 
   // new画面
-  // const newBookArea = '.newWrapper';
   const newStealContents = '.UseStealContents';
 
   // マイページ
@@ -39,12 +37,15 @@ $(function() {
     $(wrapper).css('background-color', "rgba(0, 50, 100, 0.3)");
     $(showBookArea).css('margin-right', '0px');
     $(stealContents).css('display', 'none');
-    // $(newBookArea).css('margin', '40px auto');
     $(newStealContents).css('display', 'none');
     $(moonContent).css('display', 'none');
     $(sunContent).css('display', 'block');
     $(goToIndexPage).css('background', '');
-    $(goToIndexPageHover).css('background', '');
+    $(goToIndexPage).hover(function(){
+      $(this).css('background', '');
+    }, function(){
+      $(this).css('background', '');
+    });
     addModeToSession();
   }
   
@@ -55,12 +56,15 @@ $(function() {
     $(wrapper).css('background-color', "rgba(0, 25, 50, 0.7)");
     $(showBookArea).css('margin-right', '280px');
     $(stealContents).css('display', 'block');
-    // $(newBookArea).css('margin', '40px 280px 40px auto');
     $(newStealContents).css('display', 'block');
     $(moonContent).css('display', 'block');
     $(sunContent).css('display', 'none');
     $(goToIndexPage).css('background', 'linear-gradient(#ddffdd, #a9e4a9)');
-    $(goToIndexPageHover).css('background', 'linear-gradient(#afdaaf, #7db37d)');
+    $(goToIndexPage).hover(function(){
+      $(this).css('background', 'linear-gradient(#afdaaf, #7db37d)');
+    }, function(){
+      $(this).css('background', 'linear-gradient(#ddffdd, #a9e4a9)');
+    });
     addModeToSession();
   }
   
