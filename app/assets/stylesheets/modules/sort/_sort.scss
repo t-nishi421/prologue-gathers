@@ -95,12 +95,17 @@
   }
 }
 
-.SmallContent.Search {
+.SmallContent.SearchItems {
   display: none;
   width: max-content;
   margin: 15px auto 0 auto;
   color: white;
   font-size: 14px;
+}
+
+.SmallContent.Special.Search {
+  width: max-content;
+  margin: 10px auto 0 auto;
 }
 
 .TopAndBottomCenterCover {
