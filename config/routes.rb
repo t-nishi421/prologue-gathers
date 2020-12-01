@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
-
+  
   resources :books, only: [:index, :new, :create, :edit, :update, :show] do
     member do
       get 'bookmark', to: 'books#search_bookmark', as: 'search_bookmark'
@@ -15,17 +14,20 @@ Rails.application.routes.draw do
       post 'delete_bookmark', defaults: { fomat: 'json'}
     end
   end
-
+  
   root "books#root"
-
-  resources :users, only: [:edit, :update, :show] do
+  
+  resources :users, only: [:update, :show] do
     member do
       get 'sentences', to: 'users#sentences', as: 'sentences'
     end
     collection do
+      get 'edit', to: 'users#edit', as: 'edit'
       post 'sentence/delete', to: 'users#delete_sentence', as: 'delete_sentence', defaults: { fomat: 'json'}
     end
   end
-
+  
+  devise_for :users
+  
   resources :texts, only: [:update], defaults: { fomat: 'json'}
 end

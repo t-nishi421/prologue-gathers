@@ -7,7 +7,7 @@
           .account-edit
             %h1 アカウントの編集
             .account-edit__image イメージ
-            = form_with model: @user,url: user_path, method: :patch, local: true, class: "FormArea" do |f|
+            = form_with model: @user,url: user_path(current_user), method: :patch, local: true, class: "FormArea" do |f|
               .account-edit__icon{style: "background-image: url(#{asset_path current_user.image})"}
                 = f.label :image, class: 'upload-image' do
                   = icon('fa', 'camera')
