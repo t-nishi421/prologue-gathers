@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit]
   before_action :get_icons, only: [:index, :new, :search]
   before_action :get_colors, only: [:index, :new, :search]
 
