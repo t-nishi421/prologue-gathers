@@ -145,7 +145,7 @@ header {
       &__sun {
         @include stealButton();
         border-radius: 5px 0 0 5px;
-        background: linear-gradient(#ffcf76 85%, #e0ad4d);
+        background: linear-gradient(#ffcf76 85%, #e7b65b);
         .fa-sun {
           margin-top: 1px;
           font-size: 20px;
@@ -154,7 +154,7 @@ header {
       &__moon {
         @include stealButton();
         border-radius: 0 5px 5px 0;
-        background: linear-gradient(#7474ff 85%, #5555e6);
+        background: linear-gradient(#7474ff 85%, #6969f7);
         opacity: 0.2;
       }
     }
