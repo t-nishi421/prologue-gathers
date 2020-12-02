@@ -51,14 +51,17 @@
         .CanRental {
           cursor: pointer;
           @include button-template("very-small", "green");
+          box-shadow: none;
         }
         .CanNotRental {
           cursor: pointer;
           @include button-template("very-small", "red");
+          box-shadow: none;
         }
         .Complete {
           cursor: pointer;
           @include button-template("very-small", "yellow");
+          box-shadow: none;
         }
       }
     }
@@ -188,6 +191,7 @@
     padding: 0 4px;
     background-color: #efefef;
     border: solid 1px #767676;
+    box-shadow: #6464644d 0px 1px 3px;
     border-radius: 4px;
     cursor: pointer;
   }

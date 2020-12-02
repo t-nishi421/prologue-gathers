@@ -18,5 +18,5 @@
           .button-cover
             = link_to return_book_path(@book.id), class: "button-cover__return-button", method: :post do
               返却する
-            = f.submit value: "投稿する", class: 'button-cover__edit-button'
+            = f.submit value: "投稿する", class: 'button-cover__edit-button', 'data-disable-with' => '投稿する'
   = render 'use_steal_sentence', locals: { sentences: @sentences }

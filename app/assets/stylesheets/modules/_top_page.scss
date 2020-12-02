@@ -24,6 +24,7 @@
   @include button-template("", "green");
   // background: linear-gradient(#ddffdd, #a9e4a9);
   @include flex-bundle(center, center);
+  box-shadow: dimgrey 0px 2px 4px;
   font-size: 30px;
 }
 .GoToIndexPage:hover {

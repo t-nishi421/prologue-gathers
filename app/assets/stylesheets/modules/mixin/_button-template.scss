@@ -1,6 +1,8 @@
 @import "flex-bundle";
 
 @mixin button-template($size, $color) {
+  box-shadow: #6464644d 0px 1px 3px;
+  
   @if $size == "very-small" {
     width: 65px;
     font-size: 14px;

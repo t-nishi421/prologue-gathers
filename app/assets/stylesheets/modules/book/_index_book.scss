@@ -94,12 +94,15 @@
         @include flex-bundle(center, center);
         &--there {
           @include button-template("", "green");
+          box-shadow: none;
         }
         &--not-there {
           @include button-template("", "red");
+          box-shadow: none;
         }
         &--completion {
           @include button-template("", "yellow");
+          box-shadow: none;
         }
       }
     }

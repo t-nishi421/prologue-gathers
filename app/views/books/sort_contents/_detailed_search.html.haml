@@ -6,4 +6,4 @@
     = render partial: 'books/sort_contents/detailed_search_contents/rental_state', locals: { f: f }
     = f.hidden_field :keyword, value: @keyword
     = f.hidden_field :sort, value: @sort
-    = f.submit value: '検索する',class: 'RentalStateSubmit'
+    = f.submit value: '検索する',class: 'RentalStateSubmit', 'data-disable-with' => '検索する'
