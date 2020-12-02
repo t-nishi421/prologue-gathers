@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   
   resources :books, only: [:index, :new, :create, :edit, :update, :show] do
     member do
@@ -26,8 +27,6 @@ Rails.application.routes.draw do
       post 'sentence/delete', to: 'users#delete_sentence', as: 'delete_sentence', defaults: { fomat: 'json'}
     end
   end
-  
-  devise_for :users
   
   resources :texts, only: [:update], defaults: { fomat: 'json'}
 end
