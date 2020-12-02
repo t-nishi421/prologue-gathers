@@ -14,6 +14,8 @@ class BooksController < ApplicationController
     @search_title = "一覧表示"
     unless session["sort-data"].nil?
       @sort = session["sort-data"]
+    else
+      @sort = "created_at DESC"
     end
     @books = sortBooks
     @search_count = @books.count
